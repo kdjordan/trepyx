@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700|Montserrat:400,500,600&display=swap');
+@import '../scss/variables.scss';
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+}
+
+h1 {
+    // font-weight: bold;
+    font-size: 45px;
+    white-space: nowrap;
+  }
+  
+  h2 {
+    // #font-weight: bold;
+    font-size: 30px;
+  }
+
+//   font-family: 'Montserrat', sans-serif;
+//   font-family: 'Merriweather Sans', sans-serif;

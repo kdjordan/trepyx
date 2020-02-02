@@ -1,0 +1,18 @@
+.btn {
+    cursor: pointer;
+    width: 100px;
+    padding: 10px 0;
+    border-radius: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: .8rem;
+    letter-spacing: 1px;
+    color: $primary-lte;
+}
+
+.btn:hover {
+    transition: all .4s ease;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}

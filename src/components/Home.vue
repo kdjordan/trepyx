@@ -187,10 +187,6 @@ export default {
 
 .cloud {
   
-  & >  * {
-    color: $black;
-  }
-
   &__container {
     display: flex;
     justify-content: space-around;

@@ -10,7 +10,7 @@
           </ul>
         </div>
         <div class="footer__top--right">
-          <p>Trpeyx Communications : Cloud VOIP Solutions for growing businesses</p>
+          <p>Trepyx Communications : Cloud VOIP Solutions</p>
         </div>
       </div>
       <div class="footer__bottom">
@@ -40,7 +40,8 @@ export default {
   }
 
   &__bottom {
-
+    font-size: 13px;
+    font-style: italic;
   }
 }
 

@@ -41,11 +41,6 @@ export default {
     }
   }
 
-  &__right {
-    
-    
-
-  }
 }
 
 li a {

@@ -124,10 +124,10 @@
 
   <section class="contact mt-5 mb-5">
     <h2 class="mb-5">Ready To Go ?</h2>
-      <div>We get it, you're busy, and so are we. Let's set up a time to discuss your needs. <br>
+      <div class="pb-2">We get it, you're busy, and so are we. Let's set up a time to discuss your needs. <br>
         Choose you preferred method of contact and we'll help outline a solution that fits your needs.
       </div>
-      <div class="contact__container mt-2">
+      <div class="contact__container">
         <button class="btn-lte">Phone</button>
         <button class="btn-lte">Email</button>
       </div>

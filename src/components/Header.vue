@@ -1,7 +1,7 @@
 <template>
   <div class="header">
       <div class="header__left">
-        <img src="../assets/logo.svg" alt="" class="trepyx-logo">
+        <img src="../assets/logo.svg" alt="" class="trepyx-logo">  
       </div>
       <div class="header__right">
         <ul>

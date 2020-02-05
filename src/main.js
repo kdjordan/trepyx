@@ -9,7 +9,7 @@ import Contact from './components/Contact.vue'
 Vue.use(Vuerouter)
 
 const routes = [
-  {path: '/trepyx/', component: Home},
+  {path: '/', component: Home},
   {path: '/contact', component: Contact}
 ]
 

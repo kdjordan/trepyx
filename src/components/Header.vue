@@ -1,7 +1,7 @@
 <template>
   <div class="header">
       <div class="header__left">
-        <img src="~../assets/logo.svg" alt="" class="trepyx-logo">  
+        <img src="../assets/logo.svg" alt="trepyx-logo" class="header__left-logo">  
       </div>
       <div class="header__right">
         <ul>
@@ -37,7 +37,7 @@ export default {
 
     &-logo { 
       margin-top: 10px;
-      width: 180px;
+      width: 160px;
     }
   }
 

@@ -15,7 +15,7 @@
             <textarea name="message" id=""  rows="6" class="mb-1" v-model="mssg" placeholder="Give us an idea of what you're interested in..."></textarea>
             <button class="btn full"  :disabled="!formCheck" >Send</button>
             <div  v-if="doResponse" :class="{success : responseStatus, fail : !responseStatus}">{{response}}</div>
-
+            
           </form>
 
       </div>
@@ -50,7 +50,8 @@ export default {
                 "reply_to": this.email,
                 "message_html": this.mssg
             }
-            console.log(process)
+            console.log('herer')
+            console.log(process.env)
             
             // emailjs.send('smtp_server', 'template_Noy0SjKH_clone', templateParams, process.env.EMAIL_ID)
             //     .then((result) => {

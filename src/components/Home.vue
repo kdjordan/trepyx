@@ -27,7 +27,7 @@
               <button class="btn btn__contact">Phone</button>
             </div>
             <div class="contact-us__button-container--right">
-              <button class="btn btn__contact">Email</button>
+              <button class="btn btn__contact" @click.prevent="toggleModal">Email</button>
             </div>
           </div>
         </div>
@@ -129,15 +129,29 @@
       </div>
       <div class="contact__container">
         <button class="btn-lte">Phone</button>
-        <button class="btn-lte">Email</button>
+        <button class="btn-lte" @click.prevent="emailModal">Email</button>
       </div>
   </section>
+  <Modal :modalState="modalState" @closeModal="toggleModal" />
 </main>
 </template>
 
 <script>
+import Modal from './Modal'
 export default {
-
+  data() {
+    return {
+      modalState: false
+    }
+  },
+  components: {
+    Modal
+  },
+  methods: {
+    toggleModal() {
+      this.modalState = !this.modalState
+    }
+  }
 }
 </script>
 

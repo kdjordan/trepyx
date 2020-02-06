@@ -38,38 +38,30 @@ export default {
             response: 'success'
         }
     },
-    computed: {
-        isSuccess() {
-            return this.response == 'success'
-        }
-    },
     methods: {
          sendMail() {
             let templateParams = {
                 "from_name": this.name,
                 "reply_to": this.email,
                 "message_html": this.mssg
-            }
-            console.log('herer')
-            console.log(process.env)
-            
-            // emailjs.send('smtp_server', 'template_Noy0SjKH_clone', templateParams, process.env.EMAIL_ID)
-            //     .then((result) => {
-            //         if(result.status == 200) {
-            //             this.doResponse = true
-            //             this.responseStatus = true
-            //             this.response = 'Success. We will be in touch shortly'
-            //             setTimeout(() => {
-            //                 this.closeModal()
-            //             }, 2000)
-            //         }
-            //         console.log('SUCCESS!', result.status, result.text);
-            //     }, (error) => {
-            //         this.doResponse = true
-            //         this.responseStatus = false
-            //         this.response = 'Something went wrong. You can email us directly : steve@trepyx.com'
-            //         console.log('FAILED...', error);
-            //     });
+            } 
+            emailjs.send('smtp_server', 'template_Noy0SjKH_clone', templateParams, process.env.VUE_APP_EMAIL_ID)
+                .then((result) => {
+                    if(result.status == 200) {
+                        this.doResponse = true
+                        this.responseStatus = true
+                        this.response = 'Success. We will be in touch shortly'
+                        setTimeout(() => {
+                            this.closeModal()
+                        }, 2000)
+                    }
+                    console.log('SUCCESS!', result.status, result.text);
+                }, (error) => {
+                    this.doResponse = true
+                    this.responseStatus = false
+                    this.response = 'Something went wrong. You can email us directly : steve@trepyx.com'
+                    console.log('FAILED...', error);
+                });
         },
         closeModal() {
             this.$emit('closeModal', true)

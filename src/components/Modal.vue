@@ -35,7 +35,7 @@ export default {
             mssg: '',
             doResponse: false,
             responseStatus: false,
-            response: 'success'
+            response: ''
         }
     },
     methods: {

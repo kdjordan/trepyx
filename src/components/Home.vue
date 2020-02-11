@@ -129,7 +129,7 @@
       </div>
       <div class="contact__container">
         <button class="btn-lte">Phone</button>
-        <button class="btn-lte" @click.prevent="emailModal">Email</button>
+        <button class="btn-lte" @click.prevent="toggleModal">Email</button>
       </div>
   </section>
   <Modal :modalState="modalState" @closeModal="toggleModal" />

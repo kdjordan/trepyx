@@ -1,14 +1,14 @@
 <template>
   <div class="header">
       <div class="header__left">
-        <img src="../assets/logo4.svg" alt="trepyx-logo" class="header__left-logo">  
+        <img src="../assets/logo4-comp.svg" alt="trepyx-logo" class="header__left-logo">  
       </div>
       <div class="header__right">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Cloud PBX</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="/" >Home</a></li>
+          <li><a href="#" v-scroll-to="'#cloud'">Cloud PBX</a></li>
+          <li><a href="#" v-scroll-to="'#services'">Services</a></li>
+          <li><a href="#" v-scroll-to="'#contact'">Contact</a></li>
         </ul>
       </div>
   </div>

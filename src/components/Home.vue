@@ -35,7 +35,7 @@
     </div>
   </section>
 
-  <section class="cloud mt-5 mb-5">
+  <section class="cloud mt-5 mb-5" id="cloud">
     <h2 class="mb-5">Why the Cloud ?</h2>
     <div class="cloud__container">
       <div class="cloud__container--left">
@@ -48,7 +48,7 @@
     </div>
   </section>
 
-  <section class="services pt-5 pb-5">
+  <section class="services pt-5 pb-5" id="services">
     <div class="services__container">
       <div class="services__container--left">
         <h2 class="mb-2 center">OUR SERVICES</h2>
@@ -122,7 +122,7 @@
 
   </section>
 
-  <section class="contact mt-5 mb-5">
+  <section class="contact mt-5 mb-5" id="contact">
     <h2 class="mb-5">Ready To Go ?</h2>
       <div class="pb-2">We get it, you're busy, and so are we. Let's set up a time to discuss your needs. <br>
         Choose you preferred method of contact and we'll help outline a solution that fits your needs.

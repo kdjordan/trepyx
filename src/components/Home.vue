@@ -3,7 +3,7 @@
   <section class="home">
     <div class="home__container">
       <div class="home__container--left">
-        <h1>SOLUTIONS ONLY</h1>
+        <h1>Welcome to Trepyx</h1>
         <div>It's no secret - businesses run on communication. <br>
           If you aren't partnered with the right provider, it's going to <strong>co$t</strong> you... That's where we come in.<br>
           <br>

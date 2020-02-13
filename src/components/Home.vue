@@ -2,122 +2,99 @@
 <main>
   <section class="home">
     <div class="home__container">
-      <div class="home__container--left">
-        <h1>Welcome to Trepyx</h1>
-        <div>It's no secret - businesses run on communication. <br>
-          If you aren't partnered with the right provider, it's going to <strong>co$t</strong> you... That's where we come in.<br>
-          <br>
-          <h2>TREPYX COMMUNICATIONS</h2>
-          is a VOIP business telecom solution.<br>
-          We privide a simple, reliable, and effective interface between you and your customers.<br>
-          Leave it up to us - that's our business.
-        </div>
-      </div>
-      <div class="home__container--right">
-        <div class="contact-us">
-          <div class="contact-us__title">
-            <h2 class="pt-1 pb-1">LET'S TALK</h2>
-          </div>
-          <div class="contact-us__desc mt-2">
-            <p>What's Best For You ?<br/>
-            </p>
-          </div>
-          <div class="contact-us__button-container mt-2 mb-2">
-            <div class="contaact-us__button-container--left">
-              <button class="btn btn__contact">Phone</button>
-            </div>
-            <div class="contact-us__button-container--right">
-              <button class="btn btn__contact" @click.prevent="toggleModal">Email</button>
-            </div>
-          </div>
-        </div>
-      </div>
+        <h1>Welcome to Trepyx</h1><br />
+        <!-- <div class="divider div-transparent"></div> -->
+        <h2>Cloud Based PBX Provider</h2>
+       
     </div>
   </section>
 
-  <section class="cloud mt-5 mb-5" id="cloud">
-    <h2 class="mb-5">Why the Cloud ?</h2>
+  <section class="cloud mt-1" id="cloud">
+    <h2 class="mb-5">Why Use the Cloud ?</h2>
     <div class="cloud__container">
-      <div class="cloud__container--left">
-        <h3 class="mb-2">Simple, Reliable, Scalable</h3>
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, tenetur consectetur cupiditate a dolore eaque deleniti alias similique ipsam incidunt rem quaerat atque blanditiis exercitationem, recusandae asperiores omnis animi veritatis?</div>
-      </div>
-      <div class="cloud__container--right">
-        <img src="../assets/cloud-desc.svg" alt="cloud services trepyx">
-      </div>
+     <div class="card">
+       <div class="card__title">
+         <h4 class="mb-2">What is Cloud PBX ?</h4>
+         </div>
+         <div class="card__description">
+           <p>An IP PBX ("Internet Protocol private branch exchange") is a system that connects telephone extensions to the public switched telephone network (PSTN) and provides internal communication for a business. An IP PBX is a PBX system with IP connectivity and may provide additional audio, video, or instant messaging communication utilizing the TCP/IP protocol stack.
+          </p>
+         </div>
+     </div>
+     <div class="card">
+       <div class="card__title">
+         <h4 class="mb-2">Benefits of Cloud PBX</h4>
+         </div>
+         <div class="card__description">
+           <p>Because a part of PBX functionality is provided in software, it is relatively inexpensive and makes it easy to add additional functionality, such as conference calling, XML-RPC control of live calls, interactive voice response (IVR), TTS/ASR (text to speech/automatic speech recognition), PSTN interconnectability supporting both analog and digital circuits, VoIP protocols including SIP, Inter-Asterisk eXchange, H.323, Jingle and others.</p>
+         </div>
+     </div>
+     <div class="card">
+       <div class="card__title">
+         <h4 class="mb-2">Let's Get Started</h4>
+         </div>
+         <div class="card__description">
+           <p class="mb-2">Ready to take the next step ? <br />
+           All we need to know is a little bit about your current set up.<br />
+           <ul>
+             <li>How many emplyees do you have ?</li>
+             <li>Do you Have a current system ?</li>
+             <li>When are looking to set up services ?</li>
+             <li>Any other information you can provide will help us out.</li>
+           </ul>
+            <button class="btn-lte mt-1" @click.prevent="toggleModal">Email</button>
+           </p>
+         </div>
+     </div>
     </div>
   </section>
 
-  <section class="services pt-5 pb-5" id="services">
+  <section class="services" id="services">
     <div class="services__container">
-      <div class="services__container--left">
-        <h2 class="mb-2 center">OUR SERVICES</h2>
-        <div>Chances are you don't run a cookie-cutter business. Our plans are flexible and take into account where you are, and where you are going.<br>
-        </div>
-        <h4 class="mt-2">Plans Start at Just</h4>
-        <div class="price">$10 <span>/ month</span></div>
+      <div class="services-card">
+          <div class="services-card__item">
+            <img src="../assets/airplane-comp.svg" alt="" class="icon">
+            VoIP/Wi-Fi Calling</div>
+          <div class="services-card__item">
+            <img src="../assets/airplane-comp.svg" alt="" class="icon">
+            Incoming Call Control</div>
+          <div class="services-card__item">
+            <img src="../assets/airplane-comp.svg" alt="" class="icon">
+            Business Phone Number</div>
+          <div class="services-card__item">
+            <img src="../assets/airplane-comp.svg" alt="" class="icon">
+            Call Transfers</div>
       </div>
-      <div class="services__container--right">
+      
+        <div>
+          <div>
+            <h2 class="mb-2 center">OUR SERVICES</h2>
+          </div>
+          <div>Chances are you don't run a cookie-cutter business. Our plans are flexible and take into account where you are, and where you are going.<br>
+          </div>
+          <h4 class="mt-2">Plans Start at Just</h4>
+          <div class="price">$29.99 <span>/ month</span></div>
+
+        </div>
+    
+
+  
+
         <div class="services-card">
-          <div class="services-card__icon">
-          </div>
-          <div>
-            <div class="services-card__title">
-              Service Offering Title
-            </div>
-            <div class="services-card__desc">
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, perferendis debitis quas qui assumenda placeat adipisci. 
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="services-card mt-2">
-          <div class="services-card__icon">
-          </div>
-          <div>
-            <div class="services-card__title">
-              Service Offering Title
-            </div>
-            <div class="services-card__desc">
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, perferendis debitis quas qui assumenda placeat adipisci. 
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="services-card mt-2">
-          <div class="services-card__icon">
-          </div>
-          <div>
-            <div class="services-card__title">
-              Service Offering Title
-            </div>
-            <div class="services-card__desc">
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, perferendis debitis quas qui assumenda placeat adipisci. 
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="services-card mt-2">
-          <div class="services-card__icon">
-          </div>
-          <div>
-            <div class="services-card__title">
-              Service Offering Title
-            </div>
-            <div class="services-card__desc">
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, perferendis debitis quas qui assumenda placeat adipisci. 
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+          <div class="services-card__item">
+            <img src="../assets/airplane-comp.svg" alt="" class="icon">
+            Voicemail</div>
+          <div class="services-card__item">
+            <img src="../assets/airplane-comp.svg" alt="" class="icon">
+            Call Forwarding</div>
+          <div class="services-card__item">
+            <img src="../assets/airplane-comp.svg" alt="" class="icon">
+            Simultaneous Call Handling</div>
+          <div class="services-card__item">
+            <img src="../assets/airplane-comp.svg" alt="" class="icon">
+            Custom Greetings</div>
+        </div>  
+      
     </div>
 
   </section>
@@ -160,10 +137,39 @@ export default {
 @import '../scss/utils.scss';
 @import '../scss/typography.scss';
 @import '../scss/components/buttons.scss';
+@import '../scss/components/divider.scss';
 @import '../scss/components/contactUs.scss';
 
+.card {
+  border: 1px solid #276bf9;
+  border-radius: 10px;
+  flex: 1 1 33%;
+  margin: 0 15px;
+  box-shadow: 3px 7px 13px -7px rgba(0, 0, 0, 0.75);
+
+  &__title {
+    background: #276bf9;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    color: white;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    font-size: 25px;
+  }
+
+  & ul {
+    text-align: left;
+    margin-left: 10%;
+  }
+
+  & p {
+    padding: 20px;
+    line-height: 2;
+  }
+}
+
 .home {
-  background-image: url('../assets/back1.svg');
+  background-image: url('../assets/back3-5-comp.svg');
   background-position: center;
   background-size: cover;
   height: 80vh;
@@ -172,102 +178,85 @@ export default {
   letter-spacing: 1px;
 
   &__container {
+    // border: 1px solid white;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     position: relative;
-    top: 40%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%); 
-    width: 90%;
+    width: 100%;
 
-    @media(max-width: 840px) {
-        flex-direction: column;
-      }
-
-    
-    & > * {
-      padding: 30px;
-      // border: 1px solid white;
-      flex: 1 1 50%;
-
-      @media(max-width: 1000px) {
-        padding: 5px;
-      }
+    & h1 {
+      font-size: 80px;
+      letter-spacing: 3px;
     }
+
   }
 }
 
 
 .cloud {
-  
+  margin-bottom: 100px;
+
+  & h2 {
+    font-size: 40px;
+  }
   &__container {
     display: flex;
     justify-content: space-around;
     width: 90%;
     margin: 0 auto;
-
-    &--left {
-      padding: 20px;
-      flex: 1 1 50%;
-    }
-
-    &--right {
-      flex: 1 1 50%;
-
-      & img {
-        max-width: 300px;
-      }
-    }
   }
 }
 
+
+.icon {
+  width: 40px;
+  margin-right: 10px;
+}
+
 .services {
+  padding: 100px 0;
   background: #276cf8;
   color: white;
 
-  &__container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 90%;
-    margin: 0 auto;
+  & h2 {
+    font-size: 40px;
+  }
 
-    &--left {
-      text-align: left;
-      flex: 1 1 33%;
+  & .price {
+    font-size: 60px;
 
-      & h4 {
-        text-align: center;
-      }
-
-      & .price {
-        font-size: 60px;
-        text-align: center;
-
-        & span {
-          font-size: 20px;
-        }
-      }
-    }
-
-    &--right {
-      padding: 0 60px;
-      flex: 1 1 66%;
+    & span {
+      font-size: 20px;
     }
   }
 
-  &-card {
-    border: 1px solid white;
-    padding: 20px;
+  &__container {
     display: flex;
-    flex-direction: row;
+
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+
+    
+  }
+
+  &-card {
+    width: 80%;
+    // border: 1px solid white;
+    
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border-radius: 5px;
-    box-shadow: 0px 2px 12px -4px rgba(255, 255, 255, .3);
+    // border-radius: 5px;
+    // box-shadow: 0px 2px 12px -4px rgba(255, 255, 255, .3);
 
-    &__title {
+    &__item {
       font-size: 20px;
       font-weight: bold;
     }

@@ -49,30 +49,30 @@ export default {
             emailjs.send('smtp_server', 'template_Noy0SjKH_clone', templateParams, process.env.VUE_APP_EMAIL_ID)
                 .then((result) => {
                     if(result.status == 200) {
-                        this.doResponse = true
-                        this.responseStatus = true
-                        this.response = 'Success. We will be in touch shortly'
+                        this.doResponse = true;
+                        this.responseStatus = true;
+                        this.response = 'Success. We will be in touch shortly';
                         e.target.reset()
                         setTimeout(() => {
-                            this.closeModal()
+                            this.closeModal();
                         }, 2000)
                     }
                     console.log('SUCCESS!', result.status, result.text);
                 }, (error) => {
-                    this.doResponse = true
-                    this.responseStatus = false
-                    this.response = 'Something went wrong. You can email us directly : steve@trepyx.com'
-                    e.target.reset()
+                    this.doResponse = true;
+                    this.responseStatus = false;
+                    this.response = 'Something went wrong. You can email us directly : steve@trepyx.com';
+                    e.target.reset();
                     console.log('FAILED...', error);
                 });
         },
         closeModal() {
-            this.$emit('closeModal', true)
+            this.$emit('closeModal', true);
         }
     },
     computed: {
         formCheck() {
-            return  !(this.name  == '' || this.email == '')
+            return  !(this.name  == '' || this.email == '');
         }
     }
 }

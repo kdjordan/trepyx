@@ -1,16 +1,15 @@
 .divider {
-	position: relative;
-	margin-top: 90px;
+	// position: relative;
 	height: 1px;
 }
 
 .div-transparent {
 	content: "";
 	position: absolute;
-	top: 30px;;
-	left: 5%;
+	// top: 30px;
+	left: 35%;
 	right: 5%;
-	width: 90%;
+	width: 30%;
 	height: 1px;
 	background-image: linear-gradient(to right, transparent, white, transparent);
 }

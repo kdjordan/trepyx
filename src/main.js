@@ -6,6 +6,7 @@ import VueScrollTo from 'vue-scrollto';
 
 import Home from './components/Home.vue'
 import Contact from './components/Contact.vue'
+import TOS from './components/TOS.vue'
 
 
 Vue.use(Vuerouter)
@@ -14,7 +15,8 @@ Vue.use(VueScrollTo)
 
 const routes = [
   {path: '/', component: Home},
-  {path: '/contact', component: Contact}
+  {path: '/contact', component: Contact},
+  {path: '/tos', component: TOS}
 ]
 
 const router = new Vuerouter({

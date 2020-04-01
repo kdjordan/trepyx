@@ -17,7 +17,7 @@ export default {
 
 <style lang="scss">
     .home {
-        background-image: url('../../assets/back3-5-comp.svg');
+        background-image: url('../../assets/back2.svg');
         background-position: center;
         background-size: cover;
         height: 80vh;

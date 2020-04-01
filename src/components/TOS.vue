@@ -254,6 +254,6 @@ p {
     width: 80%;
     margin: 1rem auto;
     line-height: 1.7rem;
-    text-align: left;
+    text-align: left
 }
 </style>

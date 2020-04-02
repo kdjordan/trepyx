@@ -2,6 +2,7 @@
 <div>
    <section class="pricing" id="pricing">
     <h2>PLANS & PRICING</h2>
+    <div class="divider div-transparent"></div>
     <div class="pricing__container">
 
       <div class="pricing__container--card">
@@ -38,7 +39,7 @@
             <li>600 min/mo</li>
             <li>2 SIP Trunks</li>
             <li>1 Extension</li>
-            <li><strong>+ All of FLEX PLAN +</strong></li>
+            <li><strong>All of FLEX PLAN +</strong></li>
             <li>Inbound Fax</li>
             <li>Hosted Conferencing</li>
             <li>Overage Minutes : $0.03 /min</li>
@@ -58,7 +59,7 @@
             <li>Unlimited min/mo</li>
             <li>2 SIP Trunks</li>
             <li>2 Extension</li>
-            <li><strong>+ All of BASIC & FLEX PLAN +</strong></li>
+            <li><strong>All of BASIC & FLEX PLAN +</strong></li>
             <li>Voicemail to Text</li>
             <li>Call Recording</li>
             <li>Directory Listing</li>
@@ -139,7 +140,7 @@ export default {
     &--desc li{
       display: block;
       text-align: left;
-      margin-left: 20%
+      width: 100%;
     }
 
     // &:hover {

@@ -9,8 +9,8 @@
         
           <router-link to="/" class="header__right--link">Products & Services</router-link>
           <router-link to="/" class="header__right--link">Request a Quote</router-link>
-          <router-link to="/" class="header__right--link">Contact Us</router-link>
-          <li><a href="https://login.ringlogix.com">Login</a></li>
+          <router-link to="/#contact" class="header__right--link" v-scroll-to="'#contact'">Contact Us</router-link>
+          <a href="https://login.ringlogix.com" class="header__right--link">Login</a>
           <!-- <li><a href="#" v-scroll-to="'#services'">Services</a></li>
           <li><a href="#" v-scroll-to="'#contact'">Contact</a></li> -->
         
@@ -47,6 +47,7 @@ export default {
 
   &__right {
     &--link {
+      cursor: pointer;
       color: white;
       margin: 0 .7rem;
     }
@@ -54,7 +55,7 @@ export default {
 
 }
 
-li a {
+a {
   color: white;
 }
 

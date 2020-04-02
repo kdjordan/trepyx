@@ -48,6 +48,7 @@ export default {
 
 .bottom-nav {
   &__link {
+    color: $primary;
     margin: 0 .7rem;
   }
 }

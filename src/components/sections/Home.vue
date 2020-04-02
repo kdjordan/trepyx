@@ -32,25 +32,25 @@ export default {
         font-size: 2rem;
         letter-spacing: 1px;
 
-    &__container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        position: relative;
-        top: 15%;
-        right: 15%; 
+        &__container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            position: relative;
+            top: 15%;
+            right: 15%; 
 
-        & h1 {
-            font-size: 4.5rem;
-            letter-spacing: 1px;
+            & h1 {
+                font-size: 4.5rem;
+                letter-spacing: 1px;
+            }
+
+            & p {
+                width: 40%;
+                text-align: left;
+            }
+
         }
-
-        & p {
-            width: 40%;
-            text-align: left;
-        }
-
-    }
     }
 </style>

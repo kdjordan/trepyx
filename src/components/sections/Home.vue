@@ -2,8 +2,13 @@
   <div>
     <section class="home">
         <div class="home__container">
-            <h1>Welcome to Trepyx</h1><br />
-            <h2>Cloud Based PBX Provider</h2>
+            <h1>Welcome to Trepyx</h1>
+            <p>Flexible Telecom Solutions for the Modern Business Landscape.</p>
+                <div class="container" v-scroll-to="'#second'">
+                    <div class="chevron"></div>
+                    <div class="chevron"></div>
+                    <div class="chevron"></div>
+                </div>
         </div>
     </section>
   </div>
@@ -16,13 +21,15 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../scss/components/chevron.scss';
+
     .home {
         background-image: url('../../assets/back2.svg');
         background-position: center;
         background-size: cover;
         height: 80vh;
         color: white;
-        font-size: 18px;
+        font-size: 2rem;
         letter-spacing: 1px;
 
     &__container {
@@ -31,14 +38,17 @@ export default {
         justify-content: space-around;
         align-items: center;
         position: relative;
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -50%); 
-        width: 100%;
+        top: 15%;
+        right: 15%; 
 
         & h1 {
-            font-size: 80px;
-            letter-spacing: 3px;
+            font-size: 4.5rem;
+            letter-spacing: 1px;
+        }
+
+        & p {
+            width: 40%;
+            text-align: left;
         }
 
     }

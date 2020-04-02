@@ -10,9 +10,8 @@
           <router-link to="/" class="header__right--link">Products & Services</router-link>
           <router-link to="/" class="header__right--link">Request a Quote</router-link>
           <router-link to="/" class="header__right--link">Contact Us</router-link>
-          <router-link to="/" class="header__right--link">Login</router-link>
-          <!-- <li><a href="#" v-scroll-to="'#cloud'">Cloud PBX</a></li>
-          <li><a href="#" v-scroll-to="'#services'">Services</a></li>
+          <li><a href="https://login.ringlogix.com">Login</a></li>
+          <!-- <li><a href="#" v-scroll-to="'#services'">Services</a></li>
           <li><a href="#" v-scroll-to="'#contact'">Contact</a></li> -->
         
       </div>

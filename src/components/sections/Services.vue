@@ -1,52 +1,63 @@
 <template>
   <div>
     <section class="services" id="services">
+    <h2 class="center">ADDITIONAL SERVICES</h2>
+    <div class="divider div-transparent"></div>
+
     <div class="services__container">
       <div class="services-card">
           <div class="services-card__item">
             <img src="../../assets/airplane-comp.svg" alt="" class="icon">
-            <span class="test">Wi-Fi Calling</span></div>
+            Additional US Number
+          </div>
           <div class="services-card__item">
             <img src="../../assets/airplane-comp.svg" alt="" class="icon">
-            Incoming Call Control</div>
+            Canadian Number
+          </div>
           <div class="services-card__item">
             <img src="../../assets/airplane-comp.svg" alt="" class="icon">
-            Business Phone Number</div>
+            International Number
+          </div>
           <div class="services-card__item">
             <img src="../../assets/airplane-comp.svg" alt="" class="icon">
-            Call Transfers</div>
+            Toll Free Number
+          </div>
       </div>
       
-        <div>
-          <div>
-            <h2 class="center">OUR SERVICES</h2>
-            <div class="divider div-transparent"></div>
-          </div>
-          <div  class="mt-1">Chances are you don't run a cookie-cutter business. Our plans are flexible and take into account where you are, and where you are going.<br>
-          </div>
-          <h4 class="mt-2">Plans Start at Just</h4>
-          <div class="price mb-1">$29.99 <span>/ month</span></div>
-           <button class="btn-lte" @click.prevent="toggleModal">Let's GO</button>
-        </div>
-    
-
   
-
+      <div class="services-card">
+          <div class="services-card__item">
+            <img src="../../assets/airplane-comp.svg" alt="" class="icon">
+            Toll Free Usage
+          </div>
+          <div class="services-card__item">
+            <img src="../../assets/airplane-comp.svg" alt="" class="icon">
+            Call Recording (100)
+          </div>
+          <div class="services-card__item">
+            <img src="../../assets/airplane-comp.svg" alt="" class="icon">
+            Call Recording (305)
+          </div>
+      </div>
+    
         <div class="services-card">
           <div class="services-card__item">
             <img src="../../assets/airplane-comp.svg" alt="" class="icon">
-            Voicemail</div>
+            Business CNAM
+          </div>
           <div class="services-card__item">
             <img src="../../assets/airplane-comp.svg" alt="" class="icon">
-            Call Forwarding</div>
+            LNP Tier 2, 3, 4 +
+          </div>
           <div class="services-card__item">
             <img src="../../assets/airplane-comp.svg" alt="" class="icon">
-            Simultaneous Call Handling</div>
+            Toll Free Number Port
+          </div>
           <div class="services-card__item">
             <img src="../../assets/airplane-comp.svg" alt="" class="icon">
-            Custom Greetings</div>
-        </div>  
-      
+            Toll Free NASC
+          </div>
+        </div>
     </div>
 
   </section>
@@ -66,17 +77,30 @@ export default {
 <style lang="scss">
 @import '../../scss/variables.scss';
 @import '../../scss/components/buttons.scss';
+@import '../../scss/utils.scss';
+
+
+.services-card__item:nth-child(even) {
+    & img {
+      transform: rotateX(-45deg);
+    }
+}
+.services-card__item:nth-child(odd) {
+    & img {
+      transform: rotateX(30deg);
+    }
+}
 
 .services {
-  padding: 150px 0 225px 0;
-  background-image: url('../../assets/back-services.svg');
+  padding: 1rem 0 6rem 0;
+  background-image: url('../../assets/cloud-back.svg');
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
 
   & h2 {
-    font-size: 40px;
+    font-size: 1.7rem;
   }
 
   & .price {
@@ -89,28 +113,27 @@ export default {
 
   &__container {
     display: flex;
-
+    padding-top: 2rem;
     justify-content: space-between;
-    width: 100%;
+    width: 80%;
     margin: 0 auto;
-
-    
   }
 
   &-card {
-    width: 80%;
-    // border: 1px solid white;
-    
+    width: 80%;    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    // border-radius: 5px;
-    // box-shadow: 0px 2px 12px -4px rgba(255, 255, 255, .3);
+
+    img:nth-child(even) {
+      filter: opacity(50%);
+    }
 
     &__item {
-      font-size: 20px;
-      font-weight: bold;
+      text-align: left;
+      margin: .2rem 0;
+      font-size: 1.2rem;
     }
   }
 

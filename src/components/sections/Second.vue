@@ -22,8 +22,7 @@ export default {
 .second {
     width: 100%;
     margin: 0 auto;
-     background-image: url('../../assets/blue-back2.svg');
-    // backgroud-repeat: no-repeat;
+     background-image: url('../../assets/blue-back5.svg');
     background-size: cover;
     background-position: top;
     height: 40rem;

@@ -100,6 +100,7 @@ export default {
   color: white;
 
   & h2 {
+    color: white;
     font-size: 1.7rem;
   }
 

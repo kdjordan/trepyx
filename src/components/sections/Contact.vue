@@ -43,9 +43,24 @@
 
 <script>
 export default {
-    methods: {
+  data() {
+    return {
+      name: null,
+      email: null,
+      mssg: null
+    }
+  },
+  methods: {
     toggleModal() {
       this.$emit('openModal');
+  },
+    formCheck() {
+      console.log('checking form')
+    }
+  },
+  computed: {
+    doResponse() {
+      return false
     }
   }
 }

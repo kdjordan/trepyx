@@ -1,28 +1,24 @@
 <template>
 <main>
-  <Home />
-
-  <Cloud @openModal="toggleModal" />
+  <Hero />
   
-  <Second />
+  <Choose />
   <PlansPricing />
-  <Services @openModal="toggleModal" />
-  
 
+  <Services @openModal="toggleModal" />
   <Contact @openModal="toggleModal"/>
 
-  
   <Modal :modalState="modalState" @closeModal="toggleModal" />
 </main>
 </template>
 
 <script>
 import Modal from './Modal'
-import Home from './sections/Home'
-import Second from './sections/Second'
-import PlansPricing from './sections/PlansPricing'
-import Services from './sections/Services'
-import Contact from './sections/Contact'
+import Hero from './sections/hero'
+import Choose from './sections/chooseUs'
+import PlansPricing from './sections/plansPricing'
+import Services from './sections/services'
+import Contact from './sections/contact'
 
 export default {
   data() {
@@ -32,8 +28,8 @@ export default {
   },
   components: {
     Modal,
-    Home,
-    Second,
+    Hero,
+    Choose,
     PlansPricing,
     Services,
     Contact

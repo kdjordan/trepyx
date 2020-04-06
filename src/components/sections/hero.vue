@@ -4,11 +4,11 @@
         <div class="home__container">
             <h1>Welcome to Trepyx</h1>
             <p>Flexible Telecom Solutions for the Modern Business Landscape.</p>
-                <div class="container" v-scroll-to="'#second'">
+                <!-- <div class="container" v-scroll-to="'#second'">
                     <div class="chevron"></div>
                     <div class="chevron"></div>
                     <div class="chevron"></div>
-                </div>
+                </div> -->
         </div>
     </section>
   </div>
@@ -27,7 +27,7 @@ export default {
         background-image: url('../../assets/back2.svg');
         background-position: center;
         background-size: cover;
-        height: 80vh;
+        height: 70vh;
         color: white;
         font-size: 2rem;
         letter-spacing: 1px;
@@ -38,17 +38,17 @@ export default {
             justify-content: space-around;
             align-items: center;
             position: relative;
-            top: 15%;
-            right: 15%; 
+            top: 20%;
+            right: 20%; 
 
             & h1 {
-                font-size: 4.5rem;
+                font-size: 4rem;
                 letter-spacing: 1px;
             }
 
             & p {
                 width: 40%;
-                text-align: left;
+                text-align: center;
             }
 
         }

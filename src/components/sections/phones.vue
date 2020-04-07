@@ -3,15 +3,15 @@
       <!-- <div class="phones__title">Partner Phone Systems</div>  -->
     <div class="img-container">
       <div class="img-container--top">
-        <img src="src/assets/phones/cisco.png" alt="">
-        <img src="src/assets/phones/fanvil.png" alt="">
-        <img src="src/assets/phones/yealink.png" alt="">
-        <img src="src/assets/phones/vtech.png" alt="">
+        <img src="../../assets/phones/cisco.png" alt="">
+        <img src="../../assets/phones/fanvil.png" alt="">
+        <img src="../../assets/phones/yealink.png" alt="">
+        <img src="../../assets/phones/vtech.png" alt="">
       </div>
       <div class="img-container--bottom">
-        <img src="src/assets/phones/gstream.png" alt="">
-        <img src="src/assets/phones/polycom.png" alt="">
-        <img src="src/assets/phones/panasonic.png" alt="">
+        <img src="../../assets/phones/gstream.png" alt="">
+        <img src="../../assets/phones/polycom.png" alt="">
+        <img src="../../assets/phones/panasonic.png" alt="">
       </div>
     </div>
   </div>

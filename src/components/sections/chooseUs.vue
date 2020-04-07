@@ -44,11 +44,7 @@ export default {
 
 .choose {
     width: 100%;
-    margin: 0 auto;
-    background-image: url('../../assets/blue-back5.svg');
-    background-size: cover;
-    background-position: top;
-    height: 60rem;
+    padding: 3rem 0;
 
     &__container {
         padding: 0rem 0 3rem 0;

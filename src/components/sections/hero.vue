@@ -40,10 +40,11 @@ export default {
 }
 
 .home {
-    background-image: url('../../assets/back2.svg');
+    background-image: url('../../assets/1back.svg');
     background-position: center;
     background-size: cover;
-    height: 70vh;
+    padding: 8rem 0;
+    // height: 40vh;
     color: white;
     font-size: 2rem;
     letter-spacing: 1px;
@@ -68,7 +69,7 @@ export default {
             font-weight: lighter;
             font-size: 1.7rem;
             font-style: italic;
-            border: 1px solid white;
+            // border: 1px solid white;
             border-radius: .5rem;
         }
 

@@ -28,8 +28,9 @@ export default {
 @import '../../scss/typography.scss';
 
 .phones {
-    margin-top: 2rem;
-    
+  width: 100%;
+  margin: 0 auto;
+    padding: 2rem 0 1rem 0;
   &__title {
     text-transform: uppercase;
     font-size: 1.4rem;
@@ -38,16 +39,13 @@ export default {
 }
 
 .img-container {
-  width: 90%;
-  margin: 0 auto;
   display: flex;
-  // flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 
   & img {
     max-width: 10rem;
-    margin: 0 1rem;
+    padding: 0 1rem;
     filter: opacity(40%);
   }
 

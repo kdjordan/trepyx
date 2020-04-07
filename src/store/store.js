@@ -6,20 +6,50 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 
     state: {
-        modalState: false
+        modalState: false,
+        mssgs: [
+            'Flexible Telecom Solutions',
+            'We Grow With You',
+            'The Remote Office is Today\’s Reality',
+            'Put Your Office In Your Cell Phone',
+            'Say Goodbye to Carrying Two Phones',
+            'Unified Messaging',
+            'Solutions For You and Your Business'
+        ],
+        mssgIndex: 0,
+        hidden: false,
+        heroInterval: null
 
     },
     mutations: {
         toggleModal(state) {
             state.modalState = !state.modalState
+        },
+        setHeroInterval(state, payload) {
+            state.heroInterval = payload
+        },
+        bumpMssgIndex(state) {
+            if(state.mssgIndex == state.mssgs.length - 1) {
+                state.mssgIndex = 0
+            } else {
+                state.mssgIndex++
+            }
+        },
+        toggleHidden(state) {
+            state.hidden = !state.hidden
         }
 
     },
     getters: {
         getModalState(state) {
             return state.modalState
+        },
+        getMssg(state) {
+            return state.mssgs[state.mssgIndex]
+        },
+        getHidden(state) {
+            return state.hidden
         }
-
     },
     actions: {
         sendMail(e) {
@@ -49,6 +79,17 @@ export default new Vuex.Store({
                     console.log('FAILED...', error);
                 });
         },
+        startHeroInterval({ commit }) {
+            console.log('called')
+            let theInterval = setInterval(() => {
+                commit('toggleHidden')
+                setTimeout(() => {
+                    commit('bumpMssgIndex')
+                    commit('toggleHidden')
+                }, 1000)
+            }, 4000)
+            commit('setHeroInterval', theInterval)
+        }
     }
 
 

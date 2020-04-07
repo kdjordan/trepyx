@@ -7,8 +7,8 @@
       </div>
       <div class="header__right">
         
-          <router-link to="/" class="header__right--link">Products & Services</router-link>
-          <router-link to="/" class="header__right--link">Request a Quote</router-link>
+          <router-link to="/#pricing" class="header__right--link" v-scroll-to="'#pricing'">Plans & Pricing</router-link>
+          <router-link to="/quote" class="header__right--link">Get a Quote</router-link>
           <router-link to="/#contact" class="header__right--link" v-scroll-to="'#contact'">Contact Us</router-link>
           <a href="https://login.ringlogix.com" class="header__right--link">Login</a>
           <!-- <li><a href="#" v-scroll-to="'#services'">Services</a></li>

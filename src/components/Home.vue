@@ -5,8 +5,9 @@
   <Choose />
   <PlansPricing />
 
-  <Services @openModal="toggleModal" />
-  <Contact @openModal="toggleModal"/>
+  <Services />
+  <Phones />
+  <Contact />
 
   <Modal :modalState="modalState" @closeModal="toggleModal" />
 </main>
@@ -19,6 +20,7 @@ import Choose from './sections/chooseUs'
 import PlansPricing from './sections/plansPricing'
 import Services from './sections/services'
 import Contact from './sections/contact'
+import Phones from './sections/phones'
 
 export default {
   data() {
@@ -32,7 +34,8 @@ export default {
     Choose,
     PlansPricing,
     Services,
-    Contact
+    Contact,
+    Phones
   },
   methods: {
     toggleModal() {

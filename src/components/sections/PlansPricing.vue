@@ -10,7 +10,7 @@
         <div class="divider div-transparent small mb-1"></div>
         <div class="pricing__container--card--price">$12.95<span>/month</span></div>
 
-        <div class="pricing__container--card--desc mb-2">
+        <div class="pricing__container--card--desc">
           <ul>
             <li>1 US Phone Number</li>
             <li>300 min/mo</li>
@@ -86,7 +86,7 @@ export default {
 @import '../../scss/typography.scss';
 
 .pricing {
-  margin-top: -8rem;
+  margin-top: -15rem;
   background: blue;
   padding-bottom: 2rem;
   
@@ -100,7 +100,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 80px;
+    margin-top: 7rem;
+    margin-bottom: 3rem;
 
     & > * {
       flex: 1 1 33%;

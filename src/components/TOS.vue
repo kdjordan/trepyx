@@ -251,6 +251,10 @@ export default {
 </script>
 
 <style lang="scss">
+
+.page {
+  margin-top: 3rem;
+}
 p {
     width: 80%;
     margin: 1rem auto;

@@ -1,7 +1,6 @@
 <template>
-  <div>
+  <div id="contact">
     <section class="contact mt-5">
-      <a id="contact"></a>
         <h2>Contact & Support</h2>
         <div class="divider div-transparent"></div>
         <div class="contact__container">
@@ -79,14 +78,14 @@ export default {
 
 
 h2 {
-  padding-top: 4rem;
+  padding-top: 1rem;
   font-size: 2.5rem;
   text-transform: uppercase;
 }
 
 .contact {
   padding: 4rem;
-  background: $primary;
+  background-image: linear-gradient(360deg, $primary 0%, #00d4ff 100%);
   color: white;
 
   &__container {

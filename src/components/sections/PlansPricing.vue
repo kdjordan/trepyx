@@ -86,6 +86,7 @@ export default {
 @import '../../scss/typography.scss';
 
 .pricing {
+  padding-top: 2rem;
   background: blue;
   padding-bottom: 2rem;
   

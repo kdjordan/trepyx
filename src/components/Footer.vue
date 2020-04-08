@@ -30,8 +30,10 @@ export default {
 @import '../scss/variables.scss';
 
 .footer {
-  border-top: 1px solid $primary;
+  border-top: 1px solid black;
   height: 100px;
+  color: white;
+  background: $primary;
 
   &__top {
     display: flex;
@@ -48,7 +50,7 @@ export default {
 
 .bottom-nav {
   &__link {
-    color: $primary;
+    color: white;
     margin: 0 .7rem;
   }
 }

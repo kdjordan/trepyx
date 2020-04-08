@@ -25,7 +25,9 @@ export default {
         })
     },
     mounted() {
-        this.$store.dispatch('startHeroInterval')
+        if(this.$store.state.heroInterval == null) {
+            this.$store.dispatch('startHeroInterval')
+        }
     }
 }
 </script>

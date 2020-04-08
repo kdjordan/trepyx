@@ -18,9 +18,10 @@
                 <li>e911</li>
                 <li>Overage Minutes : $0.03 /min</li>
             </ul>
-            <div>
+            <div class="divider div-transparent--blu mt-1"></div>
+            <div class="quote__top--select">
                 <label for="flex">SELECT</label>
-                <input type="radio" id="flex" name="flex" value="flex">
+                <input type="radio" id="flex" name="plan" value="flex">
             </div>
         </div>
         <div class="quote__top--col  middle">
@@ -36,9 +37,10 @@
                 <li>Hosted Conferencing</li>
                 <li>Overage Minutes : $0.03 /min</li>
             </ul>
-            <div>
+            <div class="divider div-transparent--blu mt-1"></div>
+            <div class="quote__top--select">
                 <label for="basic">SELECT</label>
-                <input type="radio" id="flex" name="basic" value="basic">
+                <input type="radio" id="flex" name="plan" value="basic">
             </div>
         </div>
         
@@ -57,9 +59,10 @@
                 <li>LNP Order</li>
                 <li>LNP Tier 1</li>
             </ul>
-            <div>
+            <div class="divider div-transparent--blu mt-1"></div>
+            <div class="quote__top--select">
                 <label for="pro">SELECT</label>
-                <input type="radio" id="flex" name="pro" value="pro">
+                <input type="radio" id="flex" name="plan" value="pro">
             </div>
         </div>
     </div>
@@ -167,10 +170,6 @@ span {
     text-transform: none;
 }
 
-label {
-    margin-right: .4rem;
-}
-
 input[type=text], input[type=email], textarea {
     border: 1px solid $primary;
     border-radius: .2rem;
@@ -189,9 +188,7 @@ input[type=text], input[type=email], textarea {
     &__text {
         width: 50%;
         margin: .5rem auto;
-        
         padding: .5rem;
-
     }
 
     &__textarea {
@@ -199,9 +196,7 @@ input[type=text], input[type=email], textarea {
     }
   }
 
-li {
-    display: block;
-}
+
 
 .quote {
     margin-top: 2rem;
@@ -224,8 +219,25 @@ li {
             padding: 2rem;
             display: flex;
             flex-direction: column;
-            align-items: space-around;
+            align-items: space-between;
             flex: 1;
+
+            & li {
+                display: block;
+            }
+        }
+
+        &--select {
+            margin-top: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 1rem;
+
+            & label {
+                font-size: 1.2rem;
+                margin-right: 1rem;
+            }
         }
     }
 

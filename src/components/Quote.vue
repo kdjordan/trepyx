@@ -1,156 +1,259 @@
 <template>
   <div class="quote">
     <h1 class="mb-2">Trepyx Quote Tool</h1>
-    <form @submit.prevent="sendMail" class="quote-form__input">
+    <!-- ::{{getButtonMessg('pro')}} -->
+    <form @submit.prevent="sendMail">
     <div class="divider div-transparent--blu"></div>
     <h2 class="mb-2 mt-2">1. Select Your Base Plan</h2>
-    <div class="quote__top">
-        <div class="quote__top--col">
-            <div class="quote__title">Flex : $12.95/<span>mo</span></div>
-            <div class="divider div-transparent--blu mb-1"></div>
-            <ul>
-                <li>1 US Phone Number</li>
-                <li>300 min/mo</li>
-                <li>2 SIP Trunks</li>
-                <li>1 Extension</li>
-                <li>Mobile App</li>
-                <li>Voicemail</li>
-                <li>e911</li>
-                <li>Overage Minutes : $0.03 /min</li>
-            </ul>
-            <div class="divider div-transparent--blu mt-1"></div>
-            <div class="quote__top--select">
-                <label for="flex">SELECT</label>
-                <input type="radio" id="flex" name="plan" value="flex">
-            </div>
+
+    <div class="quote__container">
+
+      <div class="quote__container--card" :class="{selected: getSelected == 'flex'}" @click.prevent="markSelected('flex')">
+        <div class="quote__container--card-title">FLEX</div>
+        <div class="quote-divider mb-1"></div>
+        <div class="quote__container--card-price">$12.95<span>/month</span></div>
+
+        <div class="quote__container--card-desc">
+          <ul>
+            <li>1 US Phone Number</li>
+            <li>300 min/mo</li>
+            <li>2 SIP Trunks</li>
+            <li>1 Extension</li>
+            <li>Mobile App</li>
+            <li>Voicemail</li>
+            <li>e911</li>
+            <li>Overage Minutes : $0.03 /min</li>
+          </ul>
         </div>
-        <div class="quote__top--col  middle">
-            <div class="quote__title">Basic : $19.95/<span>mo</span></div>
-            <div class="divider div-transparent--blu mb-1"></div>
-            <ul>
-                <li>2 US Phone Numbers</li>
-                <li>600 min/mo</li>
-                <li>2 SIP Trunks</li>
-                <li>1 Extension</li>
-                <li>All of FLEX PLAN +</li>
-                <li>Inbound Fax</li>
-                <li>Hosted Conferencing</li>
-                <li>Overage Minutes : $0.03 /min</li>
-            </ul>
-            <div class="divider div-transparent--blu mt-1"></div>
-            <div class="quote__top--select">
-                <label for="basic">SELECT</label>
-                <input type="radio" id="flex" name="plan" value="basic">
-            </div>
+        <div style="margin-top: auto;">
+          <button class="btn-lte" :class="{selected: getSelected == 'flex'}" @click.prevent="markSelected('flex')">{{getButtonMessg('flex')}}</button>
         </div>
-        
-        <div class="quote__top--col">
-            <div class="quote__title">Pro : $24.95/<span>mo</span></div>
-            <div class="divider div-transparent--blu mb-1"></div>
-            <ul>
-                <li>2 US Phone Numbers</li>
-                <li>Unlimited min/mo</li>
-                <li>2 SIP Trunks</li>
-                <li>2 Extensions</li>
-                <li>All of BASIC & FLEX PLAN +</li>
-                <li>Voicemail to Text</li>
-                <li>Call Recording</li>
-                <li>Directory Listing</li>
-                <li>LNP Order</li>
-                <li>LNP Tier 1</li>
-            </ul>
-            <div class="divider div-transparent--blu mt-1"></div>
-            <div class="quote__top--select">
-                <label for="pro">SELECT</label>
-                <input type="radio" id="flex" name="plan" value="pro">
-            </div>
+      </div>
+
+      <div class="quote__container--card" :class="{selected: getSelected == 'basic'}" @click.prevent="markSelected('basic')">
+        <div class="quote__container--card-title">BASIC</div>
+        <div class="quote-divider mb-1"></div>
+        <div class="quote__container--card-price">$19.95<span>/month</span></div>
+
+        <div class="quote__container--card-desc">
+          <ul>
+            <li>2 US Phone Numbers</li>
+            <li>600 min/mo</li>
+            <li>2 SIP Trunks</li>
+            <li>1 Extension</li>
+            <li><strong>All of FLEX PLAN +</strong></li>
+            <li>Inbound Fax</li>
+            <li>Hosted Conferencing</li>
+            <li>Overage Minutes : $0.03 /min</li>
+          </ul>
         </div>
-    </div>
+        <div style="margin-top: auto;">
+          <button class="btn-lte" :class="{selected: getSelected == 'basic'}" @click.prevent="markSelected('basic')">{{getButtonMessg('basic')}}</button>
+        </div>
+      </div>
+
+     <div class="quote__container--card" :class="{selected: getSelected == 'pro'}" @click.prevent="markSelected('pro')">
+        <div class="quote__container--card-title">PRO</div>
+        <div class="quote-divider mb-1"></div>
+        <div class="quote__container--card-price">$24.95<span>/month</span></div>
+
+        <div class="quote__container--card-desc mb-2">
+          <ul>
+             <li>2 US Phone Numbers</li>
+            <li>Unlimited min/mo</li>
+            <li>2 SIP Trunks</li>
+            <li>2 Extension</li>
+            <li><strong>All of BASIC & FLEX PLAN +</strong></li>
+            <li>Voicemail to Text</li>
+            <li>Call Recording</li>
+            <li>Directory Listing</li>
+            <li>LNP Order</li>
+            <li>LNP Tier 1</li>
+          </ul>
+        </div>
+        <div style="margin-top: auto;">
+            <button class="btn-lte" :class="{selected: getSelected == 'pro'}" @click.prevent="markSelected('pro')">{{getButtonMessg('pro')}}</button>
+        </div>
+      </div>
+     </div> 
     <div class="quote__bottom">
-        <h2 class="mb-2 mt-2">2. Choose Add On Services</h2>
+        <h2 class="mb-2 mt-5">2. Choose Add On Services</h2>
+        <!-- {{activeServices}} -->
         <div class="quote__bottom--container">
             <div class="quote__bottom--col">
-                <div>
-                    <label for="addUsNumber">Additional Us Number</label>
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addUsNumber')}" @click.prevent="toggleService({type: 'addUsNumber', cost: 2.00})">
+                    <label class="addon-service--label" for="addUsNumber">Additional Us Number</label>
                     <input type="checkbox" id="addUsNumber" name="addUsNumber">
                 </div>
-                <div>
-                    <label for="addCanNumber">Additional Canadian Number</label>
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCanNumber')}" @click.prevent="toggleService({type: 'addCanNumber', cost: 4.00})">
+                    <label class="addon-service--label" for="addCanNumber">Additional Canadian Number</label>
                     <input type="checkbox" id="addCanNumber" name="addCanNumber">
                 </div>
-                <div>
-                    <label for="addIntNumber">Additional International Number</label>
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addIntNumber')}" @click.prevent="toggleService({type: 'addIntNumber', cost: 5.00})">
+                    <label class="addon-service--label" for="addIntNumber">Additional International Number</label>
                     <input type="checkbox" id="addIntNumber" name="addIntNumber">
                 </div>
-                <div>
-                    <label for="addTollFreeNum">Add Toll Free Number</label>
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollFreeNum')}" @click.prevent="toggleService({type: 'addTollFreeNum', cost: 5.00})">
+                    <label class="addon-service--label" for="addTollFreeNum">Add Toll Free Number</label>
                     <input type="checkbox" id="addTollFreeNum" name="addTollFreeNum">
                 </div>
             </div>    
             <div class="quote__bottom--col">
-                <div>
-                    <label for="addTollFreeUsage">Add Toll Free Usage</label>
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollFreeUsage')}" @click.prevent="toggleService({type: 'addTollFreeUsage', cost: 2.00})">
+                    <label class="addon-service--label" for="addTollFreeUsage">Add Toll Free Usage</label>
                     <input type="checkbox" id="addTollFreeUsage" name="addTollFreeUsage">
                 </div>
-                <div>
-                    <label for="addCallRecording">Add Call Recording</label>
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording')}" @click.prevent="toggleService({type: 'addCallRecording', cost: 2.00})">
+                    <label class="addon-service--label" for="addCallRecording">Add Call Recording</label>
                     <input type="checkbox" id="addCallRecording" name="addCallRecording">
                 </div>
-                <div>
-                    <label for="addCallRecording100">Add Call Recording (100)</label>
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording100')}" @click.prevent="toggleService({type: 'addCallRecording100', cost: 10.00})">
+                    <label class="addon-service--label" for="addCallRecording100">Add Call Recording (100)</label>
                     <input type="checkbox" id="addCallRecording100" name="addCallRecording100">
                 </div>
-                <div>
-                    <label for="addCallRecording305">Add Call Recording (305)</label>
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording305')}" @click.prevent="toggleService({type: 'addCallRecording305', cost: 10.00})">
+                    <label class="addon-service--label" for="addCallRecording305">Add Call Recording (305)</label>
                     <input type="checkbox" id="addCallRecording305" name="addCallRecording305">
                 </div>
             </div>
             <div class="quote__bottom--col">
-                <div>
-                    <label for="addBizCNAM">Add Business CNAM</label>
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addBizCNAM')}" @click.prevent="toggleService({type: 'addBizCNAM', cost: 10.00})">
+                    <label class="addon-service--label" for="addBizCNAM">Add Business CNAM</label>
                     <input type="checkbox" id="addBizCNAM" name="addBizCNAM">
                 </div>
-                <div>
-                    <label for="addLNPTier">Add LNP Tier 2, 3, 4 +</label>
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addLNPTier')}" @click.prevent="toggleService({type: 'addLNPTier', cost: 5.00})">
+                    <label class="addon-service--label" for="addLNPTier">Add LNP Tier 2, 3, 4 +</label>
                     <input type="checkbox" id="addLNPTier" name="addLNPTier">
                 </div>
-                <div>
-                    <label for="addTollNumPort">Add Toll Free Number Port</label>
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollNumPort')}" @click.prevent="toggleService({type: 'addTollNumPort', cost: 20.00})">
+                    <label class="addon-service--label" for="addTollNumPort">Add Toll Free Number Port</label>
                     <input type="checkbox" id="addTollNumPort" name="addTollNumPort">
                 </div>
-                <div>
-                    <label for="addTollNASC">Add Toll Free Number NASC</label>
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollNASC')}" @click.prevent="toggleService({type: 'addTollNASC', cost: 75.00})">
+                    <label class="addon-service__label" for="addTollNASC" >Add Toll Free Number NASC</label>
                     <input type="checkbox" id="addTollNASC" name="addTollNASC">
                 </div>
             </div>
         </div>
+        <button class="btn-solid" @click.prevent="resetServices">RESET ALL</button>
     </div>
-    <div class="quote-form">
+    <!-- <div class="quote-form">
         <h2 class="mb-2 mt-2">3. Send Sign Up Request</h2>
         <div class="quote-form__input">
         
             <div>
-                <label for="user_name">Name*</label>
-                <input type="text" class="quote-form__text" name="user_name" required v-model="name">
+                <input type="text" class="quote-form__text" name="user_name" required v-model="name" placeholder="Enter Your Full Name">
             </div>
-            <div>
-                <label for="user_email">Email*</label>
-                <input type="email" class="quote-form__text" name="user_email" required v-model="email">
+            <div class="flex-row">
+                <input type="email" class="quote-form__text short" name="user_email" required v-model="email" placeholder="Enter Your Email">
+                <input type="email" class="quote-form__text short" name="user_email" required v-model="email" placeholder="Enter Your Phone">
             </div>
             <div>
                 <label for="message" >Message</label>
-                <textarea name="message" id=""  class="quote-form__textarea" rows="6" v-model="mssg" placeholder="Give us an idea of what you're interested in..."></textarea>
+                <textarea name="message" id=""  class="quote-form__textarea" rows="6" v-model="mssg" placeholder="Enter Any Notes You Would Like Us to See"></textarea>
             </div>
             <button class="btn"  :disabled="!formCheck" >Send</button>
             <div  v-if="doResponse" :class="{success : responseStatus, fail : !responseStatus}">{{response}}</div>
             </div>
-        </div>
+        </div> -->
     </form>
+    <div v-if="showPriceBox" class="total-box">
+        <div class="total-box__title">
+            You're Cost per Month
+        </div>
+        <div class="total-box__price">
+            ${{getTotalCost}}
+            <!-- {{servicesCost}} -->
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+            showPriceBox: false,
+            activePlan: null,
+            activeServices: [],
+            baseCost: 0.00,
+            servicesCost: 0.00
+        }
+    },
+    methods: {
+        markSelected(plan) {
+            if (plan == "flex") {
+                this.activePlan = "flex"
+                this.baseCost = 12.95
+            } else if (plan == "basic") {
+                this.activePlan = "basic"
+                this.baseCost = 19.95
+            }  else if (plan == "pro") {
+                this.activePlan = "pro"
+                this.baseCost = 24.95
+            }
+        },
+        toggleService(service) {
+            if (this.activeServices.some(serv => serv.type == service.type)) {
+                this.activeServices = this.activeServices.filter(serv => serv.type != service.type)
+            } else {
+                this.activeServices.push(service)
+            }
+        },
+        resetServices() {
+            this.activeServices = []
+        }
+    },
+    computed: {
+        getSelected() {
+            return this.activePlan
+        },
+        getButtonMessg() {
+            return (button) => {
+                if (button == 'flex' && this.activePlan == 'flex') {
+                     return 'SELECTED'
+                } else if (button == 'basic' && this.activePlan == 'basic') {
+                     return 'SELECTED'
+                }  else if (button == "pro" && this.activePlan == 'pro') {
+                    return 'SELECTED'
+                }
+                return "SELECT"
+            }
+        },
+        getBtnSelected() {
+            return (button) => {
+                if (this.activeServices.some(serv => serv.type == button)) {
+                    return true
+                } else {
+                    return false
+                }
+            }
+        },
+        getTotalCost() {
+            return (this.baseCost + this.getServicesCost)
+        },
+        getServicesCost() {
+            if(this.activeServices.length > 0) {
+                let total = 0
+               this.activeServices.forEach(service => {
+                   total += service.cost
+               }) 
+               return total
+            } else {
+                return 0
+            }
+        }
+    },
+    mounted() {
+        var vm = this
+        window.addEventListener('scroll', (e) => {
+            if (window.scrollY > 68) {
+                this.showPriceBox = true
+            } else {
+                this.showPriceBox = false
+            }
+        })
+    }
 
 }
 </script>
@@ -159,16 +262,72 @@ export default {
 @import '../scss/variables.scss';
 @import '../scss/typography.scss';
 @import '../scss/utils.scss';
+@import '../scss/components/buttons.scss';
 @import '../scss/components/divider.scss';
 
-.middle {
-    border-right: 1px solid $primary;
-    border-left: 1px solid $primary;
+.total-box {
+    position: fixed;
+    top: 0;
+    right: 5%;
+    background: rgba(0,212,255,1);
+    padding: 1rem;
+    border: 1px solid #133379;
+    color: #133379;
+
+    &__title {
+        border-bottom: 1px solid #133379;
+    }
+
+    &__price {
+        font-size: 3rem;
+
+    }
 }
 
-span {
-    text-transform: none;
+input[type=checkbox] {
+    opacity: 0;
+    position: relative;
+    right: 2rem;
+    
 }
+
+.btnSelected {
+    background: rgba(0,212,255,1) !important;
+    color: #133379 !important;
+}
+
+
+.selected {
+    background: rgba(0,212,255,1) !important;
+    color: #133379 !important;
+    border: 1px solid #133379 !important;
+
+    & button {
+        background: none;
+        border: 2px solid   #133379 !important;
+        color: #133379;
+    }
+
+    & .quote-divider {
+        background-image: linear-gradient(to right, transparent, #133379, transparent) !important;
+    }
+
+    & :hover {
+        color: #133379;
+    }
+}
+
+.flex-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .short {
+        width: 25%;
+        margin: none !important;
+    }
+}
+
 
 input[type=text], input[type=email], textarea {
     border: 1px solid $primary;
@@ -179,9 +338,7 @@ input[type=text], input[type=email], textarea {
     width: 70%;
     max-width: 900px;
     margin: 0 auto;
-    border: 1px solid white;
     border-radius: 5px;
-    box-shadow: 0px 2px 12px -4px rgba(255, 255, 255, 0.75);
     display: flex;
     flex-direction: column;
 
@@ -194,63 +351,81 @@ input[type=text], input[type=email], textarea {
     &__textarea {
         width: 50%;
     }
-  }
+}
 
-
+.quote-divider {
+    content: "";
+    position: relative;
+	width: 100%;
+	height: 1px;
+	background-image: linear-gradient(to right, transparent, white, transparent);
+}
 
 .quote {
     margin-top: 2rem;
     color: $primary;
 
-    &__title {
-        font-size: 1.5rem;
-        text-transform: uppercase;
-    }
-
-    &__top {
+    &__container {
         display: flex;
-        justify-content: space-around;
-        width: 80%;
-        margin: 0 auto;
-        border: 1px solid $primary;
-        border-radius: 2rem;
+        justify-content: center;
+        align-items: center;
 
-        &--col {
-            padding: 2rem;
+        & > * {
+            flex: 1 1 33%;
+        }
+    
+        &--card {
+            cursor: pointer;
             display: flex;
             flex-direction: column;
-            align-items: space-between;
-            flex: 1;
+            justify-content: space-around;
+            align-items: center;
+            align-self: stretch;
+            margin: 0 5px;
+            max-width: 400px;
+            padding: 20px 30px 30px 30px;
+            border-radius: .5rem;
+            color: white;
+            background: $primary;
+            transition: all .4s ease;
+        
+        & button {
+            margin-top: auto;
+        }
 
-            & li {
-                display: block;
+        &-title {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+
+        &-price {
+            font-size: 2rem;
+
+            & span {
+                font-size: 25px;
             }
         }
 
-        &--select {
-            margin-top: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-top: 1rem;
-
-            & label {
-                font-size: 1.2rem;
-                margin-right: 1rem;
-            }
+        &-desc li {
+            display: block;
+            text-align: left;
+            width: 100%;
         }
     }
-
+  
+      &__title {
+          font-size: 1.5rem;
+          text-transform: uppercase;
+      }
+    }
     &__bottom {
-
         &--container {
             border-radius: 2rem;
-            width: 80%;
+            width: 90%;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-around;
-            border: 1px solid $primary;
         }
 
         &--col {
@@ -258,12 +433,25 @@ input[type=text], input[type=email], textarea {
             flex-direction: column;
             align-items: center;
             margin: 2rem;
-
-            & div {
-                margin: .4rem 0;
-            }
         }
+
     }
 }
+.addon-service {
+    background: $primary;
+    color: white;
+    padding: .3rem 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin: .4rem 0;
+    transition: all .4s ease;
+
+    &--label {
+        margin-left: 1rem;
+        cursor: pointer;
+    }
+}
+
+
 
 </style>

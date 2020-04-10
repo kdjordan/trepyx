@@ -135,38 +135,38 @@
                 </div>
             </div>
         </div>
-        <button class="btn-solid" @click.prevent="resetServices">RESET ALL</button>
+        <button class="btn-solid wide mt-2" @click.prevent="resetServices">RESET ALL SERVICES</button>
     </div>
     <div class="quote-form">
-        <h2 class="mb-2 mt-2">3. Send Sign Up Request</h2>
+        <h2 class="mb-2 mt-4">3. Send Sign Up Request</h2>
         <div class="quote-form__container">
-        <div class="quote-form__container--left">
-        <div class="quote-form__input">
-            <div>
-                <input type="text" class="quote-form__text" name="user_name" required v-model="name" placeholder="Enter Your Full Name">
+            <div class="quote-form__container--left">
+                <div class="quote-form__input">
+                    <div>
+                        <input type="text" class="quote-form__text" name="user_name" required v-model="name" placeholder="Full Name">
+                    </div>
+                    <div>
+                        <input type="email" class="quote-form__text short" name="user_email" required v-model="email" placeholder="Email">
+                        <input type="email" class="quote-form__text short" name="user_email" required v-model="email" placeholder="Phone">
+                    </div>
+                    <div>
+                        <textarea name="message" id=""  class="quote-form__textarea" rows="6" v-model="mssg" placeholder="Optional Message"></textarea>
+                    </div>
+                    
+                    <!-- <div  v-if="doResponse" :class="{success : responseStatus, fail : !responseStatus}">{{response}}</div> -->
+                </div>
             </div>
-            <div class="flex-row">
-                <input type="email" class="quote-form__text short" name="user_email" required v-model="email" placeholder="Enter Your Email">
-                <input type="email" class="quote-form__text short" name="user_email" required v-model="email" placeholder="Enter Your Phone">
-            </div>
-            <div>
-                <label for="message" >Message</label>
-                <textarea name="message" id=""  class="quote-form__textarea" rows="6" v-model="mssg" placeholder="Enter Any Notes You Would Like Us to See"></textarea>
-            </div>
-            <button class="btn">Send</button>
-            <!-- <div  v-if="doResponse" :class="{success : responseStatus, fail : !responseStatus}">{{response}}</div> -->
+            <div class="quote-form__container--right">
+                <div class="quote-form__title">Your Order</div>
+                <div v-if="activePlan != null" class="quote-form__plan mt-1">Base Plan: <span>{{activePlan}}</span> @ ${{baseCost}}/mo</div>
+                <ul>
+                    <li v-for="(service, index) in activeServices" :key="index">{{service.desc}} @ ${{service.cost}}.00/mo</li>
+                </ul>
+                <div v-if="getTotalCost !== 0" class="quote-form__total">Your Total: ${{getTotalCost}}</div>
             </div>
         </div>
-        <div class="quote-form__container--right">
-            <div class="quote-form__title">Your Order</div>
-            <div class="quote-form--plan">Base Plan: <span>{{activePlan}} @ ${{baseCost}}/mo</span></div>
-            <ul>
-                <li v-for="(service, index) in activeServices" :key="index">{{service.desc}} @ ${{service.cost}}.00/mo</li>
-            </ul>
-        </div>
-        </div>
-
-        </div>
+    <button class="btn-solid wide mt-2 mb-2">Send</button>
+    </div>
     </form>
     <div v-if="showPriceBox" class="total-box">
         <div class="total-box__title">
@@ -278,7 +278,41 @@ export default {
 @import '../scss/components/buttons.scss';
 @import '../scss/components/divider.scss';
 
+.wide {
+    width: 20%;
+}
+
+input[type=checkbox] {
+    opacity: 0;
+    position: relative;
+    right: 2rem;
+}
+
 .quote-form {
+
+    &__title {
+        font-size: 1.5rem;
+        color: $color2;
+        border-bottom: 1px solid $color2;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    &__plan {
+        font-size: 1.2rem;
+
+        & span {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    }
+
+    &__total {
+        border-top: 1px solid $color2;
+        width: 80%;
+        margin: 0 auto;
+    }
+
     &__container {
         width: 100%;
         display: flex;
@@ -286,16 +320,30 @@ export default {
         align-items: flex-start;
 
         &--left {
-            // border: 1px solid red;
-            width: 50%;
+            width: 30%;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
+            & input[type=text], input[type=email], textarea {
+                margin: .5rem auto;
+                border: 1px solid $primary;
+                border-radius: 2rem;
+                width: 100%;
+                padding: 1rem;
+                outline: none;
+            }
+
+            & ::placeholder {
+                font-size: 1rem;
+                font-family: $font2;
+                color: $color2;
+            }
         }
 
         &--right {
-            // border: 1px solid red;
-            width: 50%;
+            width: 30%;
 
             & li {
                 display: block;
@@ -304,15 +352,6 @@ export default {
         }
     }
 
-    &__text {
-        width: 50%;
-        margin: .5rem auto;
-        padding: .5rem;
-    }
-
-    &__textarea {
-        width: 50%;
-    }
 }
 
 .total-box {
@@ -321,11 +360,11 @@ export default {
     right: 5%;
     background: rgba(0,212,255,1);
     padding: 1rem;
-    border: 1px solid #133379;
-    color: #133379;
+    border: 1px solid $color2;
+    color: $color2;
 
     &__title {
-        border-bottom: 1px solid #133379;
+        border-bottom: 1px solid $color2;
     }
 
     &__price {
@@ -334,36 +373,31 @@ export default {
     }
 }
 
-input[type=checkbox] {
-    opacity: 0;
-    position: relative;
-    right: 2rem;
-    
-}
+
 
 .btnSelected {
     background: rgba(0,212,255,1) !important;
-    color: #133379 !important;
+    color: $color2 !important;
 }
 
 
 .selected {
     background: rgba(0,212,255,1) !important;
-    color: #133379 !important;
-    border: 1px solid #133379 !important;
+    color: $color2 !important;
+    border: 1px solid $color2 !important;
 
     & button {
         background: none;
-        border: 2px solid   #133379 !important;
-        color: #133379;
+        border: 2px solid   $color2 !important;
+        color: $color2;
     }
 
     & .quote-divider {
-        background-image: linear-gradient(to right, transparent, #133379, transparent) !important;
+        background-image: linear-gradient(to right, transparent, $color2, transparent) !important;
     }
 
     & :hover {
-        color: #133379;
+        color: $color2;
     }
 }
 
@@ -379,10 +413,6 @@ input[type=checkbox] {
 }
 
 
-input[type=text], input[type=email], textarea {
-    border: 1px solid $primary;
-    border-radius: .2rem;
-}
 
 .quote-divider {
     content: "";
@@ -451,6 +481,7 @@ input[type=text], input[type=email], textarea {
     }
     &__bottom {
         &--container {
+            border: 2px solid $primary;
             border-radius: 2rem;
             width: 90%;
             margin: 0 auto;

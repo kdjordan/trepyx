@@ -81,55 +81,55 @@
         <!-- {{activeServices}} -->
         <div class="quote__bottom--container">
             <div class="quote__bottom--col">
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addUsNumber')}" @click.prevent="toggleService({type: 'addUsNumber', cost: 2.00, desc:'+Additional Us Number'})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addUsNumber')}" @click.prevent="toggleService({type: 'addUsNumber', cost: 2.00, desc:'+ Additional Us Number'})">
                     <label class="addon-service--label" for="addUsNumber">Additional Us Number</label>
                     <input type="checkbox" id="addUsNumber" name="addUsNumber">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCanNumber')}" @click.prevent="toggleService({type: 'addCanNumber', cost: 4.00, desc:'+Additional Canadian Number'})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCanNumber')}" @click.prevent="toggleService({type: 'addCanNumber', cost: 4.00, desc:'+ Additional Canadian Number'})">
                     <label class="addon-service--label" for="addCanNumber">Additional Canadian Number</label>
                     <input type="checkbox" id="addCanNumber" name="addCanNumber">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addIntNumber')}" @click.prevent="toggleService({type: 'addIntNumber', cost: 5.00, desc:'+Additional International Number'})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addIntNumber')}" @click.prevent="toggleService({type: 'addIntNumber', cost: 5.00, desc:'+ Additional International Number'})">
                     <label class="addon-service--label" for="addIntNumber">Additional International Number</label>
                     <input type="checkbox" id="addIntNumber" name="addIntNumber">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollFreeNum')}" @click.prevent="toggleService({type: 'addTollFreeNum', cost: 5.00, desc:'+Add Toll Free Number'})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollFreeNum')}" @click.prevent="toggleService({type: 'addTollFreeNum', cost: 5.00, desc:'+ Add Toll Free Number'})">
                     <label class="addon-service--label" for="addTollFreeNum">Add Toll Free Number</label>
                     <input type="checkbox" id="addTollFreeNum" name="addTollFreeNum">
                 </div>
             </div>    
             <div class="quote__bottom--col">
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollFreeUsage')}" @click.prevent="toggleService({type: 'addTollFreeUsage', cost: 2.00, desc:'+Add Toll Free Usage'})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollFreeUsage')}" @click.prevent="toggleService({type: 'addTollFreeUsage', cost: 2.00, desc:'+ Add Toll Free Usage'})">
                     <label class="addon-service--label" for="addTollFreeUsage">Add Toll Free Usage</label>
                     <input type="checkbox" id="addTollFreeUsage" name="addTollFreeUsage">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording')}" @click.prevent="toggleService({type: 'addCallRecording', cost: 2.00, desc:'+Add Call Recording'})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording')}" @click.prevent="toggleService({type: 'addCallRecording', cost: 2.00, desc:'+ Add Call Recording'})">
                     <label class="addon-service--label" for="addCallRecording">Add Call Recording</label>
                     <input type="checkbox" id="addCallRecording" name="addCallRecording">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording100')}" @click.prevent="toggleService({type: 'addCallRecording100', cost: 10.00, desc:'+Add Call Recording (100)'})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording100')}" @click.prevent="toggleService({type: 'addCallRecording100', cost: 10.00, desc:'+ Add Call Recording (100)'})">
                     <label class="addon-service--label" for="addCallRecording100">Add Call Recording (100)</label>
                     <input type="checkbox" id="addCallRecording100" name="addCallRecording100">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording305')}" @click.prevent="toggleService({type: 'addCallRecording305', cost: 10.00, desc:'+Add Call Recording (305)'})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording305')}" @click.prevent="toggleService({type: 'addCallRecording305', cost: 10.00, desc:'+ Add Call Recording (305)'})">
                     <label class="addon-service--label" for="addCallRecording305">Add Call Recording (305)</label>
                     <input type="checkbox" id="addCallRecording305" name="addCallRecording305">
                 </div>
             </div>
             <div class="quote__bottom--col">
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addBizCNAM')}" @click.prevent="toggleService({type: 'addBizCNAM', cost: 10.00, desc:'+Add Business CNAM'})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addBizCNAM')}" @click.prevent="toggleService({type: 'addBizCNAM', cost: 10.00, desc:'+ Add Business CNAM'})">
                     <label class="addon-service--label" for="addBizCNAM">Add Business CNAM</label>
                     <input type="checkbox" id="addBizCNAM" name="addBizCNAM">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addLNPTier')}" @click.prevent="toggleService({type: 'addLNPTier', cost: 5.00, desc:'+Add LNP Tier 2, 3, 4 +'})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addLNPTier')}" @click.prevent="toggleService({type: 'addLNPTier', cost: 5.00, desc:'+ Add LNP Tier 2, 3, 4 +'})">
                     <label class="addon-service--label" for="addLNPTier">Add LNP Tier 2, 3, 4 +</label>
                     <input type="checkbox" id="addLNPTier" name="addLNPTier">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollNumPort')}" @click.prevent="toggleService({type: 'addTollNumPort', cost: 20.00, desc:'+Add Toll Free Number Port'})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollNumPort')}" @click.prevent="toggleService({type: 'addTollNumPort', cost: 20.00, desc:'+ Add Toll Free Number Port'})">
                     <label class="addon-service--label" for="addTollNumPort">Add Toll Free Number Port</label>
                     <input type="checkbox" id="addTollNumPort" name="addTollNumPort">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollNASC')}" @click.prevent="toggleService({type: 'addTollNASC', cost: 75.00, desc:'+Add Toll Free Number NASC'})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollNASC')}" @click.prevent="toggleService({type: 'addTollNASC', cost: 75.00, desc:'+ Add Toll Free Number NASC'})">
                     <label class="addon-service__label" for="addTollNASC" >Add Toll Free Number NASC</label>
                     <input type="checkbox" id="addTollNASC" name="addTollNASC">
                 </div>

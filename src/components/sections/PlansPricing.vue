@@ -7,7 +7,7 @@
 
       <div class="pricing__container--card">
         <div class="pricing__container--card--title">FLEX</div>
-        <div class="divider div-transparent small mb-1"></div>
+        <div class="plans-divider-transparent mb-1"></div>
         <div class="pricing__container--card--price">$12.95<span>/month</span></div>
 
         <div class="pricing__container--card--desc">
@@ -30,7 +30,7 @@
 
       <div class="pricing__container--card">
         <div class="pricing__container--card--title">BASIC</div>
-        <div class="divider div-transparent small mb-1"></div>
+        <div class="plans-divider-transparent mb-1"></div>
         <div class="pricing__container--card--price">$19.95<span>/month</span></div>
 
         <div class="pricing__container--card--desc mb-2">
@@ -51,7 +51,7 @@
 
      <div class="pricing__container--card">
         <div class="pricing__container--card--title">PRO</div>
-        <div class="divider div-transparent small mb-1"></div>
+        <div class="plans-divider-transparent mb-1"></div>
         <div class="pricing__container--card--price">$24.95<span>/month</span></div>
 
         <div class="pricing__container--card--desc mb-2">
@@ -86,6 +86,14 @@ export default {
 @import '../../scss/variables.scss';
 @import '../../scss/typography.scss';
 @import '../../scss/components/pricing-cards.scss';
+</style>
 
+<style lang="scss" scoped>
 
+.plans-divider-transparent {
+	width: 90%;
+	height: 1px;
+	background-image: linear-gradient(to right, transparent, white, transparent);
+
+}
 </style>

@@ -53,7 +53,7 @@ export default {
 
         &--title {
             font-size: 2.5rem;
-            color: $primary;
+            color: $color2;
             font-family: $font1;
         }
     }
@@ -82,6 +82,7 @@ export default {
     &__title {
         font-weight: bold;
         font-size: 1.4rem;
+        color: $color2;
         text-transform: uppercase;
     }
 }

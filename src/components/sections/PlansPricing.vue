@@ -23,7 +23,7 @@
           </ul>
         </div>
         <div style="margin-top: auto;">
-          <button class="btn-lte" @click.prevent="toggleModal">SELECT</button>
+          <router-link to="/quote/flex"><button class="btn-lte">SELECT</button></router-link>
         </div>
       </div>
 
@@ -45,7 +45,8 @@
             <li>Overage Minutes : $0.03 /min</li>
           </ul>
         </div>
-        <button class="btn-lte" @click.prevent="toggleModal">SELECT</button>
+         <router-link to="/quote/basic"><button class="btn-lte">SELECT</button></router-link>
+        
       </div>
 
      <div class="pricing__container--card">
@@ -67,7 +68,7 @@
             <li>LNP Tier 1</li>
           </ul>
         </div>
-        <button class="btn-lte" @click.prevent="toggleModal">SELECT</button>
+        <router-link to="/quote/pro"><button class="btn-lte">SELECT</button></router-link>
       </div>
       
     </div>

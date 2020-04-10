@@ -1,13 +1,13 @@
 <template>
   <div class="footer">
-      <div class="footer__top mt-2 mb-2">
+      <div class="footer__top mt-2 pb-2">
         <div class="footer__top--left">
           <ul class="bottom-nav">
-            <router-link to="/" class="bottom-nav__link">Home</router-link>
-            <router-link to="/tos" class="bottom-nav__link">Cloud PBX</router-link>
-            <router-link to="/tos" class="bottom-nav__link">Services</router-link>
+            <router-link to="/#pricing" class="header__right--link" v-scroll-to="'#pricing'">Plans & Pricing</router-link>
+            <router-link to="/quote" class="header__right--link">Get a Quote</router-link>
+            <router-link to="/#contact" class="header__right--link" v-scroll-to="'#contact'">Contact Us</router-link>
             <router-link to="/tos" class="bottom-nav__link">Terms & Conditions</router-link>
-            <router-link to="/tos" class="bottom-nav__link">Contact</router-link>
+            <a href="https://login.ringlogix.com" class="header__right--link">Login</a>
           </ul>
         </div>
         <div class="footer__top--right">
@@ -40,11 +40,18 @@ export default {
     justify-content: space-around;
     align-items: center;
 
+    &--right {
+      & p {
+        margin: 0;
+      }
+    }
+
   }
 
   &__bottom {
     font-size: 13px;
     font-style: italic;
+    background: $primary;
   }
 }
 

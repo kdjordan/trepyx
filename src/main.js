@@ -17,7 +17,7 @@ Vue.use(store)
 const routes = [
   {path: '/', component: Home},
   {path: '/tos', component: TOS},
-  {path: '/quote', component: Quote}
+  {path: '/quote/:plan', component: Quote}
 ]
 
 const router = new Vuerouter({

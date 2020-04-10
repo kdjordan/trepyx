@@ -165,7 +165,7 @@
                 <div v-if="getTotalCost !== 0" class="quote-form__total">Your Total: ${{getTotalCost}}</div>
             </div>
         </div>
-    <button class="btn-solid wide mt-2 mb-2">Send</button>
+    <button class="btn-solid wide mt-2 mb-2">SEND REQUEST</button>
     </div>
     </form>
     <div v-if="showPriceBox" class="total-box">
@@ -259,6 +259,22 @@ export default {
         }
     },
     mounted() {
+        if (this.$route.params.plan == 'empty') {
+            window.scrollTo(0, 0)
+        } else if (this.$route.params.plan == 'flex'){
+            this.activePlan = "flex"
+            this.baseCost = 12.95
+            window.scrollTo(0, 69)
+        } else if (this.$route.params.plan == 'basic') {
+            this.activePlan = "basic"
+            this.baseCost = 19.95
+            window.scrollTo(0, 69)
+        } else if (this.$route.params.plan == 'pro') {
+            this.activePlan = "pro"
+            this.baseCost = 24.95
+            window.scrollTo(0, 69)
+        }
+
         window.addEventListener('scroll', (e) => {
             if (window.scrollY > 68) {
                 this.showPriceBox = true
@@ -289,7 +305,7 @@ input[type=checkbox] {
 }
 
 .quote-form {
-
+    
     &__title {
         font-size: 1.5rem;
         color: $color2;
@@ -314,7 +330,11 @@ input[type=checkbox] {
     }
 
     &__container {
-        width: 100%;
+        border: 2px solid $primary;
+        border-radius: 2rem;
+        padding: 1rem 0;
+        width: 90%;
+        margin: 0 auto;
         display: flex;
         justify-content: center;
         align-items: flex-start;

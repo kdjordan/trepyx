@@ -81,55 +81,55 @@
         <!-- {{activeServices}} -->
         <div class="quote__bottom--container">
             <div class="quote__bottom--col">
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addUsNumber')}" @click.prevent="toggleService({type: 'addUsNumber', cost: 2.00})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addUsNumber')}" @click.prevent="toggleService({type: 'addUsNumber', cost: 2.00, desc:'+Additional Us Number'})">
                     <label class="addon-service--label" for="addUsNumber">Additional Us Number</label>
                     <input type="checkbox" id="addUsNumber" name="addUsNumber">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCanNumber')}" @click.prevent="toggleService({type: 'addCanNumber', cost: 4.00})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCanNumber')}" @click.prevent="toggleService({type: 'addCanNumber', cost: 4.00, desc:'+Additional Canadian Number'})">
                     <label class="addon-service--label" for="addCanNumber">Additional Canadian Number</label>
                     <input type="checkbox" id="addCanNumber" name="addCanNumber">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addIntNumber')}" @click.prevent="toggleService({type: 'addIntNumber', cost: 5.00})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addIntNumber')}" @click.prevent="toggleService({type: 'addIntNumber', cost: 5.00, desc:'+Additional International Number'})">
                     <label class="addon-service--label" for="addIntNumber">Additional International Number</label>
                     <input type="checkbox" id="addIntNumber" name="addIntNumber">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollFreeNum')}" @click.prevent="toggleService({type: 'addTollFreeNum', cost: 5.00})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollFreeNum')}" @click.prevent="toggleService({type: 'addTollFreeNum', cost: 5.00, desc:'+Add Toll Free Number'})">
                     <label class="addon-service--label" for="addTollFreeNum">Add Toll Free Number</label>
                     <input type="checkbox" id="addTollFreeNum" name="addTollFreeNum">
                 </div>
             </div>    
             <div class="quote__bottom--col">
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollFreeUsage')}" @click.prevent="toggleService({type: 'addTollFreeUsage', cost: 2.00})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollFreeUsage')}" @click.prevent="toggleService({type: 'addTollFreeUsage', cost: 2.00, desc:'+Add Toll Free Usage'})">
                     <label class="addon-service--label" for="addTollFreeUsage">Add Toll Free Usage</label>
                     <input type="checkbox" id="addTollFreeUsage" name="addTollFreeUsage">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording')}" @click.prevent="toggleService({type: 'addCallRecording', cost: 2.00})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording')}" @click.prevent="toggleService({type: 'addCallRecording', cost: 2.00, desc:'+Add Call Recording'})">
                     <label class="addon-service--label" for="addCallRecording">Add Call Recording</label>
                     <input type="checkbox" id="addCallRecording" name="addCallRecording">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording100')}" @click.prevent="toggleService({type: 'addCallRecording100', cost: 10.00})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording100')}" @click.prevent="toggleService({type: 'addCallRecording100', cost: 10.00, desc:'+Add Call Recording (100)'})">
                     <label class="addon-service--label" for="addCallRecording100">Add Call Recording (100)</label>
                     <input type="checkbox" id="addCallRecording100" name="addCallRecording100">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording305')}" @click.prevent="toggleService({type: 'addCallRecording305', cost: 10.00})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording305')}" @click.prevent="toggleService({type: 'addCallRecording305', cost: 10.00, desc:'+Add Call Recording (305)'})">
                     <label class="addon-service--label" for="addCallRecording305">Add Call Recording (305)</label>
                     <input type="checkbox" id="addCallRecording305" name="addCallRecording305">
                 </div>
             </div>
             <div class="quote__bottom--col">
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addBizCNAM')}" @click.prevent="toggleService({type: 'addBizCNAM', cost: 10.00})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addBizCNAM')}" @click.prevent="toggleService({type: 'addBizCNAM', cost: 10.00, desc:'+Add Business CNAM'})">
                     <label class="addon-service--label" for="addBizCNAM">Add Business CNAM</label>
                     <input type="checkbox" id="addBizCNAM" name="addBizCNAM">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addLNPTier')}" @click.prevent="toggleService({type: 'addLNPTier', cost: 5.00})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addLNPTier')}" @click.prevent="toggleService({type: 'addLNPTier', cost: 5.00, desc:'+Add LNP Tier 2, 3, 4 +'})">
                     <label class="addon-service--label" for="addLNPTier">Add LNP Tier 2, 3, 4 +</label>
                     <input type="checkbox" id="addLNPTier" name="addLNPTier">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollNumPort')}" @click.prevent="toggleService({type: 'addTollNumPort', cost: 20.00})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollNumPort')}" @click.prevent="toggleService({type: 'addTollNumPort', cost: 20.00, desc:'+Add Toll Free Number Port'})">
                     <label class="addon-service--label" for="addTollNumPort">Add Toll Free Number Port</label>
                     <input type="checkbox" id="addTollNumPort" name="addTollNumPort">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollNASC')}" @click.prevent="toggleService({type: 'addTollNASC', cost: 75.00})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollNASC')}" @click.prevent="toggleService({type: 'addTollNASC', cost: 75.00, desc:'+Add Toll Free Number NASC'})">
                     <label class="addon-service__label" for="addTollNASC" >Add Toll Free Number NASC</label>
                     <input type="checkbox" id="addTollNASC" name="addTollNASC">
                 </div>
@@ -137,10 +137,11 @@
         </div>
         <button class="btn-solid" @click.prevent="resetServices">RESET ALL</button>
     </div>
-    <!-- <div class="quote-form">
+    <div class="quote-form">
         <h2 class="mb-2 mt-2">3. Send Sign Up Request</h2>
+        <div class="quote-form__container">
+        <div class="quote-form__container--left">
         <div class="quote-form__input">
-        
             <div>
                 <input type="text" class="quote-form__text" name="user_name" required v-model="name" placeholder="Enter Your Full Name">
             </div>
@@ -152,10 +153,20 @@
                 <label for="message" >Message</label>
                 <textarea name="message" id=""  class="quote-form__textarea" rows="6" v-model="mssg" placeholder="Enter Any Notes You Would Like Us to See"></textarea>
             </div>
-            <button class="btn"  :disabled="!formCheck" >Send</button>
-            <div  v-if="doResponse" :class="{success : responseStatus, fail : !responseStatus}">{{response}}</div>
+            <button class="btn">Send</button>
+            <!-- <div  v-if="doResponse" :class="{success : responseStatus, fail : !responseStatus}">{{response}}</div> -->
             </div>
-        </div> -->
+        </div>
+        <div class="quote-form__container--right">
+            <div class="quote-form__title">Your Order</div>
+            <div class="quote-form--plan">Base Plan: <span>{{activePlan}} @ ${{baseCost}}/mo</span></div>
+            <ul>
+                <li v-for="(service, index) in activeServices" :key="index">{{service.desc}} @ ${{service.cost}}.00/mo</li>
+            </ul>
+        </div>
+        </div>
+
+        </div>
     </form>
     <div v-if="showPriceBox" class="total-box">
         <div class="total-box__title">
@@ -177,7 +188,10 @@ export default {
             activePlan: null,
             activeServices: [],
             baseCost: 0.00,
-            servicesCost: 0.00
+            servicesCost: 0.00,
+            name: null,
+            email: null,
+            mssg: null
         }
     },
     methods: {
@@ -245,7 +259,6 @@ export default {
         }
     },
     mounted() {
-        var vm = this
         window.addEventListener('scroll', (e) => {
             if (window.scrollY > 68) {
                 this.showPriceBox = true
@@ -264,6 +277,43 @@ export default {
 @import '../scss/utils.scss';
 @import '../scss/components/buttons.scss';
 @import '../scss/components/divider.scss';
+
+.quote-form {
+    &__container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+        &--left {
+            // border: 1px solid red;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        &--right {
+            // border: 1px solid red;
+            width: 50%;
+
+            & li {
+                display: block;
+            }
+
+        }
+    }
+
+    &__text {
+        width: 50%;
+        margin: .5rem auto;
+        padding: .5rem;
+    }
+
+    &__textarea {
+        width: 50%;
+    }
+}
 
 .total-box {
     position: fixed;
@@ -332,25 +382,6 @@ input[type=checkbox] {
 input[type=text], input[type=email], textarea {
     border: 1px solid $primary;
     border-radius: .2rem;
-}
-
-.quote-form {
-    width: 70%;
-    max-width: 900px;
-    margin: 0 auto;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-
-    &__text {
-        width: 50%;
-        margin: .5rem auto;
-        padding: .5rem;
-    }
-
-    &__textarea {
-        width: 50%;
-    }
 }
 
 .quote-divider {

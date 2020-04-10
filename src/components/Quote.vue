@@ -259,7 +259,7 @@ export default {
         }
     },
     mounted() {
-        if (this.$route.params.plan == 'empty') {
+        if (this.$route.params.plan == '') {
             window.scrollTo(0, 0)
         } else if (this.$route.params.plan == 'flex'){
             this.activePlan = "flex"
@@ -333,14 +333,14 @@ input[type=checkbox] {
         border: 2px solid $primary;
         border-radius: 2rem;
         padding: 1rem 0;
-        width: 90%;
+        width: 70%;
         margin: 0 auto;
         display: flex;
         justify-content: center;
         align-items: flex-start;
 
         &--left {
-            width: 30%;
+            width: 50%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -363,7 +363,7 @@ input[type=checkbox] {
         }
 
         &--right {
-            width: 30%;
+            width: 50%;
 
             & li {
                 display: block;

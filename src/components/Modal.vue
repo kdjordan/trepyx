@@ -37,7 +37,7 @@
             <input type="text" class="mb-1" name="companyName" required v-model="companyName" placeholder="Company Name">
 
             <input type="email" class="mb-1" name="user_email" required v-model="email" placeholder="Email">
-            <div class="flex-row mt-2">
+            <div class="flex-row mt-1 mb-1">
                 <div class="flex-row__item">
                     <label>Billing Issue
                         <input type="radio" id="billing" name="type" value="billing" checked v-model="ticketType">

@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 
     state: {
-        modalState: false,
+        modalState: true,
+        modalType: 'trouble',
         mssgs: [
             'Flexible Telecom Solutions',
             'We Grow With You',
@@ -22,8 +23,9 @@ export default new Vuex.Store({
 
     },
     mutations: {
-        toggleModal(state) {
+        toggleModal(state, payload) {
             state.modalState = !state.modalState
+            state.modalType = payload
         },
         setHeroInterval(state, payload) {
             state.heroInterval = payload
@@ -43,6 +45,9 @@ export default new Vuex.Store({
     getters: {
         getModalState(state) {
             return state.modalState
+        },
+        getModalType(state) {
+            return state.modalType
         },
         getMssg(state) {
             return state.mssgs[state.mssgIndex]

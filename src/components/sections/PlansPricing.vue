@@ -16,10 +16,9 @@
             <li>300 min/mo</li>
             <li>2 SIP Trunks</li>
             <li>1 Extension</li>
-            <li>Mobile App</li>
+            <li>iOS & Android Mobile App</li>
             <li>Voicemail</li>
             <li>e911</li>
-            <li>Overage Minutes : $0.03 /min</li>
           </ul>
         </div>
         <div style="margin-top: auto;">
@@ -35,18 +34,19 @@
 
         <div class="pricing__container--card--desc mb-2">
           <ul>
+            <li><strong>All of FLEX PLAN +</strong></li>
             <li>2 US Phone Numbers</li>
             <li>600 min/mo</li>
             <li>2 SIP Trunks</li>
             <li>1 Extension</li>
-            <li><strong>All of FLEX PLAN +</strong></li>
             <li>Inbound Fax</li>
+            <li>iOS & Android Mobile App</li>
             <li>Hosted Conferencing</li>
-            <li>Overage Minutes : $0.03 /min</li>
           </ul>
         </div>
-         <router-link to="/quote/basic"><button class="btn-lte">SELECT</button></router-link>
-        
+        <div style="margin-top: auto;">
+          <router-link to="/quote/flex"><button class="btn-lte">SELECT</button></router-link>
+        </div>
       </div>
 
      <div class="pricing__container--card">
@@ -56,16 +56,17 @@
 
         <div class="pricing__container--card--desc mb-2">
           <ul>
-             <li>2 US Phone Numbers</li>
+            <li><strong>All of BASIC & FLEX PLAN +</strong></li>
+            <li>2 US Phone Numbers</li>
             <li>Unlimited min/mo</li>
             <li>2 SIP Trunks</li>
             <li>2 Extension</li>
-            <li><strong>All of BASIC & FLEX PLAN +</strong></li>
             <li>Voicemail to Text</li>
             <li>Call Recording</li>
             <li>Directory Listing</li>
             <li>LNP Order</li>
-            <li>LNP Tier 1</li>
+            <li>iOS & Android Mobile App</li>
+            <li>LNP</li>
           </ul>
         </div>
         <router-link to="/quote/pro"><button class="btn-lte">SELECT</button></router-link>

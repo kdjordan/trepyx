@@ -19,10 +19,9 @@
             <li>300 min/mo</li>
             <li>2 SIP Trunks</li>
             <li>1 Extension</li>
-            <li>Mobile App</li>
+            <li>iOS & Android Mobile App</li>
             <li>Voicemail</li>
             <li>e911</li>
-            <li>Overage Minutes : $0.03 /min</li>
           </ul>
         </div>
         <div style="margin-top: auto;">
@@ -37,14 +36,14 @@
 
         <div class="quote__container--card-desc">
           <ul>
+            <li><strong>All of FLEX PLAN +</strong></li>
             <li>2 US Phone Numbers</li>
             <li>600 min/mo</li>
             <li>2 SIP Trunks</li>
             <li>1 Extension</li>
-            <li><strong>All of FLEX PLAN +</strong></li>
             <li>Inbound Fax</li>
+            <li>iOS & Android Mobile App</li>
             <li>Hosted Conferencing</li>
-            <li>Overage Minutes : $0.03 /min</li>
           </ul>
         </div>
         <div style="margin-top: auto;">
@@ -59,16 +58,17 @@
 
         <div class="quote__container--card-desc mb-2">
           <ul>
-             <li>2 US Phone Numbers</li>
+            <li><strong>All of BASIC & FLEX PLAN +</strong></li>
+            <li>2 US Phone Numbers</li>
             <li>Unlimited min/mo</li>
             <li>2 SIP Trunks</li>
             <li>2 Extension</li>
-            <li><strong>All of BASIC & FLEX PLAN +</strong></li>
             <li>Voicemail to Text</li>
             <li>Call Recording</li>
             <li>Directory Listing</li>
             <li>LNP Order</li>
-            <li>LNP Tier 1</li>
+            <li>iOS & Android Mobile App</li>
+            <li>LNP</li>
           </ul>
         </div>
         <div style="margin-top: auto;">
@@ -159,7 +159,7 @@
             <div class="quote-form__container--right">
                 <div class="quote-form__title">Your Order</div>
                 <div v-if="activePlan != null" class="quote-form__plan mt-1">Base Plan: <span>{{activePlan}}</span> @ ${{baseCost}}/mo</div>
-                <ul>
+                <ul class="mb-1">
                     <li v-for="(service, index) in activeServices" :key="index">{{service.desc}} @ ${{service.cost}}.00/mo</li>
                 </ul>
                 <div v-if="getTotalCost !== 0" class="quote-form__total">Your Total: ${{getTotalCost}}</div>
@@ -327,6 +327,7 @@ input[type=checkbox] {
         border-top: 1px solid $color2;
         width: 80%;
         margin: 0 auto;
+        padding-top: 1rem;
     }
 
     &__container {

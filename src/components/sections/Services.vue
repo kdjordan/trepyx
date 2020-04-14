@@ -92,7 +92,7 @@ export default {
 }
 
 .services {
-  padding: 1rem 0 10rem 0;
+  height: 23rem;
   background-image: url('../../assets/cloud-back.svg');
   background-position: bottom;
   background-size: cover;

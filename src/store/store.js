@@ -6,8 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 
     state: {
-        modalState: true,
-        modalType: 'trouble',
+        modalState: false,
+        modalType: '',
         mssgs: [
             'Flexible Telecom Solutions',
             'We Grow With You',

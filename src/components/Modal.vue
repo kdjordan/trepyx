@@ -6,15 +6,15 @@
           <div class="divider div-transparent--blu mb-2"></div>
           <form @submit.prevent="sendMail" class="modal__card__input">
 
-            <input type="text" class="mb-1" name="firstName" required v-model="firstName" placeholder="First Name">
-            <input type="text" class="mb-1" name="lastName" required v-model="lastName" placeholder="Last Name">
+            <input type="text" class="mb-1" name="firstName" required v-model="form.firstName" placeholder="First Name">
+            <input type="text" class="mb-1" name="lastName" required v-model="form.lastName" placeholder="Last Name">
             <input type="text" class="mb-1" name="title"  v-model="title" placeholder="Title">
-            <input type="text" class="mb-1" name="companyName"  v-model="companyName" placeholder="Company Name">
+            <input type="text" class="mb-1" name="companyName"  v-model="form.companyName" placeholder="Company Name">
 
-            <input type="email" class="mb-1" name="phoneNumber"  v-model="phoneNumber" placeholder="Phone Number">
-            <input type="email" class="mb-1" name="email" required v-model="email" placeholder="Email">
+            <input type="email" class="mb-1" name="phoneNumber"  v-model="form.phoneNumber" placeholder="Phone Number">
+            <input type="email" class="mb-1" name="email" required v-model="form.email" placeholder="Email">
 
-            <textarea name="message" id=""  rows="6" class="mb-1" v-model="mssg" placeholder="Message"></textarea>
+            <textarea name="message" id=""  rows="6" class="mb-1" v-model="form.mssg" placeholder="Message"></textarea>
             <div>
               <button class="btn-solid"  :disabled="!formCheck" >SEND</button>
               <div  v-if="doResponse" :class="{success : responseStatus, fail : !responseStatus}">{{response}}</div>
@@ -31,27 +31,27 @@
           <div class="modal__card--danger mb-1">Is this is an emergency please dial 911</div>
           <form @submit.prevent="sendMail" class="modal__card__input">
 
-            <input type="text" class="mb-1" name="firstName" required v-model="firstName" placeholder="First Name">
-            <input type="text" class="mb-1" name="lastName" required v-model="lastName" placeholder="Last Name">
-            <input type="text" class="mb-1" name="title" required v-model="title" placeholder="Title">
-            <input type="text" class="mb-1" name="companyName" required v-model="companyName" placeholder="Company Name">
+            <input type="text" class="mb-1" name="firstName" required v-model="form.firstName" placeholder="First Name">
+            <input type="text" class="mb-1" name="lastName" required v-model="form.lastName" placeholder="Last Name">
+            <input type="text" class="mb-1" name="title" required v-model="form.title" placeholder="Title">
+            <input type="text" class="mb-1" name="companyName" required v-model="form.companyName" placeholder="Company Name">
 
-            <input type="email" class="mb-1" name="user_email" required v-model="email" placeholder="Email">
+            <input type="email" class="mb-1" name="user_email" required v-model="form.email" placeholder="Email">
             <div class="flex-row mt-1 mb-1">
                 <div class="flex-row__item">
                     <label>Billing Issue
-                        <input type="radio" id="billing" name="type" value="billing" checked v-model="ticketType">
+                        <input type="radio" id="billing" name="type" value="billing" checked v-model="form.ticketType">
                     </label>
                 </div>
                 <div class="flex-row__item">
                     <label>Technical Issue
-                        <input type="radio" id="trouble" name="type" value="trouble" v-model="ticketType">
+                        <input type="radio" id="trouble" name="type" value="trouble" v-model="form.ticketType">
                     </label>
                 </div>
             </div>
             <div v-if="getTicketType" class="mb-4 mt-2">
                 <label for="">Severity of Case
-                    <select name="severity" id="" class="mb-2">
+                    <select name="severity" id="" class="trouble__slect mb-2" v-model="form.severity">
                         <option value="0">Level 0 - Ticket will be reviewed within 48 hours</option>
                         <option value="1">Level 1 - Ticket will be reviewed within 24 hours</option>
                         <option value="2">Level 2 - Ticket will be reviewed within 4 hours and escalated to Tier 2 Support </option>
@@ -62,38 +62,39 @@
                 <div class="flex-row mb-2">
                     <div class="flex-row__item--col">
                         <label>Date of Case</label>
-                        <input type="date" id="caseDate" name="caseDate" value="caseDate">
+                        <input type="date" id="caseDate" name="caseDate" value="caseDate" v-model="form.caseDate">
                     </div>
                     <div class="flex-row__item--col">
                         <label>Time of Case</label>
-                        <input type="time" id="caseTime" name="caseTime" value="caseTime">
+                        <input type="time" id="caseTime" name="caseTime" value="caseTime" v-model="form.caseTime">
                     </div>
                 </div>
                 <div class="flex-row__center mb-2">
                         <label for="callDuration">Call Duration</label>
-                          <input type="number" id="callDuration" name="callDuration" min="1" max="60">
+                          <input type="number" id="callDuration" name="callDuration" min="1" max="60" v-model="form.callDuration">
                     </div>
                 <div class="flex-row">
                     <div class="flex-row__item--col">
                         <label>Origination Number
-                        <input type="text" id="originNum" name="originNumber">
+                        <input type="text" id="originNum" name="originNumber" v-model="form.originationNum">
                         </label>
                     </div>
                     <div class="flex-row__item--col">
-                        <label>Desitnation Number
-                        <input type="text" id="destinationNum" name="destinationNum">
+                        <label>Destination Number
+                        <input type="text" id="destinationNum" name="destinationNum" v-model="form.destinationNum">
                         </label>
                     </div>
                 </div>
                     
             </div>
 
-            <textarea name="message" id=""  rows="6" class="mb-1" v-model="mssg" :placeholder="`${getTextAreaMssg}`"></textarea>
+            <textarea name="message" id=""  rows="6" class="mb-1" v-model="form.mssg" :placeholder="`${getTextAreaMssg}`"></textarea>
             <div>
-              <button class="btn-solid"  :disabled="!formCheck" >SEND</button>
+              <button class="btn-solid mb-1"  :disabled="!formCheck" >SEND</button>
               <div  v-if="doResponse" :class="{success : responseStatus, fail : !responseStatus}">{{response}}</div>
             </div>
           </form>
+          <!-- <button @click.prevent="addToCRM" class="btn-solid"  :disabled="!formCheck">CRM</button> -->
         </div>
     </div>
 
@@ -107,18 +108,100 @@ import { mapGetters } from 'vuex'
 export default {
     data() {
         return {
-            ticketType: 'billing',
-            name: '',
-            email: '',
-            mssg: '',
+            form: {
+                firstName: '',
+                lastName: '',
+                title: '',
+                companyName: '',
+                phoneNumber: '',
+                email: '',
+                mssg: '',
+                ticketType: 'billing',
+                severity: null,
+                caseDate: null,
+                caseTime: null,
+                callDuration: null,
+                originationNum: null,
+                destinationNum: null
+            },
             doResponse: false,
             responseStatus: false,
             response: ''
         }
     },
     methods: {
+        resetForm() {
+            var self = this
+            Object.keys(this.form).forEach(function(key,index) {
+                self.form[key] = '';
+            });
+            this.form.ticketType = 'billing'
+        },
         closeModal() {
             this.$store.commit('toggleModal', null)
+        },
+        sendMail(e) {
+            let templateParams = {}
+            let theTemplate = null
+            if (this.form.ticketType == 'billing') {
+                theTemplate = 'template_Noy0SjKH_clone'
+                templateParams = {
+                    "from_name": `${this.form.firstName} ${this.form.lastName}`,
+                    "reply_to": this.form.email,
+                    "title": this.form.title,
+                    "company_name": this.form.companyName,
+                    "message_html": this.form.mssg,
+                    "email": this.form.email
+                } 
+            } else if (this.form.ticketType == 'trouble') {
+                theTemplate = 'template_Noy0SjKH'
+                templateParams = {
+                    "from_name": `${this.form.firstName} ${this.form.lastName}`,
+                    "reply_to": this.form.email,
+                    "title": this.form.title,
+                    "company_name": this.form.companyName,
+                    "message_html": this.form.mssg,
+                    "email": this.form.email,
+                    "severity": this.form.severity,
+                    "caseDate": this.form.caseDate,
+                    "caseTime": this.form.caseTime,
+                    "callDuration": this.form.callDuration,
+                    "originationNum": this.form.originationNum,
+                    "destinationNum": this.form.destinationNum,
+                } 
+            }
+            
+            emailjs.send('smtp_server', theTemplate, templateParams, process.env.VUE_APP_EMAIL_ID)
+                .then((result) => {
+                    if(result.status == 200) {
+                        this.doResponse = true;
+                        this.responseStatus = true;
+                        this.response = 'Success. We will be in touch shortly';
+                        setTimeout(() => {
+                            this.resetForm()
+                            this.closeModal();
+                        }, 3000)
+                    }
+                    console.log('SUCCESS!', result.status, result.text);
+                }, (error) => {
+                    this.doResponse = true;
+                    this.responseStatus = false;
+                    this.response = 'Something went wrong. You can email us directly : steve@trepyx.com';
+                    this.resetForm()
+                    console.log('FAILED...', error);
+                });
+                
+                
+        },
+        addToCRM() {
+            console.log('clicked CRM')
+            // this.axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+            const header = 'Authorization: Basic' + process.env.VUE_APP_CRM_KEY
+            // const header = 'Access-Control-Allow-Headers: Accept'
+            console.log(header)
+                this.axios.post('https://api.insightly.com/v3.1/Contacts', {header}).then((response) => {
+                    console.log(response.data)
+                })
         }
     },
     computed: {
@@ -130,7 +213,7 @@ export default {
             return  !(this.name  == '' || this.email == '');
         },
         getTicketType() {
-            return this.ticketType == 'trouble'
+            return this.form.ticketType == 'trouble'
         },
         getTextAreaMssg() {
             if (this.getTicketType) {
@@ -165,9 +248,17 @@ input[type=text], input[type=email], textarea {
     }
 }
 
+.trouble__select {
+    min-height: 2rem;
+    font-size: 1.3rem;
+}
+
 label {
+    font-size: 1rem;
+    margin: .3rem;
+    font-family: $font2;
     color: $color2;
-    margin-right: 1rem;
+    letter-spacing: 1px;
 }
 
 .flex-row {
@@ -200,13 +291,13 @@ label {
 //     background: grey;
 // }
 
-// .success {
-//     color: green;
-// }
+.success {
+    color: green;
+}
 
-// .fail {
-//     color: red;
-// }
+.fail {
+    color: red;
+}
 
 // .full {
 //     width: 80%;
@@ -264,6 +355,7 @@ label {
 
             & div {
                 width: 80%;
+                margin: 0 auto;
             }
         }
         

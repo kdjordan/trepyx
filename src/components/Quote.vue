@@ -130,7 +130,7 @@
                     <input type="checkbox" id="addTollNumPort" name="addTollNumPort">
                 </div>
                 <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollNASC')}" @click.prevent="toggleService({type: 'addTollNASC', cost: 75.00, desc:'+ Add Toll Free Number NASC'})">
-                    <label class="addon-service__label" for="addTollNASC" >Add Toll Free Number NASC</label>
+                    <label class="addon-service--label" for="addTollNASC" >Add Toll Free Number NASC</label>
                     <input type="checkbox" id="addTollNASC" name="addTollNASC">
                 </div>
             </div>
@@ -530,6 +530,7 @@ input[type=checkbox] {
     transition: all .4s ease;
 
     &--label {
+        color: white;
         margin-left: 1rem;
         cursor: pointer;
     }

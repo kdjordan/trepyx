@@ -8,7 +8,7 @@
 
             <input type="text" class="mb-1" name="firstName" required v-model="form.firstName" placeholder="First Name">
             <input type="text" class="mb-1" name="lastName" required v-model="form.lastName" placeholder="Last Name">
-            <input type="text" class="mb-1" name="title"  v-model="title" placeholder="Title">
+            <input type="text" class="mb-1" name="title"  v-model="form.title" placeholder="Title">
             <input type="text" class="mb-1" name="companyName"  v-model="form.companyName" placeholder="Company Name">
 
             <input type="email" class="mb-1" name="phoneNumber"  v-model="form.phoneNumber" placeholder="Phone Number">

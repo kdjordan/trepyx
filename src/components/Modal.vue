@@ -172,7 +172,7 @@ export default {
                     "destinationNum": this.form.destinationNum,
                 } 
             }
-            this.axios.post('http://localhost:3009/send', data).then((response) => {
+            this.axios.post('https://trepyx-proxy.herokuapp.com/send', data).then((response) => {
                 if (response.status == 200) {
                     this.$store.commit('makeResponse', {
                         doResponse: true,

@@ -251,9 +251,8 @@ export default {
             } else {
                 let services = []
                 this.activeServices.forEach(service => services.push(service.desc))
-                console.log(services)
     
-                this.axios.post('http://localhost:3009/crm', 
+                this.axios.post('https://trepyx-proxy.herokuapp.com/crm', 
                 { 
                     data: {
                         form: this.form,

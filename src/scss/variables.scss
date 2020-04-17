@@ -7,3 +7,29 @@ $color2: #133379;
 $secondary: #7a97f9;
 
 $black: #000040;
+
+.success {
+    letter-spacing: 1px;
+    background: green;
+    color: white;
+    border: 1px solid green;
+    border-radius: .5rem;
+    padding: .3rem 0;
+    width: 25%;
+    margin: 0 auto;
+}
+
+.fail {
+    letter-spacing: 1px;
+    background: red;
+    color: white;
+    border: 1px solid red;
+    border-radius: .5rem;
+    padding: .3rem 0;
+    width: 25%;
+    margin: 0 auto;
+}
+
+button:disabled {
+    background: grey;
+}

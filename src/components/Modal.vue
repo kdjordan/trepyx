@@ -9,15 +9,15 @@
             <input type="text" class="mb-1" name="firstName" required v-model="form.firstName" placeholder="First Name">
             <input type="text" class="mb-1" name="lastName" required v-model="form.lastName" placeholder="Last Name">
             <input type="text" class="mb-1" name="title"  v-model="form.title" placeholder="Title">
-            <input type="text" class="mb-1" name="companyName"  v-model="form.companyName" placeholder="Company Name">
+            <input type="text" class="mb-1" name="companyName"  required v-model="form.companyName" placeholder="Company Name">
 
-            <input type="email" class="mb-1" name="phoneNumber"  v-model="form.phoneNumber" placeholder="Phone Number">
+            <input type="text" class="mb-1" name="phoneNumber"  required v-model="form.phoneNumber" placeholder="Phone Number">
             <input type="email" class="mb-1" name="email" required v-model="form.email" placeholder="Email">
 
             <textarea name="message" id=""  rows="6" class="mb-1" v-model="form.mssg" placeholder="Message"></textarea>
             <div>
-              <button class="btn-solid"  :disabled="!formCheck" >SEND</button>
-              <div  v-if="doResponse" :class="{success : responseStatus, fail : !responseStatus}">{{response}}</div>
+              <button class="btn-solid">SEND</button>
+              <div  v-if="getDoResponse" class="mt-1" :class="{success : getResponseStatus, fail : !getResponseStatus}">{{getResponseMssg}}</div>
             </div>
           </form>
 
@@ -33,9 +33,10 @@
 
             <input type="text" class="mb-1" name="firstName" required v-model="form.firstName" placeholder="First Name">
             <input type="text" class="mb-1" name="lastName" required v-model="form.lastName" placeholder="Last Name">
-            <input type="text" class="mb-1" name="title" required v-model="form.title" placeholder="Title">
+            <input type="text" class="mb-1" name="title"  v-model="form.title" placeholder="Title">
             <input type="text" class="mb-1" name="companyName" required v-model="form.companyName" placeholder="Company Name">
 
+            <input type="text" class="mb-1" name="phoneNumber" required v-model="form.phoneNumber" placeholder="Phone">
             <input type="email" class="mb-1" name="user_email" required v-model="form.email" placeholder="Email">
             <div class="flex-row mt-1 mb-1">
                 <div class="flex-row__item">
@@ -88,13 +89,12 @@
                     
             </div>
 
-            <textarea name="message" id=""  rows="6" class="mb-1" v-model="form.mssg" :placeholder="`${getTextAreaMssg}`"></textarea>
+            <textarea name="message" id=""  rows="6" class="mb-1" v-model="form.mssg" :placeholder="`${getTextAreaMssg}`" required></textarea>
             <div>
-              <button class="btn-solid mb-1"  :disabled="!formCheck" >SEND</button>
-              <div  v-if="doResponse" :class="{success : responseStatus, fail : !responseStatus}">{{response}}</div>
+              <button class="btn-solid mb-1">SEND</button>
+              <div  v-if="getDoResponse" class="mt-1" :class="{success : getResponseStatus, fail : !getResponseStatus}">{{getResponseMssg}}</div>
             </div>
           </form>
-          <!-- <button @click.prevent="addToCRM" class="btn-solid"  :disabled="!formCheck">CRM</button> -->
         </div>
     </div>
 
@@ -140,25 +140,27 @@ export default {
         closeModal() {
             this.$store.commit('toggleModal', null)
         },
-        sendMail(e) {
-            let templateParams = {}
+        sendMail() {
+            let data = {}
             let theTemplate = null
             if (this.form.ticketType == 'billing') {
-                theTemplate = 'template_Noy0SjKH_clone'
-                templateParams = {
+                data = {
+                    "ticket_type": 'billing',
                     "from_name": `${this.form.firstName} ${this.form.lastName}`,
                     "reply_to": this.form.email,
                     "title": this.form.title,
+                    "phone": this.form.phoneNumber,
                     "company_name": this.form.companyName,
                     "message_html": this.form.mssg,
                     "email": this.form.email
                 } 
             } else if (this.form.ticketType == 'trouble') {
-                theTemplate = 'template_Noy0SjKH'
-                templateParams = {
+                data = {
+                    "ticket_type": 'trouble',
                     "from_name": `${this.form.firstName} ${this.form.lastName}`,
                     "reply_to": this.form.email,
                     "title": this.form.title,
+                    "phone": this.form.phoneNumber,
                     "company_name": this.form.companyName,
                     "message_html": this.form.mssg,
                     "email": this.form.email,
@@ -170,48 +172,33 @@ export default {
                     "destinationNum": this.form.destinationNum,
                 } 
             }
-            
-            emailjs.send('smtp_server', theTemplate, templateParams, process.env.VUE_APP_EMAIL_ID)
-                .then((result) => {
-                    if(result.status == 200) {
-                        this.doResponse = true;
-                        this.responseStatus = true;
-                        this.response = 'Success. We will be in touch shortly';
-                        setTimeout(() => {
-                            this.resetForm()
-                            this.closeModal();
-                        }, 3000)
-                    }
-                    console.log('SUCCESS!', result.status, result.text);
-                }, (error) => {
-                    this.doResponse = true;
-                    this.responseStatus = false;
-                    this.response = 'Something went wrong. You can email us directly : steve@trepyx.com';
-                    this.resetForm()
-                    console.log('FAILED...', error);
-                });
-                
-                
+            this.axios.post('http://localhost:3009/send', data).then((response) => {
+                if (response.status == 200) {
+                    this.$store.commit('makeResponse', {
+                        doResponse: true,
+                        responseStatus: true,
+                        response: 'SUCCESS ! We\'ll Be In Touch.'
+                    })
+                    setTimeout(() => {
+                        this.resetForm()
+                        this.$store.commit('resetResponse')
+                        window.scrollTo(0, 0)
+                        this.$store.commit('toggleModal', null)
+                    }, 2000)
+                }
+            }).catch((e) => {
+                console.log('error' + e)
+            })      
         },
-        addToCRM() {
-            console.log('clicked CRM')
-            // this.axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-            const header = 'Authorization: Basic' + process.env.VUE_APP_CRM_KEY
-            // const header = 'Access-Control-Allow-Headers: Accept'
-            console.log(header)
-                this.axios.post('https://api.insightly.com/v3.1/Contacts', {header}).then((response) => {
-                    console.log(response.data)
-                })
-        }
     },
     computed: {
         ...mapGetters({
             getModalState: 'getModalState',
-            getModalType: 'getModalType'
+            getModalType: 'getModalType',
+            getDoResponse: 'getDoResponse',
+            getResponseStatus: 'getResponseStatus',
+            getResponseMssg: 'getResponseMssg'
         }),
-        formCheck() {
-            return  !(this.name  == '' || this.email == '');
-        },
         getTicketType() {
             return this.form.ticketType == 'trouble'
         },
@@ -287,30 +274,6 @@ label {
     }
 }
 
-// button:disabled {
-//     background: grey;
-// }
-
-.success {
-    color: green;
-}
-
-.fail {
-    color: red;
-}
-
-// .full {
-//     width: 80%;
-//     border-radius: 5px;
-//     background: $primary;
-//     color: white;
-//     outline: none;
-
-//     &:hover {
-//         color: $primary;
-//         box-shadow: inset 0 0 0 1px #0000ff;
-//     }
-// }
 .modal {
     position: fixed;
     left: 0;

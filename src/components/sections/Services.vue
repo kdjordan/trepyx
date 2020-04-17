@@ -18,14 +18,14 @@
             <img src="../../assets/airplane-comp.svg" alt="" class="icon">
             International Number
           </div>
-          <div class="services-card__item">
-            <img src="../../assets/airplane-comp.svg" alt="" class="icon">
-            Toll Free Number
-          </div>
       </div>
       
   
       <div class="services-card">
+          <div class="services-card__item">
+            <img src="../../assets/airplane-comp.svg" alt="" class="icon">
+            Toll Free Number
+          </div>
           <div class="services-card__item">
             <img src="../../assets/airplane-comp.svg" alt="" class="icon">
             Toll Free Usage
@@ -36,18 +36,14 @@
           </div>
           <div class="services-card__item">
             <img src="../../assets/airplane-comp.svg" alt="" class="icon">
-            Call Recording (305)
+            Call Recording (500)
           </div>
       </div>
     
         <div class="services-card">
           <div class="services-card__item">
             <img src="../../assets/airplane-comp.svg" alt="" class="icon">
-            Business CNAM
-          </div>
-          <div class="services-card__item">
-            <img src="../../assets/airplane-comp.svg" alt="" class="icon">
-            LNP Tier 2, 3, 4 +
+            Voicemail Transcription
           </div>
           <div class="services-card__item">
             <img src="../../assets/airplane-comp.svg" alt="" class="icon">

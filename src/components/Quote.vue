@@ -1,17 +1,15 @@
 <template>
   <div class="quote">
     <h1 class="mb-2">Trepyx Quote Tool</h1>
-    <!-- ::{{getButtonMessg('pro')}} -->
-    <form @submit.prevent="sendMail">
+    <form @submit.prevent="sendRequest">
     <div class="divider div-transparent--blu"></div>
     <h2 class="mb-2 mt-2">1. Select Your Base Plan</h2>
-
     <div class="quote__container">
 
       <div class="quote__container--card" :class="{selected: getSelected == 'flex'}" @click.prevent="markSelected('flex')">
         <div class="quote__container--card-title">FLEX</div>
         <div class="quote-divider mb-1"></div>
-        <div class="quote__container--card-price">$12.95<span>/month</span></div>
+        <div class="quote__container--card-price">$10.50<span>/month</span></div>
 
         <div class="quote__container--card-desc">
           <ul>
@@ -25,25 +23,24 @@
           </ul>
         </div>
         <div style="margin-top: auto;">
-          <button class="btn-lte" :class="{selected: getSelected == 'flex'}" @click.prevent="markSelected('flex')">{{getButtonMessg('flex')}}</button>
+          <button class="btn-lte" :class="{selected: getSelected == 'basic'}" @click.prevent="markSelected('basic')">{{getButtonMessg('basic')}}</button>
         </div>
       </div>
 
       <div class="quote__container--card" :class="{selected: getSelected == 'basic'}" @click.prevent="markSelected('basic')">
         <div class="quote__container--card-title">BASIC</div>
         <div class="quote-divider mb-1"></div>
-        <div class="quote__container--card-price">$19.95<span>/month</span></div>
+        <div class="quote__container--card-price">$13.00<span>/month</span></div>
 
         <div class="quote__container--card-desc">
           <ul>
             <li><strong>All of FLEX PLAN +</strong></li>
-            <li>2 US Phone Numbers</li>
-            <li>600 min/mo</li>
+            <li>1 Additional US Phone Number</li>
+            <li>300 more min/mo</li>
             <li>2 SIP Trunks</li>
             <li>1 Extension</li>
             <li>Inbound Fax</li>
             <li>iOS & Android Mobile App</li>
-            <li>Hosted Conferencing</li>
           </ul>
         </div>
         <div style="margin-top: auto;">
@@ -54,7 +51,7 @@
      <div class="quote__container--card" :class="{selected: getSelected == 'pro'}" @click.prevent="markSelected('pro')">
         <div class="quote__container--card-title">PRO</div>
         <div class="quote-divider mb-1"></div>
-        <div class="quote__container--card-price">$24.95<span>/month</span></div>
+        <div class="quote__container--card-price">$27.50<span>/month</span></div>
 
         <div class="quote__container--card-desc mb-2">
           <ul>
@@ -64,11 +61,9 @@
             <li>2 SIP Trunks</li>
             <li>2 Extension</li>
             <li>Voicemail to Text</li>
-            <li>Call Recording</li>
             <li>Directory Listing</li>
-            <li>LNP Order</li>
+            <li>LNP transfer fees (free)</li>
             <li>iOS & Android Mobile App</li>
-            <li>LNP</li>
           </ul>
         </div>
         <div style="margin-top: auto;">
@@ -85,7 +80,7 @@
                     <label class="addon-service--label" for="addUsNumber">Additional Us Number</label>
                     <input type="checkbox" id="addUsNumber" name="addUsNumber">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCanNumber')}" @click.prevent="toggleService({type: 'addCanNumber', cost: 4.00, desc:'+ Additional Canadian Number'})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCanNumber')}" @click.prevent="toggleService({type: 'addCanNumber', cost: 3.00, desc:'+ Additional Canadian Number'})">
                     <label class="addon-service--label" for="addCanNumber">Additional Canadian Number</label>
                     <input type="checkbox" id="addCanNumber" name="addCanNumber">
                 </div>
@@ -93,40 +88,32 @@
                     <label class="addon-service--label" for="addIntNumber">Additional International Number</label>
                     <input type="checkbox" id="addIntNumber" name="addIntNumber">
                 </div>
+            </div>    
+            <div class="quote__bottom--col">
                 <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollFreeNum')}" @click.prevent="toggleService({type: 'addTollFreeNum', cost: 5.00, desc:'+ Add Toll Free Number'})">
                     <label class="addon-service--label" for="addTollFreeNum">Add Toll Free Number</label>
                     <input type="checkbox" id="addTollFreeNum" name="addTollFreeNum">
                 </div>
-            </div>    
-            <div class="quote__bottom--col">
                 <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollFreeUsage')}" @click.prevent="toggleService({type: 'addTollFreeUsage', cost: 2.00, desc:'+ Add Toll Free Usage'})">
                     <label class="addon-service--label" for="addTollFreeUsage">Add Toll Free Usage</label>
                     <input type="checkbox" id="addTollFreeUsage" name="addTollFreeUsage">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording')}" @click.prevent="toggleService({type: 'addCallRecording', cost: 2.00, desc:'+ Add Call Recording'})">
-                    <label class="addon-service--label" for="addCallRecording">Add Call Recording</label>
-                    <input type="checkbox" id="addCallRecording" name="addCallRecording">
-                </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording100')}" @click.prevent="toggleService({type: 'addCallRecording100', cost: 10.00, desc:'+ Add Call Recording (100)'})">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording100')}" @click.prevent="toggleService({type: 'addCallRecording100', cost: 12.00, desc:'+ Add Call Recording (100)'})">
                     <label class="addon-service--label" for="addCallRecording100">Add Call Recording (100)</label>
                     <input type="checkbox" id="addCallRecording100" name="addCallRecording100">
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording305')}" @click.prevent="toggleService({type: 'addCallRecording305', cost: 10.00, desc:'+ Add Call Recording (305)'})">
-                    <label class="addon-service--label" for="addCallRecording305">Add Call Recording (305)</label>
-                    <input type="checkbox" id="addCallRecording305" name="addCallRecording305">
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording500')}" @click.prevent="toggleService({type: 'addCallRecording500', cost: 40.00, desc:'+ Add Call Recording (500)'})">
+                    <label class="addon-service--label" for="addCallRecording305">Add Call Recording (500)</label>
+                    <input type="checkbox" id="addCallRecording305" name="addCallRecording500">
                 </div>
             </div>
             <div class="quote__bottom--col">
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addBizCNAM')}" @click.prevent="toggleService({type: 'addBizCNAM', cost: 10.00, desc:'+ Add Business CNAM'})">
-                    <label class="addon-service--label" for="addBizCNAM">Add Business CNAM</label>
-                    <input type="checkbox" id="addBizCNAM" name="addBizCNAM">
-                </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addLNPTier')}" @click.prevent="toggleService({type: 'addLNPTier', cost: 5.00, desc:'+ Add LNP Tier 2, 3, 4 +'})">
-                    <label class="addon-service--label" for="addLNPTier">Add LNP Tier 2, 3, 4 +</label>
-                    <input type="checkbox" id="addLNPTier" name="addLNPTier">
-                </div>
                 <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollNumPort')}" @click.prevent="toggleService({type: 'addTollNumPort', cost: 20.00, desc:'+ Add Toll Free Number Port'})">
                     <label class="addon-service--label" for="addTollNumPort">Add Toll Free Number Port</label>
+                    <input type="checkbox" id="addTollNumPort" name="addTollNumPort">
+                </div>
+                <div class="addon-service" :class="{btnSelected: getBtnSelected('voicelmailTrans')}" @click.prevent="toggleService({type: 'voicelmailTrans', cost: 3.00, desc:'+ Add Toll Free Number Port'})">
+                    <label class="addon-service--label" for="addTollNumPort">Add Voicemail Transcription</label>
                     <input type="checkbox" id="addTollNumPort" name="addTollNumPort">
                 </div>
                 <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollNASC')}" @click.prevent="toggleService({type: 'addTollNASC', cost: 75.00, desc:'+ Add Toll Free Number NASC'})">
@@ -135,37 +122,43 @@
                 </div>
             </div>
         </div>
-        <button class="btn-solid wide mt-2" @click.prevent="resetServices">RESET ALL SERVICES</button>
+        <button class="btn-solid mt-2" @click.prevent="resetServices">RESET ALL SERVICES</button>
     </div>
     <div class="quote-form">
         <h2 class="mb-2 mt-4">3. Send Sign Up Request</h2>
         <div class="quote-form__container">
             <div class="quote-form__container--left">
                 <div class="quote-form__input">
-                    <div>
-                        <input type="text" class="quote-form__text" name="user_name" required v-model="name" placeholder="Full Name">
-                    </div>
-                    <div>
-                        <input type="email" class="quote-form__text short" name="user_email" required v-model="email" placeholder="Email">
-                        <input type="email" class="quote-form__text short" name="user_email" required v-model="email" placeholder="Phone">
-                    </div>
-                    <div>
-                        <textarea name="message" id=""  class="quote-form__textarea" rows="6" v-model="mssg" placeholder="Optional Message"></textarea>
-                    </div>
                     
-                    <!-- <div  v-if="doResponse" :class="{success : responseStatus, fail : !responseStatus}">{{response}}</div> -->
+                    <input type="text" class="mb-1" name="firstName" required v-model="form.firstName" placeholder="First Name">
+                    <input type="text" class="mb-1" name="lastName" required v-model="form.lastName" placeholder="Last Name">
+                    <input type="text" class="mb-1" name="title"  v-model="form.title" placeholder="Title">
+                    <input type="text" class="mb-1" name="companyName"  v-model="form.companyName" placeholder="Company Name">
+
+                    <input type="text" class="mb-1" name="phoneNumber"  v-model="form.phoneNumber" placeholder="Phone Number">
+                    <input type="email" class="mb-1" name="email" required v-model="form.email" placeholder="Email">
+
+                    <textarea name="message" id=""  rows="6" class="mb-1" v-model="form.mssg" placeholder="Message"></textarea>
                 </div>
             </div>
             <div class="quote-form__container--right">
                 <div class="quote-form__title">Your Order</div>
-                <div v-if="activePlan != null" class="quote-form__plan mt-1">Base Plan: <span>{{activePlan}}</span> @ ${{baseCost}}/mo</div>
+                <div v-if="activePlan != null" class="quote-form__plan mt-1">Base Plan: <span>{{activePlan}}</span> @ ${{getBaseCost}}/mo</div>
+                <div v-if="activePlan != null" class="mt-1">One Time Set Up Fee: ${{getSetUpCharge}}</div>
                 <ul class="mb-1">
                     <li v-for="(service, index) in activeServices" :key="index">{{service.desc}} @ ${{service.cost}}.00/mo</li>
                 </ul>
-                <div v-if="getTotalCost !== 0" class="quote-form__total">Your Total: ${{getTotalCost}}</div>
+                <div v-if="activePlan != null" class="quote-form__total">Your Total: ${{getTotalCost(true)}}
+                    <div class="quote-form__claimer">
+                        <div>* These numbers do not apply to Call Centers</div>
+                        <div>* These numbers are an estimate and not a final quote</div>
+                        <div>* Taxes and other fees are not included with this estimate</div>
+                    </div>
+                </div>
             </div>
         </div>
-    <button class="btn-solid wide mt-2 mb-2">SEND REQUEST</button>
+        <div  v-if="getDoResponse" class="mt-1" :class="{success : getResponseStatus, fail : !getResponseStatus}">{{getResponseMssg}}</div>
+    <button class="btn-solid mt-2 mb-2">SEND REQUEST</button>
     </div>
     </form>
     <div v-if="showPriceBox" class="total-box">
@@ -173,38 +166,50 @@
             You're Cost per Month
         </div>
         <div class="total-box__price">
-            ${{getTotalCost}}
-            <!-- {{servicesCost}} -->
+            ${{getTotalCost(false)}}
         </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import axios from 'axios'
+
 export default {
     data() {
         return {
+            form: {
+                firstName: '',
+                lastName: '',
+                title: '',
+                companyName: '',
+                phoneNumber: '',
+                email: '',
+                mssg: ''
+            },
             showPriceBox: false,
             activePlan: null,
             activeServices: [],
             baseCost: 0.00,
             servicesCost: 0.00,
-            name: null,
-            email: null,
-            mssg: null
+            setUpCharge: 0.00
         }
     },
     methods: {
         markSelected(plan) {
             if (plan == "flex") {
                 this.activePlan = "flex"
-                this.baseCost = 12.95
+                this.baseCost = 10.50
+                this.setUpCharge = 6
             } else if (plan == "basic") {
                 this.activePlan = "basic"
-                this.baseCost = 19.95
+                this.baseCost = 13.00
+                this.setUpCharge = 7.5
             }  else if (plan == "pro") {
                 this.activePlan = "pro"
-                this.baseCost = 24.95
+                this.baseCost = 27.50
+                this.setUpCharge = 26.5
             }
         },
         toggleService(service) {
@@ -216,11 +221,81 @@ export default {
         },
         resetServices() {
             this.activeServices = []
-        }
+        },
+        resetForm() {
+            var self = this
+            Object.keys(this.form).forEach(function(key,index) {
+                self.form[key] = '';
+            });
+            this.activePlan = null
+            this.activeServices = []
+            this.showPriceBox = false 
+            this.baseCost = 0.00,
+            this.servicesCost = 0.00
+            this.setUpCharge = 0.00
+        },
+        sendRequest() {
+            if (this.activePlan == null) {
+                this.$store.commit('makeResponse', {
+                    doResponse: true,
+                    responseStatus: false,
+                    response: 'Please select a Base Plan to Continue'
+                })
+                setTimeout(() => {
+                    this.$store.commit('makeResponse', {
+                    doResponse: false,
+                    responseStatus: false,
+                    response: ''
+                    })
+                }, 2000)
+            } else {
+                let services = []
+                this.activeServices.forEach(service => services.push(service.desc))
+                console.log(services)
+    
+                this.axios.post('http://localhost:3009/crm', 
+                { 
+                    data: {
+                        form: this.form,
+                        plan: this.activePlan,
+                        services: services
+                    }
+              }).then((response) => {
+                if (response.status == 200) {
+                    this.$store.commit('makeResponse', {
+                        doResponse: true,
+                        responseStatus: true,
+                        response: 'SUCCESS ! We\'ll Be In Touch.'
+                    })
+                    setTimeout(() => {
+                        this.resetForm()
+                        this.$store.commit('resetResponse')
+                        window.scrollTo(0, 0)
+                    }, 2000)
+                }
+            }).catch((e) => {
+                 this.$store.commit('makeResponse', {
+                        doResponse: true,
+                        responseStatus: false,
+                        response: 'PROBLEM - please contact Steve directly : steve@trepyx.com'
+                    })
+                console.log(e)
+            })
+            }
+            }
     },
     computed: {
+        ...mapGetters({
+            getDoResponse: 'getDoResponse',
+            getResponseStatus: 'getResponseStatus',
+            getResponseMssg: 'getResponseMssg'
+
+        }),
         getSelected() {
             return this.activePlan
+        },
+        getSetUpCharge() {
+            return (this.setUpCharge).toFixed(2)
         },
         getButtonMessg() {
             return (button) => {
@@ -244,7 +319,14 @@ export default {
             }
         },
         getTotalCost() {
-            return (this.baseCost + this.getServicesCost)
+            return (flag) => {
+                if (flag) {
+                    return (this.baseCost + this.getServicesCost + this.setUpCharge).toFixed(2)
+                } else {
+                    return (this.baseCost + this.getServicesCost).toFixed(2)
+                }
+
+            }
         },
         getServicesCost() {
             if(this.activeServices.length > 0) {
@@ -252,26 +334,32 @@ export default {
                this.activeServices.forEach(service => {
                    total += service.cost
                }) 
-               return total
+               return total 
             } else {
                 return 0
             }
+        },
+        getBaseCost() {
+            return this.baseCost.toFixed(2)
         }
     },
     mounted() {
-        if (this.$route.params.plan == '') {
+        if (this.$store.state.planSelected == null) {
             window.scrollTo(0, 0)
-        } else if (this.$route.params.plan == 'flex'){
+        } else if (this.$store.state.planSelected == 'flex'){
             this.activePlan = "flex"
-            this.baseCost = 12.95
+            this.setUpCharge = 6
+            this.baseCost = 10.50
             window.scrollTo(0, 69)
-        } else if (this.$route.params.plan == 'basic') {
+        } else if (this.$store.state.planSelected == 'basic') {
             this.activePlan = "basic"
-            this.baseCost = 19.95
+            this.baseCost = 13.00
+            this.setUpCharge = 7.5
             window.scrollTo(0, 69)
-        } else if (this.$route.params.plan == 'pro') {
+        } else if (this.$store.state.planSelected == 'pro') {
             this.activePlan = "pro"
-            this.baseCost = 24.95
+            this.baseCost = 27.50
+            this.setUpCharge = 26.50
             window.scrollTo(0, 69)
         }
 
@@ -294,9 +382,6 @@ export default {
 @import '../scss/components/buttons.scss';
 @import '../scss/components/divider.scss';
 
-.wide {
-    width: 20%;
-}
 
 input[type=checkbox] {
     opacity: 0;
@@ -307,11 +392,12 @@ input[type=checkbox] {
 .quote-form {
     
     &__title {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         color: $color2;
         border-bottom: 1px solid $color2;
         width: 80%;
         margin: 0 auto;
+        text-transform: uppercase;
     }
 
     &__plan {
@@ -321,6 +407,12 @@ input[type=checkbox] {
             text-transform: uppercase;
             font-weight: bold;
         }
+    }
+
+    &__claimer {
+        font-size: .8rem;
+        color: red;
+        font-style: italic;
     }
 
     &__total {
@@ -342,6 +434,7 @@ input[type=checkbox] {
 
         &--left {
             width: 50%;
+            margin: 0 2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -365,6 +458,10 @@ input[type=checkbox] {
 
         &--right {
             width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
             & li {
                 display: block;
@@ -448,6 +545,11 @@ input[type=checkbox] {
     color: $primary;
 
     &__container {
+        border: 2px solid $primary;
+        border-radius: 2rem;
+        width: 90%;
+        margin: 0 auto;
+        padding: 2rem;
         display: flex;
         justify-content: center;
         align-items: center;

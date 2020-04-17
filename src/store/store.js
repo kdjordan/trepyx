@@ -6,6 +6,12 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 
     state: {
+        response: {
+            doResponse: false,
+            responseStatus: false,
+            response: ''
+        },
+        planSelected: null,
         modalState: false,
         modalType: '',
         mssgs: [
@@ -23,6 +29,19 @@ export default new Vuex.Store({
 
     },
     mutations: {
+        makeResponse(state, payload) {
+            state.response.doResponse = payload.doResponse
+            state.response.responseStatus = payload.responseStatus
+            state.response.response = payload.response
+        },
+        resetResponse(state) {
+            state.response.doResponse = false
+            state.response.responseStatus = false
+            state.response.response = ''
+        },
+        selectPlan(state,  payload) {
+            state.planSelected = payload
+        },
         toggleModal(state, payload) {
             state.modalState = !state.modalState
             state.modalType = payload
@@ -43,6 +62,15 @@ export default new Vuex.Store({
 
     },
     getters: {
+        getResponseMssg(state){
+            return state.response.response
+        },
+        getResponseStatus(state){
+            return state.response.responseStatus
+        },
+        getDoResponse(state){
+            return state.response.doResponse
+        },
         getModalState(state) {
             return state.modalState
         },

@@ -12,22 +12,6 @@
               Send Us An Email
             </div>
             </div>
-            <!-- <form @submit.prevent="sendMail" class="modal__card__input">
-            <h3 class="mb-2">General Inquiry</h3>e
-
-            <input type="text" class="mb-1" name="firstName" required v-model="firstName" placeholder="First Name">
-            <input type="text" class="mb-1" name="lastName" required v-model="lastName" placeholder="Last Name">
-            <input type="text" class="mb-1" name="title" required v-model="title" placeholder="Title">
-            <input type="text" class="mb-1" name="companyName" required v-model="companyName" placeholder="Company Name">
-
-            <input type="email" class="mb-1" name="user_email" required v-model="email" placeholder="Email">
-
-            <textarea name="message" id=""  rows="6" class="mb-1" v-model="mssg" placeholder="Message"></textarea>
-            <div>
-              <button class="btn"  :disabled="!formCheck" >Send</button>
-              <div  v-if="doResponse" :class="{success : responseStatus, fail : !responseStatus}">{{response}}</div>
-            </div>
-          </form> -->
           </div>
           <div class="contact__container--right" @click="toggleModal('trouble')">
             <div class="big-button">
@@ -36,18 +20,6 @@
               Submit a Trouble Ticket
             </div>
             </div>
-            <!-- <form @submit.prevent="sendMail" class="modal__card__input">
-            <h3 class="mb-2">Submit a Trouble Ticket</h3>
-            <input type="text" class="mb-1" name="user_name" required v-model="name" placeholder="Name">
-
-            <input type="email" class="mb-1" name="user_email" required v-model="email" placeholder="Email">
-
-            <textarea name="message" id=""  rows="6" class="mb-1" v-model="mssg" placeholder="Message"></textarea>
-            <div>
-              <button class="btn"  :disabled="!formCheck" >Send</button>
-              <div  v-if="doResponse" :class="{success : responseStatus, fail : !responseStatus}">{{response}}</div>
-            </div>
-          </form> -->
           </div>
         </div>
     </section>
@@ -56,24 +28,9 @@
 
 <script>
 export default {
-  data() {
-    return {
-      name: null,
-      email: null,
-      mssg: null
-    }
-  },
   methods: {
     toggleModal(type) {
       this.$store.commit('toggleModal', type)
-  },
-    formCheck() {
-      console.log('checking form')
-    }
-  },
-  computed: {
-    doResponse() {
-      return false
     }
   }
 }

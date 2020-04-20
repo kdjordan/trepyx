@@ -3,6 +3,7 @@
   <div v-if="getModalType == 'contact' && getModalState" class="modal" @click.prevent="closeModal">
         <div class="modal__card" @click.stop>
           <h2 class="modal__card--title">Contact Us</h2>
+          {{getModalType}}
           <div class="divider div-transparent--blu mb-2"></div>
           <form @submit.prevent="sendMail" class="modal__card__input">
 
@@ -142,27 +143,29 @@ export default {
         },
         sendMail() {
             let data = {}
-            let theTemplate = null
-            if (this.form.ticketType == 'billing') {
+
+            if (this.getModalType == 'contact') {
                 data = {
-                    "ticket_type": 'billing',
-                    "from_name": `${this.form.firstName} ${this.form.lastName}`,
-                    "reply_to": this.form.email,
+                    "sendTo": "contact@trepyx.com",
+                    "ticketType": 'contact',
+                    "fromName": `${this.form.firstName} ${this.form.lastName}`,
+                    "replyTo": this.form.email,
                     "title": this.form.title,
                     "phone": this.form.phoneNumber,
-                    "company_name": this.form.companyName,
-                    "message_html": this.form.mssg,
+                    "companyName": this.form.companyName,
+                    "message": this.form.mssg,
                     "email": this.form.email
                 } 
-            } else if (this.form.ticketType == 'trouble') {
+            } else {
                 data = {
-                    "ticket_type": 'trouble',
-                    "from_name": `${this.form.firstName} ${this.form.lastName}`,
-                    "reply_to": this.form.email,
+                    "sendTo": "support@trepyx.com",
+                    "ticketType": this.form.ticketType,
+                    "fromName": `${this.form.firstName} ${this.form.lastName}`,
+                    "replyTo": this.form.email,
                     "title": this.form.title,
                     "phone": this.form.phoneNumber,
-                    "company_name": this.form.companyName,
-                    "message_html": this.form.mssg,
+                    "companyName": this.form.companyName,
+                    "message": this.form.mssg,
                     "email": this.form.email,
                     "severity": this.form.severity,
                     "caseDate": this.form.caseDate,
@@ -172,7 +175,9 @@ export default {
                     "destinationNum": this.form.destinationNum,
                 } 
             }
+    
             this.axios.post('https://trepyx-proxy.herokuapp.com/send', data).then((response) => {
+            // this.axios.post('http://localhost:3009/send', data).then((response) => {
                 if (response.status == 200) {
                     this.$store.commit('makeResponse', {
                         doResponse: true,
@@ -189,7 +194,7 @@ export default {
             }).catch((e) => {
                 console.log('error' + e)
             })      
-        },
+        }
     },
     computed: {
         ...mapGetters({

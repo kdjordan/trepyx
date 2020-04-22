@@ -1,12 +1,14 @@
 <template>
   <div id="app">
     <Header />
-    <transition name="fade">
-      <router-view></router-view>
-    </transition>
-    <transition name="fade" mode="in-out">
-      <Modal />
-    </transition> 
+    <main>
+      <transition name="fade">
+        <router-view></router-view>
+      </transition>
+      <transition name="fade" mode="in-out">
+        <Modal />
+      </transition> 
+    </main>
     <Footer />
   </div>
 </template>
@@ -22,10 +24,6 @@ export default {
     Footer,
     Modal
   },
-  data () {
-    return {
-    }
-  }
 }
 </script>
 

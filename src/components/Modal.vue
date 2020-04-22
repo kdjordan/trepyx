@@ -3,7 +3,6 @@
   <div v-if="getModalType == 'contact' && getModalState" class="modal" @click.prevent="closeModal">
         <div class="modal__card" @click.stop>
           <h2 class="modal__card--title">Contact Us</h2>
-          {{getModalType}}
           <div class="divider div-transparent--blu mb-2"></div>
           <form @submit.prevent="sendMail" class="modal__card__input">
 
@@ -299,10 +298,10 @@ label {
         transform: translate(-50%, -50%);
 
         &--danger {
-            background: red;
+            background: $color3;
+            border: 2px solid $color3;
             color: white;
             text-transform: uppercase;
-            border: 1px solid red;
             display: inline-block;
             padding: .2rem .6rem;
             letter-spacing: 1px;

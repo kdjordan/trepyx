@@ -122,7 +122,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn-solid mt-2" @click.prevent="resetServices">RESET ALL SERVICES</button>
+        <button class="btn-solid mt-2 fade" @click.prevent="resetServices">RESET ALL SERVICES</button>
     </div>
     <div class="quote-form">
         <h2 class="mb-2 mt-4">3. Send Sign Up Request</h2>
@@ -380,6 +380,11 @@ export default {
 @import '../scss/utils.scss';
 @import '../scss/components/buttons.scss';
 @import '../scss/components/divider.scss';
+
+.fade {
+    // background-image: linear-gradient(360deg, #00d4ff 20%, #0a38fd 100%);
+    background: $color3;
+}
 
 
 input[type=checkbox] {

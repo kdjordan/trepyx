@@ -21,9 +21,9 @@
 }
 
 .btn-solid {
-    background: $primary;
+    background: $color3;
     color: white;
-    border: 2px solid white;
+    border: 2px solid $color3;
     padding: .7rem 1rem;
     border-radius: 2rem;
     cursor: pointer;

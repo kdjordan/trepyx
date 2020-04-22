@@ -89,7 +89,6 @@ export default {
 <style lang="scss">
 @import '../../scss/variables.scss';
 @import '../../scss/typography.scss';
-@import '../../scss/components/pricing-cards.scss';
 </style>
 
 <style lang="scss" scoped>
@@ -100,4 +99,83 @@ export default {
 	background-image: linear-gradient(to right, transparent, white, transparent);
 
 }
+
+.pricing {
+  padding-top: 2rem;
+  background: blue;
+  padding-bottom: 2rem;
+  
+
+  & h2 {
+    font-size: 6vw;
+    color: white;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+
+    @media(min-width: 735px) {
+        // width: 50%;
+        // margin: 0 auto;
+        // margin-top: 1rem;
+    }
+
+    & > * {
+      flex: 1 1 33%;
+    }
+
+  &--card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    align-self: stretch;
+    margin: 0 5px;
+    width: 100%;
+    max-width: 20rem;
+    min-width: 15rem;
+    padding: 20px 30px 30px 30px;
+    border-radius: .5rem;
+    color: white;
+    background-image: linear-gradient(360deg, rgba(0,212,255,1) 0%, rgba(10,56,253,1) 100%);
+    transition: all .4s ease;
+
+    @media(min-width: 735px) {
+        width: 50%;
+        margin: 1rem auto;
+        margin-top: 1rem;
+    }
+
+    & button {
+      margin-top: auto;
+    }
+
+    &--title {
+      font-size: 4vw;
+      letter-spacing: 2px;
+    }
+
+    &--price {
+      font-size: 3vw;
+
+      & span {
+        font-size: 25px;
+      }
+    }
+
+    &--desc li{
+      display: block;
+      text-align: left;
+      width: 100%;
+    }
+
+  }
+  }
+}
+
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div class="choose" id="choose">
         <div class="choose__container">
-            <div class="choose__container--title mb-5">Why Choose Trepyx Communications ?</div>
+            <h2 class="choose__container--title mb-5">Why Choose Trepyx Communications ?</h2>
         <div class="choose__icon-container">
             <div class="icon-col">
                 <img src="../../assets/icons/easy-lte.svg" alt="" class="svg-adjust">
@@ -50,19 +50,32 @@ export default {
         padding: 0rem 0 3rem 0;
         width: 90%;
         margin: 0 auto;
+        
 
         &--title {
-            font-size: 2.5rem;
+            font-size: 4vw;
             color: $color2;
             font-family: $font1;
+
+            @media(max-width: 735px) {
+                margin-bottom: 0 !important;
+                font-size: 6vw;
+            }
         }
     }
 
     &__icon-container {
         display: flex;
         justify-content: space-evenly;
+        
         width: 100%;
         margin: 0 auto;
+
+        @media(max-width: 735px) {
+            flex-wrap: wrap;
+            width: 80%;
+            margin: 0 auto;
+        }
     }
 }
 
@@ -72,18 +85,28 @@ export default {
     align-items: center;
     justify-content: space-evenly;
     margin: 0 1rem;
-    // height: 20rem;
+
+    @media(max-width: 735px) {
+        margin: 1rem 0;
+    }
 
     & > img {
         width: 6rem;
         margin-bottom: 1rem;
+
+        @media(max-width: 710px) {
+           width: 4rem;
+        }
     }
 
     &__title {
-        font-weight: bold;
-        font-size: 1.4rem;
+        font-size: 2vw;
         color: $color2;
         text-transform: uppercase;
+
+        @media(max-width: 735px) {
+            font-size: 4vw;
+        }
     }
 }
     

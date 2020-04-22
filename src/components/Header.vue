@@ -25,15 +25,20 @@
           <a href="https://login.ringlogix.com" class="header__right--link">Login</a>    
 
     <div class="mobile-navigation">
-      <div class="mobile-navigation__container" @click.prevent="toggleNavigation">
-        <div class="mobile-navigation__icon" :class="{backgroundIcon: getMobileActive}" >&nbsp;</div>
-      </div>
+      
+        <div class="mobile-navigation__container" @click.prevent="toggleNavigation" :class="{backgroundIcon: getMobileActive}" >
+          <div class="mobile-navigation__icon top"></div>
+          <div class="mobile-navigation__icon mid"></div>
+          <div class="mobile-navigation__icon bot"></div>
+        </div>
+      
       <div  class="mobile-navigation__background" :class="{backgroundActive: getMobileActive}"></div>
+
         <div v-if="getDisplayLinks" class="link-container">
           <a href="/#pricing" class="link"  @click="toggleNavigation">Plans & Pricing</a>
-          <router-link to="/quote" class="link" @click.prevent="toggleNavigation">Get a Quote</router-link>
-          <router-link to="/#contact" class="link" v-scroll-to="'#contact'" @click.prevent="toggleNavigation">Contact Us</router-link>
-          <a href="https://login.ringlogix.com" class="link" @click.prevent="toggleNavigation">Login</a>    
+          <a href="/quote" class="link" @click="toggleNavigation">Get a Quote</a>
+          <a href="/#contact" class="link"  @click="toggleNavigation">Contact Us</a>
+          <a href="https://login.ringlogix.com" class="link" @click="toggleNavigation">Login</a>    
       </div>
     </div>
 
@@ -53,6 +58,9 @@ computed: {
   })
 },
 methods: {
+  mobileNavClick() {
+    this.$store.commit('toggleNavigation')
+  },
   toggleNavigation(){
     console.log('clicked')
     if (this.getMobileActive) {
@@ -103,22 +111,38 @@ methods: {
     right: 2rem;
     background-image: radial-gradient($primary, $secondary);
     opacity: 1;
-    transform: scale(120) !important;
+    transform: scale(220) !important;
     transition: transform .6s cubic-bezier(0.86, 0, 0.07, 1) !important;
   }
 
   &Icon{
-    z-index: 2 !important;
-    background: transparent !important;
+    margin-top: 2rem;
 
-    &::before {
-      top: 2rem !important;
-      transform: rotate(135deg) !important;
+    &:hover {
+      height: 1.5rem !important;
     }
 
-    &::after {
-      top: 2rem !important;
+    &:hover .top, &:hover .bot{
+        background: $color2 !important;
+      }
+
+    & .top {
+      z-index: 2;
+      transform: rotate(135deg) !important;
+      position: relative;
+      top: 1rem;
+    }
+
+     & .mid {
+       z-index: 2;
+       background: transparent;
+
+    }
+    & .bot {
+      z-index: 2;
       transform: rotate(-135deg) !important;
+      position: relative;
+      bottom: .3rem;
     }
   }
 }
@@ -129,14 +153,19 @@ methods: {
     }
 
     &__container {
-      border: 1px solid red;
       cursor: pointer;
-      // position: relative;
-      // right: 1rem;
-      // top: 1rem;
-      height: 2rem;
-      width: 4rem;
+      display: flex;
+      flex-direction: column;
+      height: 1.5rem;
+      justify-content: space-between;
       z-index: 2;
+      transition: all .2s;
+
+      &:hover  {
+        height: 1.8rem;
+
+
+      }
     }
 
     &__background {
@@ -145,32 +174,19 @@ methods: {
     }
 
     &__icon {
-      // position: fixed;
-      // right: 2rem;
-      // top: 2rem;
-      
+      display: block;
+      height: .2rem;
+      width: 2rem;
+      background: white;
+      transition: all .3s cubic-bezier(0.86, 0, 0.07, 1);
 
-      &, 
-      &::before, 
-      &::after {
-        background: white;
-        display: inline-block;
-        height: .2rem;
-        width: 2rem;
-      }
-
-      &::before,
-      &::after {
-        content: "";
-        // position: fixed;
-        // right: 2rem;
+      & .top {
         transition: all .2s;
-
       }
 
-      &::before { top: 1.5rem; }
-      &::after { top: 2.5rem; }
-
+      & .bot {
+        transition: all .2s;
+      }
     }
 }
 
@@ -203,7 +219,7 @@ methods: {
 
       @media(max-width: 735px) {
         display: none;
-    }
+      }
     }
   }
 

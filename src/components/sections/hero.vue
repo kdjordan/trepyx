@@ -2,13 +2,8 @@
   <div>
     <section class="home">
         <div class="home__container">
-            <h1 class="mb-2">Welcome to Trepyx</h1>
+            <h1>Welcome to Trepyx</h1>
             <p :class="{hidden: getHidden}">{{getMssg}}</p>
-                <!-- <div class="container" v-scroll-to="'#second'">
-                    <div class="chevron"></div>
-                    <div class="chevron"></div>
-                    <div class="chevron"></div>
-                </div> -->
         </div>
     </section>
   </div>
@@ -43,13 +38,15 @@ export default {
 
 .home {
     background-image: url('../../assets/1back.svg');
-    background-position: center;
+    background-position: right;
     background-size: cover;
-    padding: 8rem 0;
-    // height: 40vh;
     color: white;
-    font-size: 2rem;
+    height: 40vh;
     letter-spacing: 1px;
+
+    @media(max-width: 710px) {
+        height: 30vh;
+    }
 
     &__container {
         display: flex;
@@ -57,22 +54,35 @@ export default {
         justify-content: space-around;
         align-items: center;
         position: relative;
-        top: 20%;
-        right: 20%; 
+        top: 6vh;
+        right: 10vw; 
+
+        @media(max-width: 710px) {
+            text-align: center;
+            top: 1vh;
+            right: 0vw;
+        }
 
         & h1 {
-            font-size: 4rem;
+            font-size: 6vw;
             letter-spacing: 1px;
+
+            @media(max-width: 710px) {
+                font-size: 7vw;
+            }
         }
 
         & p {
-            padding: 1rem 2rem;
             text-align: center;
             font-weight: lighter;
-            font-size: 1.7rem;
+            font-size: 3vw;
             font-style: italic;
-            // border: 1px solid white;
             border-radius: .5rem;
+
+             @media(max-width: 710px) {
+                 font-size: 4vw;
+                 padding: 0;
+            }
         }
 
     }

@@ -1,14 +1,12 @@
 <template>
   <div id="app">
     <Header />
-    <main>
       <transition name="fade">
         <router-view></router-view>
       </transition>
       <transition name="fade" mode="in-out">
         <Modal />
       </transition> 
-    </main>
     <Footer />
   </div>
 </template>

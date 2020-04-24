@@ -94,10 +94,16 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
+  height: 30vh;
+
+  @media(max-width: 735px) {
+       height: 50vh;
+      }
 
   & h2 {
     color: white;
     font-size: 1.7rem;
+    padding-bottom: .75rem;
   }
 
   & .price {
@@ -114,23 +120,31 @@ export default {
     justify-content: space-between;
     width: 80%;
     margin: 0 auto;
+
+    @media(max-width: 735px) {
+        flex-direction: column;
+        width: 100%;
+        margin: 0 auto;
+      }
+    
   }
 
   &-card {
     width: 80%;    
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 
-    img:nth-child(even) {
-      filter: opacity(50%);
-    }
-
     &__item {
       text-align: left;
       margin: .2rem 0;
-      font-size: 1.2rem;
+      font-size: 1.5vw;
+
+      @media(max-width: 735px) {
+        font-size: 3vw;
+      }
     }
   }
 
@@ -141,13 +155,11 @@ export default {
   width: 40px;
   margin-right: 10px;
 
-  &:hover {
-        transform: rotateX(45deg);
-    }
-}
+   @media(max-width: 735px) {
+     margin-right: .2rem;
+        width: 2rem;
+      }
 
-.test {
-    transform: rotateX(45deg);
 }
 
 </style>

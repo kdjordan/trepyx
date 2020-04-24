@@ -32,7 +32,7 @@
         <div class="plans-divider-transparent mb-1"></div>
         <div class="pricing__container--card--price">$13.00<span>/month</span></div>
 
-        <div class="pricing__container--card--desc mb-2">
+        <div class="pricing__container--card--desc">
           <ul>
             <li><strong>All of FLEX PLAN +</strong></li>
             <li>1 Additional US Phone Number</li>
@@ -53,7 +53,7 @@
         <div class="plans-divider-transparent mb-1"></div>
         <div class="pricing__container--card--price">$27.50<span>/month</span></div>
 
-        <div class="pricing__container--card--desc mb-2">
+        <div class="pricing__container--card--desc">
           <ul>
              <li><strong>All of BASIC & FLEX PLAN +</strong></li>
             <li>2 US Phone Numbers</li>
@@ -107,8 +107,14 @@ export default {
   
 
   & h2 {
-    font-size: 6vw;
+    text-align: center;
+    font-size: 4vw;
     color: white;
+    padding-bottom: 1rem;
+
+     @media(max-width: 735px) {
+       font-size: 8vw;
+      }
   }
 
   &__container {
@@ -119,10 +125,9 @@ export default {
     margin-bottom: 3rem;
     flex-wrap: wrap;
 
-    @media(min-width: 735px) {
-        // width: 50%;
-        // margin: 0 auto;
-        // margin-top: 1rem;
+    @media(max-width: 735px) {
+        margin-top: 2rem;
+        flex-direction: column;;
     }
 
     & > * {
@@ -132,23 +137,21 @@ export default {
   &--card {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     align-self: stretch;
-    margin: 0 5px;
-    width: 100%;
-    max-width: 20rem;
-    min-width: 15rem;
+    max-width: 22rem;
+    min-width: 18rem;
+    margin: 1rem 1rem;
     padding: 20px 30px 30px 30px;
     border-radius: .5rem;
     color: white;
     background-image: linear-gradient(360deg, rgba(0,212,255,1) 0%, rgba(10,56,253,1) 100%);
     transition: all .4s ease;
 
-    @media(min-width: 735px) {
-        width: 50%;
-        margin: 1rem auto;
-        margin-top: 1rem;
+    @media(max-width: 735px) {
+      width: 100%;
+      margin: 1rem auto;
     }
 
     & button {
@@ -156,22 +159,41 @@ export default {
     }
 
     &--title {
-      font-size: 4vw;
+      font-size: 3vw;
       letter-spacing: 2px;
+
+      @media(max-width: 735px) {
+       font-size: 5vw;
+      }
+     
     }
 
     &--price {
-      font-size: 3vw;
+      font-size: 2.5vw;
+      margin-bottom: 1rem;
+
+      @media(max-width: 735px) {
+       font-size: 4vw;
+      }
 
       & span {
         font-size: 25px;
+
+        @media(max-width: 735px) {
+       font-size: 3vw;
       }
+      }
+    }
+
+    &--desc ul {
+      padding-bottom: 1rem;
     }
 
     &--desc li{
       display: block;
       text-align: left;
       width: 100%;
+      
     }
 
   }

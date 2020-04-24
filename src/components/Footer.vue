@@ -1,18 +1,13 @@
 <template>
   <div class="footer">
-      <div class="footer__top mt-2 pb-2">
-        <div class="footer__top--left">
-          <ul class="bottom-nav">
-            <router-link to="/#pricing" class="header__right--link" v-scroll-to="'#pricing'">Plans & Pricing</router-link>
-            <router-link to="/quote" class="header__right--link">Get a Quote</router-link>
-            <router-link to="/#contact" class="header__right--link" v-scroll-to="'#contact'">Contact Us</router-link>
+      <div class="footer__top">
+          <div class="bottom-nav">
+            <router-link to="/#pricing" class="bottom-nav__link" v-scroll-to="'#pricing'">Plans & Pricing</router-link>
+            <router-link to="/quote" class="bottom-nav__link">Get a Quote</router-link>
+            <router-link to="/#contact" class="bottom-nav__link" v-scroll-to="'#contact'">Contact Us</router-link>
             <router-link to="/tos" class="bottom-nav__link">Terms & Conditions</router-link>
-            <a href="https://login.ringlogix.com" class="header__right--link">Login</a>
-          </ul>
-        </div>
-        <div class="footer__top--right">
-          <p>Trepyx Communications : Cloud VOIP Solutions</p>
-        </div>
+            <a href="https://login.ringlogix.com" class="bottom-nav__link">Login</a>
+          </div>
       </div>
       <div class="footer__bottom">
         <div>&copy;2020 Trepx Inc</div>
@@ -31,35 +26,46 @@ export default {
 
 .footer {
   border-top: 1px solid black;
-  height: 100px;
   color: white;
   background: $primary;
+  padding: 1rem 0;
 
   &__top {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    & .bottom-nav {
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+  
+      &__link {
+        color: white;
+        font-size: 1.4rem;
+        padding: 0 .5rem;
+        padding-top: .3rem;
 
-    &--right {
-      & p {
-        margin: 0;
+        @media(max-width: 735px) {
+          font-size: 1rem;
+        }
       }
     }
-
   }
 
   &__bottom {
-    font-size: 13px;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 2vw;
     font-style: italic;
     background: $primary;
+    
+
+    @media(max-width: 735px) {
+       font-size: 3vw;
+    }
   }
 }
 
-.bottom-nav {
-  &__link {
-    color: white;
-    margin: 0 .7rem;
-  }
-}
+
 
 </style>

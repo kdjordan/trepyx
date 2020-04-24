@@ -1,10 +1,9 @@
 <template>
   <div id="contact">
-    <section class="contact mt-5">
+    <section class="contact">
         <h2>Contact & Support</h2>
         <div class="divider div-transparent"></div>
         <div class="contact__container">
-          
           <div class="contact__container--left" @click="toggleModal('contact')">
             <div class="big-button">
             <img src="../../assets/icons/email-wht.svg" alt="">
@@ -15,10 +14,10 @@
           </div>
           <div class="contact__container--right" @click="toggleModal('trouble')">
             <div class="big-button">
-            <img src="../../assets/icons/caution-wht.svg">
-            <div class="big-button__text">
-              Submit a Trouble Ticket
-            </div>
+              <img src="../../assets/icons/caution-wht.svg">
+              <div class="big-button__text">
+                Submit a Trouble Ticket
+              </div>
             </div>
           </div>
         </div>
@@ -43,32 +42,19 @@ export default {
 .big-button {
   display: flex;
   align-items: center;
-  
-
-  & img {
-    width: 3rem;
-    margin-right: 1rem;
-  }
+  justify-content: center;
 
   &__text {
+    text-align: center;
     text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 1.5vw;
     color: white;
     letter-spacing: 1px;
+
+    @media(max-width: 735px) {
+       font-size: 4.5vw;
+    }
   }
-}
-
-.w-50 {
-  width: 20% !important;
-  border-radius: 3rem !important;
-}
-
-
-
-.modal-card__input {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .contact {
@@ -76,10 +62,20 @@ export default {
   background-image: linear-gradient(360deg, $primary 0%, #00d4ff 100%);
   color: white;
 
+  @media(max-width: 735px) {
+       padding: 2rem 0 2rem 0;
+    }
+
   & h2 {
+    text-align: center;
     padding-top: 1rem;
-    font-size: 3rem;
+    font-size: 4vw;
+    margin-bottom: .7rem;
     text-transform: uppercase;
+
+    @media(max-width: 735px) {
+       font-size: 6vw;
+    }
   }
 
 
@@ -91,37 +87,48 @@ export default {
     margin: 0 auto;
     margin-top: 4rem;
     padding-bottom: 20px;
-    // border: 1px solid red;
+    font-size: 1vw;
+
+    @media(max-width: 735px) {
+       flex-direction: column;
+    }
 
     &--left {
+      padding: 1.15rem;
       border: 2px solid white;
       border-radius: 1rem;
-      padding: 1rem 1.5rem;
-      cursor: pointer;
       transition: all .4s ease;
+      cursor: pointer;
+
+      & img {
+        width: 4.5rem;
+        margin-right: 1rem;
+      }
 
       &:hover {
         background: $color2;
       }
-      
-      // flex: 1 1 100%;
-      // border: 1px solid red;
     }
 
     &--right {
+      padding: 1rem;
       border: 2px solid white;
-      cursor: pointer;
       border-radius: 1rem;
-      padding: 1rem 1.5rem;
       transition: all .4s ease;
+      cursor: pointer;
+
+      & img {
+        width: 4rem;
+        margin-right: 1rem;
+      }
 
       &:hover {
         background: $color2;
       }
-      
-      
-      // flex: 1 1 100%;
-      // border: 1px solid red;
+
+      @media(max-width: 735px) {
+       margin-top: 1rem;
+    }
     }
   }
 }

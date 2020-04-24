@@ -1,15 +1,15 @@
 <template>
   <div class="quote">
-    <h1 class="mb-2">Trepyx Quote Tool</h1>
+    <h1>Trepyx Quote Tool</h1>
     <form @submit.prevent="sendRequest">
     <div class="divider div-transparent--blu"></div>
-    <h2 class="mb-2 mt-2">1. Select Your Base Plan</h2>
+    <h2>1. Select Your Base Plan</h2>
     <div class="quote__container">
 
       <div class="quote__container--card" :class="{selected: getSelected == 'flex'}" @click.prevent="markSelected('flex')">
         <div class="quote__container--card-title">FLEX</div>
-        <div class="quote-divider mb-1"></div>
-        <div class="quote__container--card-price">$10.50<span>/month</span></div>
+        <div class="quote-divider"></div>
+        <div class="quote__container--card-price">$13.95<span>/month</span></div>
 
         <div class="quote__container--card-desc">
           <ul>
@@ -29,8 +29,8 @@
 
       <div class="quote__container--card" :class="{selected: getSelected == 'basic'}" @click.prevent="markSelected('basic')">
         <div class="quote__container--card-title">BASIC</div>
-        <div class="quote-divider mb-1"></div>
-        <div class="quote__container--card-price">$13.00<span>/month</span></div>
+        <div class="quote-divider"></div>
+        <div class="quote__container--card-price">$19.95<span>/month</span></div>
 
         <div class="quote__container--card-desc">
           <ul>
@@ -50,10 +50,10 @@
 
      <div class="quote__container--card" :class="{selected: getSelected == 'pro'}" @click.prevent="markSelected('pro')">
         <div class="quote__container--card-title">PRO</div>
-        <div class="quote-divider mb-1"></div>
-        <div class="quote__container--card-price">$27.50<span>/month</span></div>
+        <div class="quote-divider"></div>
+        <div class="quote__container--card-price">$26.50<span>/month</span></div>
 
-        <div class="quote__container--card-desc mb-2">
+        <div class="quote__container--card-desc">
           <ul>
             <li><strong>All of BASIC & FLEX PLAN +</strong></li>
             <li>2 US Phone Numbers</li>
@@ -72,98 +72,99 @@
       </div>
      </div> 
     <div class="quote__bottom">
-        <h2 class="mb-2 mt-5">2. Choose Add On Services</h2>
-        <!-- {{activeServices}} -->
+        <h2>2. Choose Add On Services</h2>
         <div class="quote__bottom--container">
-            <div class="quote__bottom--col">
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addUsNumber')}" @click.prevent="toggleService({type: 'addUsNumber', cost: 2.00, desc:'+ Additional Us Number'})">
-                    <label class="addon-service--label" for="addUsNumber">Additional Us Number</label>
-                    <input type="checkbox" id="addUsNumber" name="addUsNumber">
+            <div class="quote__bottom--container-top">
+                <div class="quote__bottom--col">
+                    <button class="addon-service" :class="{btnSelected: getBtnSelected('addUsNumber')}" @click.prevent="toggleService({type: 'addUsNumber', cost: 2.00, desc:'+ Additional Us Number'})">
+                        Additional Us Number
+                    </button>
+                    <button class="addon-service" :class="{btnSelected: getBtnSelected('addCanNumber')}" @click.prevent="toggleService({type: 'addCanNumber', cost: 3.00, desc:'+ Additional Canadian Number'})">
+                        Additional Canadian Number
+                    </button>
+                    <button class="addon-service" :class="{btnSelected: getBtnSelected('addIntNumber')}" @click.prevent="toggleService({type: 'addIntNumber', cost: 5.00, desc:'+ Additional International Number'})">
+                        Additional International Number
+                    </button>
+                    <button class="addon-service" :class="{btnSelected: getBtnSelected('addExtension')}" @click.prevent="toggleService({type: 'addExtension', cost: 4.00, desc:'+ Additional Extension'})">
+                        Add Extension
+                    </button>
+                </div>    
+                <div class="quote__bottom--col">
+                    <button class="addon-service" :class="{btnSelected: getBtnSelected('addTollFreeNum')}" @click.prevent="toggleService({type: 'addTollFreeNum', cost: 5.00, desc:'+ Add Toll Free Number'})">
+                        Add Toll Free Number
+                    </button>
+                    <button class="addon-service" :class="{btnSelected: getBtnSelected('addTollFreeUsage')}" @click.prevent="toggleService({type: 'addTollFreeUsage', cost: 2.00, desc:'+ Add Toll Free Usage'})">
+                        Add Toll Free Usage
+                    </button>
+                    <button class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording100')}" @click.prevent="toggleService({type: 'addCallRecording100', cost: 12.00, desc:'+ Add Call Recording (100)'})">
+                        Add Call Recording (100)
+                    </button>
+                    <button class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording500')}" @click.prevent="toggleService({type: 'addCallRecording500', cost: 40.00, desc:'+ Add Call Recording (500)'})">
+                        Add Call Recording (500)
+                    </button>
                 </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCanNumber')}" @click.prevent="toggleService({type: 'addCanNumber', cost: 3.00, desc:'+ Additional Canadian Number'})">
-                    <label class="addon-service--label" for="addCanNumber">Additional Canadian Number</label>
-                    <input type="checkbox" id="addCanNumber" name="addCanNumber">
-                </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addIntNumber')}" @click.prevent="toggleService({type: 'addIntNumber', cost: 5.00, desc:'+ Additional International Number'})">
-                    <label class="addon-service--label" for="addIntNumber">Additional International Number</label>
-                    <input type="checkbox" id="addIntNumber" name="addIntNumber">
-                </div>
-            </div>    
-            <div class="quote__bottom--col">
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollFreeNum')}" @click.prevent="toggleService({type: 'addTollFreeNum', cost: 5.00, desc:'+ Add Toll Free Number'})">
-                    <label class="addon-service--label" for="addTollFreeNum">Add Toll Free Number</label>
-                    <input type="checkbox" id="addTollFreeNum" name="addTollFreeNum">
-                </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollFreeUsage')}" @click.prevent="toggleService({type: 'addTollFreeUsage', cost: 2.00, desc:'+ Add Toll Free Usage'})">
-                    <label class="addon-service--label" for="addTollFreeUsage">Add Toll Free Usage</label>
-                    <input type="checkbox" id="addTollFreeUsage" name="addTollFreeUsage">
-                </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording100')}" @click.prevent="toggleService({type: 'addCallRecording100', cost: 12.00, desc:'+ Add Call Recording (100)'})">
-                    <label class="addon-service--label" for="addCallRecording100">Add Call Recording (100)</label>
-                    <input type="checkbox" id="addCallRecording100" name="addCallRecording100">
-                </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addCallRecording500')}" @click.prevent="toggleService({type: 'addCallRecording500', cost: 40.00, desc:'+ Add Call Recording (500)'})">
-                    <label class="addon-service--label" for="addCallRecording305">Add Call Recording (500)</label>
-                    <input type="checkbox" id="addCallRecording305" name="addCallRecording500">
+                <div class="quote__bottom--col">
+                    <button class="addon-service" :class="{btnSelected: getBtnSelected('addTollNumPort')}" @click.prevent="toggleService({type: 'addTollNumPort', cost: 20.00, desc:'+ Add Toll Free Number Port', recurring: false})">
+                        Add Toll Free Number Port
+                    </button>
+                    <button class="addon-service" :class="{btnSelected: getBtnSelected('voicelmailTrans')}" @click.prevent="toggleService({type: 'voicelmailTrans', cost: 3.00, desc:'+ Add Voicemail Transcription'})">
+                        Add Voicemail Transcription
+                    </button>
+                    <button class="addon-service" :class="{btnSelected: getBtnSelected('addTollNASC')}" @click.prevent="toggleService({type: 'addTollNASC', cost: 75.00, desc:'+ Add Toll Free Number NASC', recurring: false})">
+                        Add Toll Free Number NASC
+                    </button>
                 </div>
             </div>
-            <div class="quote__bottom--col">
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollNumPort')}" @click.prevent="toggleService({type: 'addTollNumPort', cost: 20.00, desc:'+ Add Toll Free Number Port'})">
-                    <label class="addon-service--label" for="addTollNumPort">Add Toll Free Number Port</label>
-                    <input type="checkbox" id="addTollNumPort" name="addTollNumPort">
-                </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('voicelmailTrans')}" @click.prevent="toggleService({type: 'voicelmailTrans', cost: 3.00, desc:'+ Add Toll Free Number Port'})">
-                    <label class="addon-service--label" for="addTollNumPort">Add Voicemail Transcription</label>
-                    <input type="checkbox" id="addTollNumPort" name="addTollNumPort">
-                </div>
-                <div class="addon-service" :class="{btnSelected: getBtnSelected('addTollNASC')}" @click.prevent="toggleService({type: 'addTollNASC', cost: 75.00, desc:'+ Add Toll Free Number NASC'})">
-                    <label class="addon-service--label" for="addTollNASC" >Add Toll Free Number NASC</label>
-                    <input type="checkbox" id="addTollNASC" name="addTollNASC">
-                </div>
+            <div class="quote__bottom--container-bottom">
+                <button class="btn-solid" @click.prevent="resetServices">RESET ALL SERVICES</button>
             </div>
         </div>
-        <button class="btn-solid mt-2 fade" @click.prevent="resetServices">RESET ALL SERVICES</button>
+        
     </div>
     <div class="quote-form">
-        <h2 class="mb-2 mt-4">3. Send Sign Up Request</h2>
+        <h2>3. Send Sign Up Request</h2>
         <div class="quote-form__container">
-            <div class="quote-form__container--left">
-                <div class="quote-form__input">
-                    
-                    <input type="text" class="mb-1" name="firstName" required v-model="form.firstName" placeholder="First Name">
-                    <input type="text" class="mb-1" name="lastName" required v-model="form.lastName" placeholder="Last Name">
-                    <input type="text" class="mb-1" name="title"  v-model="form.title" placeholder="Title">
-                    <input type="text" class="mb-1" name="companyName"  v-model="form.companyName" placeholder="Company Name">
+            <div class="quote-form__container--top">
+                <div class="quote-form__container--left">
+                    <div class="quote-form__input">
+                        
+                        <input type="text" class="mb-1" name="firstName" required v-model="form.firstName" placeholder="First Name">
+                        <input type="text" class="mb-1" name="lastName" required v-model="form.lastName" placeholder="Last Name">
+                        <input type="text" class="mb-1" name="title"  v-model="form.title" placeholder="Title">
+                        <input type="text" class="mb-1" name="companyName"  v-model="form.companyName" placeholder="Company Name">
 
-                    <input type="text" class="mb-1" name="phoneNumber"  v-model="form.phoneNumber" placeholder="Phone Number">
-                    <input type="email" class="mb-1" name="email" required v-model="form.email" placeholder="Email">
+                        <input type="text" class="mb-1" name="phoneNumber"  v-model="form.phoneNumber" placeholder="Phone Number">
+                        <input type="email" class="mb-1" name="email" required v-model="form.email" placeholder="Email">
 
-                    <textarea name="message" id=""  rows="6" class="mb-1" v-model="form.mssg" placeholder="Message"></textarea>
+                        <textarea name="message" id=""  rows="6" class="mb-1" v-model="form.mssg" placeholder="Message"></textarea>
+                    </div>
                 </div>
-            </div>
-            <div class="quote-form__container--right">
-                <div class="quote-form__title">Your Order</div>
-                <div v-if="activePlan != null" class="quote-form__plan mt-1">Base Plan: <span>{{activePlan}}</span> @ ${{getBaseCost}}/mo</div>
-                <div v-if="activePlan != null" class="mt-1">One Time Set Up Fee: ${{getSetUpCharge}}</div>
-                <ul class="mb-1">
-                    <li v-for="(service, index) in activeServices" :key="index">{{service.desc}} @ ${{service.cost}}.00/mo</li>
-                </ul>
-                <div v-if="activePlan != null" class="quote-form__total">Your Total: ${{getTotalCost(true)}}
-                    <div class="quote-form__claimer">
-                        <div>* These numbers do not apply to Call Centers</div>
-                        <div>* These numbers are an estimate and not a final quote</div>
-                        <div>* Taxes and other fees are not included with this estimate</div>
+                <div class="quote-form__container--right">
+                    <div class="quote-form__title">Your Order</div>
+                    <div v-if="activePlan != null" class="quote-form__plan mt-1">Base Plan: <span>{{activePlan}}</span> @ ${{getBaseCost}}/mo</div>
+                    <div v-if="activePlan != null" class="mt-1 mb-1">One Time Set Up Fee: ${{getSetUpCharge}}</div>
+                    <ul class="mt-1 mb-1">
+                        <li v-for="(service, index) in activeServices" :key="index">{{service.desc}} @ ${{service.cost}}.00/mo</li>
+                    </ul>
+                    <div v-if="activePlan != null || oneTimeCharges.length != 0" class="quote-form__total">Your Total: ${{getTotalCost(true)}}
+                        <div class="quote-form__claimer">
+                            <div>* These numbers do not apply to Call Centers</div>
+                            <div>* These numbers are an estimate and not a final quote</div>
+                            <div>* Taxes and other fees are not included with this estimate</div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="quote-form__container--bottom">
+                <div  v-if="getDoResponse" class="mt-1" :class="{success : getResponseStatus, fail : !getResponseStatus}">{{getResponseMssg}}</div>
+                <button class="btn-solid">SEND REQUEST</button>
+            </div>
         </div>
-        <div  v-if="getDoResponse" class="mt-1" :class="{success : getResponseStatus, fail : !getResponseStatus}">{{getResponseMssg}}</div>
-    <button class="btn-solid mt-2 mb-2">SEND REQUEST</button>
     </div>
     </form>
     <div v-if="showPriceBox" class="total-box">
         <div class="total-box__title">
-            You're Cost per Month
+            Your Cost per Month
         </div>
         <div class="total-box__price">
             ${{getTotalCost(false)}}
@@ -192,6 +193,7 @@ export default {
             activePlan: null,
             activeServices: [],
             baseCost: 0.00,
+            oneTimeCharges: [],
             servicesCost: 0.00,
             setUpCharge: 0.00
         }
@@ -200,27 +202,33 @@ export default {
         markSelected(plan) {
             if (plan == "flex") {
                 this.activePlan = "flex"
-                this.baseCost = 10.50
+                this.baseCost = 13.95
                 this.setUpCharge = 6
             } else if (plan == "basic") {
                 this.activePlan = "basic"
-                this.baseCost = 13.00
+                this.baseCost = 19.95
                 this.setUpCharge = 7.5
             }  else if (plan == "pro") {
                 this.activePlan = "pro"
-                this.baseCost = 27.50
+                this.baseCost = 26.50
                 this.setUpCharge = 26.5
             }
         },
         toggleService(service) {
-            if (this.activeServices.some(serv => serv.type == service.type)) {
+            if (this.activeServices.some(serv => serv.type == service.type) || this.oneTimeCharges.some(serv => serv.type == service.type)) {
                 this.activeServices = this.activeServices.filter(serv => serv.type != service.type)
+                this.oneTimeCharges = this.oneTimeCharges.filter(serv => serv.type != service.type)
             } else {
-                this.activeServices.push(service)
+                if (service.recurring == false) {
+                    this.oneTimeCharges.push(service)
+                } else {
+                    this.activeServices.push(service)
+                }
             }
         },
         resetServices() {
             this.activeServices = []
+            this.oneTimeCharges = []
         },
         resetForm() {
             var self = this
@@ -229,6 +237,7 @@ export default {
             });
             this.activePlan = null
             this.activeServices = []
+            this.oneTimeCharges = []
             this.showPriceBox = false 
             this.baseCost = 0.00,
             this.servicesCost = 0.00
@@ -294,7 +303,7 @@ export default {
             return this.activePlan
         },
         getSetUpCharge() {
-            return (this.setUpCharge).toFixed(2)
+            return (this.setUpCharge + this.getOneTimeCharges).toFixed(2)
         },
         getButtonMessg() {
             return (button) => {
@@ -310,7 +319,7 @@ export default {
         },
         getBtnSelected() {
             return (button) => {
-                if (this.activeServices.some(serv => serv.type == button)) {
+                if (this.activeServices.some(serv => serv.type == button) || this.oneTimeCharges.some(serv => serv.type == button)) {
                     return true
                 } else {
                     return false
@@ -320,7 +329,7 @@ export default {
         getTotalCost() {
             return (flag) => {
                 if (flag) {
-                    return (this.baseCost + this.getServicesCost + this.setUpCharge).toFixed(2)
+                    return (this.baseCost + this.getServicesCost + this.setUpCharge + this.getOneTimeCharges).toFixed(2)
                 } else {
                     return (this.baseCost + this.getServicesCost).toFixed(2)
                 }
@@ -331,7 +340,7 @@ export default {
             if(this.activeServices.length > 0) {
                 let total = 0
                this.activeServices.forEach(service => {
-                   total += service.cost
+                    total += service.cost
                }) 
                return total 
             } else {
@@ -340,6 +349,17 @@ export default {
         },
         getBaseCost() {
             return this.baseCost.toFixed(2)
+        },
+        getOneTimeCharges() {
+            if(this.oneTimeCharges.length > 0) {
+                let total = 0
+               this.oneTimeCharges.forEach(service => {
+                    total += service.cost
+               }) 
+               return total 
+            } else {
+                return 0
+            }
         }
     },
     mounted() {
@@ -348,16 +368,16 @@ export default {
         } else if (this.$store.state.planSelected == 'flex'){
             this.activePlan = "flex"
             this.setUpCharge = 6
-            this.baseCost = 10.50
+            this.baseCost = 13.95
             window.scrollTo(0, 69)
         } else if (this.$store.state.planSelected == 'basic') {
             this.activePlan = "basic"
-            this.baseCost = 13.00
+            this.baseCost = 19.95
             this.setUpCharge = 7.5
             window.scrollTo(0, 69)
         } else if (this.$store.state.planSelected == 'pro') {
             this.activePlan = "pro"
-            this.baseCost = 27.50
+            this.baseCost = 26.50
             this.setUpCharge = 26.50
             window.scrollTo(0, 69)
         }
@@ -381,27 +401,22 @@ export default {
 @import '../scss/components/buttons.scss';
 @import '../scss/components/divider.scss';
 
-.fade {
-    // background-image: linear-gradient(360deg, #00d4ff 20%, #0a38fd 100%);
-    background: $color3;
-}
-
-
 input[type=checkbox] {
-    opacity: 0;
-    position: relative;
-    right: 2rem;
+    display: none;
 }
 
 .quote-form {
     
     &__title {
-        font-size: 1.3rem;
+        text-align: center;
+        font-size: 3vw;
         color: $color2;
         border-bottom: 1px solid $color2;
-        width: 80%;
-        margin: 0 auto;
         text-transform: uppercase;
+
+        @media(min-width: 735px) {
+            font-size: 2vw;
+        }
     }
 
     &__plan {
@@ -420,21 +435,32 @@ input[type=checkbox] {
     }
 
     &__total {
+        text-align: center;
         border-top: 1px solid $color2;
-        width: 80%;
-        margin: 0 auto;
         padding-top: 1rem;
     }
 
     &__container {
+        width: 90%;
+        margin: 0 auto;
         border: 2px solid $primary;
         border-radius: 2rem;
         padding: 1rem 0;
-        width: 70%;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
+        margin-bottom: 2rem;
+
+        &--top {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+
+            @media(max-width: 735px) {
+                width: 90%;
+                flex-direction: column;
+            }
+
+        }
 
         &--left {
             width: 50%;
@@ -443,6 +469,11 @@ input[type=checkbox] {
             flex-direction: column;
             align-items: center;
             justify-content: center;
+
+            @media(max-width: 735px) {
+                width: 80%;
+                margin: 0 auto;
+            }
 
             & input[type=text], input[type=email], textarea {
                 margin: .5rem auto;
@@ -467,10 +498,24 @@ input[type=checkbox] {
             align-items: center;
             justify-content: center;
 
-            & li {
-                display: block;
+            @media(max-width: 735px) {
+                width: 100%;
+                margin: 0 auto;
+                margin-bottom: 2rem;
             }
 
+            & li {
+                display: block;
+
+                @media(max-width: 735px) {
+                    font-size: 3vw;
+                }
+            }
+
+        }
+
+        &--bottom {
+            text-align: center;
         }
     }
 
@@ -480,21 +525,30 @@ input[type=checkbox] {
     position: fixed;
     top: 0;
     right: 5%;
-    background: rgba(0,212,255,1);
+    background: rgba(0,212,255,.7);
     padding: 1rem;
     border: 1px solid $color2;
     color: $color2;
+
+    @media(max-width: 735px) {
+        font-size: 3vw;
+    }
 
     &__title {
         border-bottom: 1px solid $color2;
     }
 
     &__price {
+        margin-top: .5rem;
+        text-align: center;
         font-size: 3rem;
+
+        @media(max-width: 735px) {
+            font-size: 3vw;
+        }
 
     }
 }
-
 
 
 .btnSelected {
@@ -548,6 +602,30 @@ input[type=checkbox] {
     margin-top: 2rem;
     color: $primary;
 
+    & h1, & h2 {
+        font-size: 7vw;
+        text-align: center;
+        padding-bottom: 1rem;
+
+        @media(min-width: 735px) {
+            font-size: 4vw;
+        }
+    }
+
+    & h2 {
+        padding: 2rem 0;
+        font-size: 5vw;
+
+        @media(min-width: 735px) {
+            font-size: 2.5vw;
+        }
+    }
+
+    & btn-solid {
+        width: 20%;
+        margin: 0 auto;
+    }
+
     &__container {
         border: 2px solid $primary;
         border-radius: 2rem;
@@ -557,10 +635,7 @@ input[type=checkbox] {
         display: flex;
         justify-content: center;
         align-items: center;
-
-        & > * {
-            flex: 1 1 33%;
-        }
+        flex-wrap: wrap;
     
         &--card {
             cursor: pointer;
@@ -569,13 +644,19 @@ input[type=checkbox] {
             justify-content: space-around;
             align-items: center;
             align-self: stretch;
-            margin: 0 5px;
-            max-width: 400px;
+            margin: 1rem 5px;
+            width: 32%;
+            min-width: 15rem;
+            max-width: 30rem;
             padding: 20px 30px 30px 30px;
             border-radius: .5rem;
             color: white;
             background: $primary;
             transition: all .4s ease;
+
+             @media(max-width: 735px) {
+                width: 90%;
+            }
         
         & button {
             margin-top: auto;
@@ -594,10 +675,15 @@ input[type=checkbox] {
             }
         }
 
+        &-desc ul {
+            padding-bottom: 1rem;
+        }
+
         &-desc li {
             display: block;
             text-align: left;
             width: 100%;
+            padding: .2rem;
         }
     }
   
@@ -607,39 +693,81 @@ input[type=checkbox] {
       }
     }
     &__bottom {
+         display: flex;
+         flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+        
         &--container {
             border: 2px solid $primary;
             border-radius: 2rem;
             width: 90%;
-            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        
+        &--container-top {
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-around;
+
+            @media(max-width: 735px) {
+                margin: 1rem 0;
+                flex-direction: column;
+            }
         }
 
         &--col {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 2rem;
+            margin: 1rem 0;
+    
+            @media(max-width: 735px) {
+                margin: 0rem;
+            }
+        }
+
+        &--container-bottom  {
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            margin-left: 5%;
+
+            @media(max-width: 735px) {
+                font-size: 1.2vw;
+                margin-left: 0;
+            }
         }
 
     }
 }
 .addon-service {
+    font-family: $font2;
+    letter-spacing: 1px;
+    outline: none;
+    border-style: none;
+    font-size: 2.4vw;
     background: $primary;
     color: white;
-    padding: .3rem 1rem;
+    padding: .3rem .8rem;
     border-radius: 1rem;
     cursor: pointer;
     margin: .4rem 0;
+    text-align: center;
     transition: all .4s ease;
 
-    &--label {
-        color: white;
-        margin-left: 1rem;
-        cursor: pointer;
+    @media(min-width: 735px) {
+        font-size: 1.5vw;
     }
+   
+
+    
 }
 
 

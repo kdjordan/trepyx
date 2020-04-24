@@ -254,11 +254,17 @@ export default {
 
 .page {
   margin-top: 3rem;
+
+  & h1, h3, h4, h5 {
+    text-align: center;
+  }
+
+  p {
+      width: 80%;
+      margin: 1rem auto;
+      line-height: 1.7rem;
+      text-align: left
+  }
 }
-p {
-    width: 80%;
-    margin: 1rem auto;
-    line-height: 1.7rem;
-    text-align: left
-}
+
 </style>

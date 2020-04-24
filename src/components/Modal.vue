@@ -15,7 +15,7 @@
             <input type="email" class="mb-1" name="email" required v-model="form.email" placeholder="Email">
 
             <textarea name="message" id=""  rows="6" class="mb-1" v-model="form.mssg" placeholder="Message"></textarea>
-            <div>
+            <div class="center">
               <button class="btn-solid">SEND</button>
               <div  v-if="getDoResponse" class="mt-1" :class="{success : getResponseStatus, fail : !getResponseStatus}">{{getResponseMssg}}</div>
             </div>
@@ -27,7 +27,7 @@
   <div v-if="getModalType == 'trouble' && getModalState" class="modal" @click.prevent="closeModal">
       <div class="modal__card" @click.stop>
           <h2 class="modal__card--title">Submit A Ticket</h2>
-          <div class="divider div-transparent--blu mb-1"></div>
+          <div class="divider div-transparent--blu"></div>
           <div class="modal__card--danger mb-1">Is this is an emergency please dial 911</div>
           <form @submit.prevent="sendMail" class="modal__card__input">
 
@@ -70,7 +70,7 @@
                         <input type="time" id="caseTime" name="caseTime" value="caseTime" v-model="form.caseTime">
                     </div>
                 </div>
-                <div class="flex-row__center mb-2">
+                <div class="flex-row__center">
                         <label for="callDuration">Call Duration</label>
                           <input type="number" id="callDuration" name="callDuration" min="1" max="60" v-model="form.callDuration">
                     </div>
@@ -90,7 +90,7 @@
             </div>
 
             <textarea name="message" id=""  rows="6" class="mb-1" v-model="form.mssg" :placeholder="`${getTextAreaMssg}`" required></textarea>
-            <div>
+            <div class="center">
               <button class="btn-solid mb-1">SEND</button>
               <div  v-if="getDoResponse" class="mt-1" :class="{success : getResponseStatus, fail : !getResponseStatus}">{{getResponseMssg}}</div>
             </div>
@@ -288,13 +288,13 @@ label {
 
     &__card {
         padding: 20px 20px 30px 20px;
-        width: 40%;
+        width: 80%;
         background: white;
         border-radius: 5px;
         position: relative;
         top: 45%;
         left: 50%;
-        max-width: 750px;
+        max-width: 600px;
         transform: translate(-50%, -50%);
 
         &--danger {
@@ -307,10 +307,13 @@ label {
             letter-spacing: 1px;
             border-radius: .3rem;
             font-weight: bold;
+            width: 80%;
+            margin-left: 10%;
         }
 
 
         &--title {
+            text-align: center;
             color: $color2;
         }
 

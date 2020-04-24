@@ -28,8 +28,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/components/chevron.scss';
-
 
 .hidden {
     opacity: 0;
@@ -45,7 +43,7 @@ export default {
     letter-spacing: 1px;
 
     @media(max-width: 710px) {
-        height: 30vh;
+        height: 38vh;
     }
 
     &__container {
@@ -54,8 +52,8 @@ export default {
         justify-content: space-around;
         align-items: center;
         position: relative;
-        top: 6vh;
-        right: 10vw; 
+        top: 8vh;
+        right: 15vw; 
 
         @media(max-width: 710px) {
             text-align: center;
@@ -68,7 +66,7 @@ export default {
             letter-spacing: 1px;
 
             @media(max-width: 710px) {
-                font-size: 7vw;
+                font-size: 8vw;
             }
         }
 

@@ -1,25 +1,25 @@
 <template>
     <div class="choose" id="choose">
         <div class="choose__container">
-            <h2 class="choose__container--title mb-5">Why Choose Trepyx Communications ?</h2>
+            <h2 class="choose__container--title">Why Choose Trepyx Communications ?</h2>
         <div class="choose__icon-container">
             <div class="icon-col">
-                <img src="../../assets/icons/easy-lte.svg" alt="" class="svg-adjust">
+                <img src="../../assets/icons/easy-lte.svg" alt="choose trepyx icons" class="svg-adjust">
                 <div class="icon-col__title">We're Easy</div>
                 <div class="icon-col__desc">Setting up your new services is a breeze. Simply Select your plan below and hit send. Done.</div>
             </div>
             <div class="icon-col">
-                <img src="../../assets/icons/flexible-lte.svg" alt="">
+                <img src="../../assets/icons/flexible-lte.svg" alt="choose trepyx icons">
                 <div class="icon-col__title">Flexible Plans</div>
                 <div class="icon-col__desc">Services can be added and subtracted in a manner of hours. No long term contracts either.</div>
             </div>
             <div class="icon-col">
-                <img src="../../assets/icons/watch-lte.svg" alt="">
+                <img src="../../assets/icons/watch-lte.svg" alt="choose trepyx icons">
                 <div class="icon-col__title">Rapid Response</div>
                 <div class="icon-col__desc">We appreciate how busy you are. If you need assistance, we respond right away.</div>
             </div>
             <div class="icon-col">
-                <img src="../../assets/icons/support-lte.svg" alt="">
+                <img src="../../assets/icons/support-lte.svg" alt="choose trepyx icons">
                 <div class="icon-col__title">Super Support</div>
                 <div class="icon-col__desc">Have a technical issue ? No problem - submit a trouble ticket below and we're on it.</div>
             </div>    
@@ -47,15 +47,16 @@ export default {
     padding: 3rem 0;
 
     &__container {
-        padding: 0rem 0 3rem 0;
         width: 90%;
         margin: 0 auto;
         
 
         &--title {
+            text-align: center;
             font-size: 4vw;
             color: $color2;
             font-family: $font1;
+            margin-bottom: 3rem;
 
             @media(max-width: 735px) {
                 margin-bottom: 0 !important;
@@ -85,6 +86,7 @@ export default {
     align-items: center;
     justify-content: space-evenly;
     margin: 0 1rem;
+    text-align: center;
 
     @media(max-width: 735px) {
         margin: 1rem 0;

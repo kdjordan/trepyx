@@ -6,7 +6,7 @@
         <div class="contact__container">
           <div class="contact__container--left" @click="toggleModal('contact')">
             <div class="big-button">
-            <img src="../../assets/icons/email-wht.svg" alt="">
+            <img src="../../assets/icons/email-wht.svg" alt="trepyx mail icon">
             <div class="big-button__text">
               Send Us An Email
             </div>
@@ -14,7 +14,7 @@
           </div>
           <div class="contact__container--right" @click="toggleModal('trouble')">
             <div class="big-button">
-              <img src="../../assets/icons/caution-wht.svg">
+              <img src="../../assets/icons/caution-wht.svg" alt="trepyx trouble icon">
               <div class="big-button__text">
                 Submit a Trouble Ticket
               </div>

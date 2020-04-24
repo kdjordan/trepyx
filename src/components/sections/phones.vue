@@ -2,15 +2,15 @@
   <div class="phones">
     <div class="img-container">
       <div class="img-container--top">
-        <img src="../../assets/phones/cisco.png" alt="trepyx phone systems">
-        <img src="../../assets/phones/fanvil.png" alt="trepyx phone systems">
-        <img src="../../assets/phones/yealink.png" alt="trepyx phone systems">
-        <img src="../../assets/phones/vtech.png" alt="trepyx phone systems">
+        <img src="../../assets/phones/cisco.jpg" alt="trepyx phone systems">
+        <img src="../../assets/phones/fanvil.jpg" alt="trepyx phone systems">
+        <img src="../../assets/phones/yealink.jpg" alt="trepyx phone systems">
+        <img src="../../assets/phones/vtech.jpg" alt="trepyx phone systems">
       </div>
       <div class="img-container--bottom">
-        <img src="../../assets/phones/gstream.png" alt="trepyx phone systems">
-        <img src="../../assets/phones/polycom.png" alt="trepyx phone systems">
-        <img src="../../assets/phones/panasonic.png" alt="trepyx phone systems">
+        <img src="../../assets/phones/gstream.jpg" alt="trepyx phone systems">
+        <img src="../../assets/phones/polycom.jpg" alt="trepyx phone systems">
+        <img src="../../assets/phones/panasonic.jpg" alt="trepyx phone systems">
       </div>
     </div>
   </div>

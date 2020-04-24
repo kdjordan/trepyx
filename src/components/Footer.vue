@@ -40,9 +40,8 @@ export default {
       flex-wrap: wrap;
   
       &__link {
-        color: white;
         font-size: 1.4rem;
-        padding: 0 .5rem;
+        padding: .7rem .5rem;
         padding-top: .3rem;
 
         @media(max-width: 735px) {

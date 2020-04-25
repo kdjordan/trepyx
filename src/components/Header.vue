@@ -99,6 +99,7 @@ methods: {
     background-image: radial-gradient($primary, $secondary);
     opacity: 1;
     transform: scale(600) !important;
+    overflow: hidden;
   }
 
   &Icon{
@@ -180,7 +181,7 @@ methods: {
 
   &__left {
     padding-left: 1rem;
-    
+
     &-logo {
       width: 25%;
       min-width: 10rem;

@@ -98,7 +98,7 @@ methods: {
     right: 2rem;
     background-image: radial-gradient($primary, $secondary);
     opacity: 1;
-    transform: scale(600) !important;
+    transform: scale(6) !important;
     overflow: hidden;
   }
 

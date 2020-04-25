@@ -159,6 +159,7 @@ methods: {
       width: 1rem;
       border-radius: 50%;
       transform: scale(1);
+      overflow: hidden;
       transition: all .8s cubic-bezier(0.86, 0, 0.07, 1) !important;
     }
 

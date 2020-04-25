@@ -149,6 +149,7 @@ methods: {
       height: 1.5rem;
       justify-content: space-between;
       z-index: 3;
+      overflow: hidden;
     }
 
     &__background {

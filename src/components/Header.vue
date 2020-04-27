@@ -34,7 +34,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-// import {scroller} from 'vue-scrollto/src/scrollTo'
+import VueScrollTo from 'vue-scrollto'
 
 export default {
 data() {
@@ -45,18 +45,18 @@ data() {
 methods: {
   mobileNavClick(location) {
     this.check = false
-    const theScroller = scroller()
+    // const theScroller = scroller()
 
     if (location == 'price') {
       if (this.$route.path == '/') {
          setTimeout(() => {
-          theScroller('#pricing')
+          VueScrollTo.scrollTo('#pricing')
       }, 1000)
       } else {
         setTimeout(() => {
           this.$router.push('/')
           setTimeout(() => {
-            theScroller('#pricing')
+            VueScrollTo.scrollTo('#pricing')
           }, 1000)
         }, 1000)
       }
@@ -67,13 +67,13 @@ methods: {
     } else if (location == 'contact') {
       if (this.$route.path == '/') {
          setTimeout(() => {
-          theScroller('#contact')
+          VueScrollTo.scrollTo('#contact')
       }, 1000)
       } else {
         setTimeout(() => {
           this.$router.push('/')
           setTimeout(() => {
-            theScroller('#contact')
+            VueScrollTo.scrollTo('#contact')
           }, 1000)
         }, 1000)
       }

@@ -21,10 +21,10 @@
       
           <nav class="mobile-navigation__nav">
             <ul class="mobile-navigation__list">
-              <li class="mobile-navigation__items" @click="mobileNavClick"><a href="/#pricing" class="mobile-navigation__link">01&nbsp;&nbsp;Plans & Pricing</a></li>
-              <li class="mobile-navigation__items" @click="mobileNavClick"><a href="/quote" class="mobile-navigation__link">02&nbsp;&nbsp;Get a Quote</a></li>
-              <li class="mobile-navigation__items" @click="mobileNavClick"><a href="/#contact" class="mobile-navigation__link">03&nbsp;&nbsp;Contact Us</a></li>
-              <li class="mobile-navigation__items" @click="mobileNavClick"><a href="https://login.ringlogix.com" class="mobile-navigation__link">04&nbsp;&nbsp;Login</a></li>
+              <li class="mobile-navigation__items" @click.prevent="mobileNavClick('price')"><a href="/#pricing" class="mobile-navigation__link">01&nbsp;&nbsp;Plans & Pricing</a></li>
+              <li class="mobile-navigation__items" @click.prevent="mobileNavClick('quote')"><a href="/quote" class="mobile-navigation__link">02&nbsp;&nbsp;Get a Quote</a></li>
+              <li class="mobile-navigation__items" @click.prevent="mobileNavClick('contact')"><a href="/#contact" class="mobile-navigation__link">03&nbsp;&nbsp;Contact Us</a></li>
+              <li class="mobile-navigation__items" @click.prevent="mobileNavClick('login')"><a href="https://login.ringlogix.com" class="mobile-navigation__link">04&nbsp;&nbsp;Login</a></li>
             </ul>
         </nav>
       </div>
@@ -34,35 +34,56 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import {scroller} from 'vue-scrollto/src/scrollTo'
+
 export default {
 data() {
   return {
     check: null
   }
 },
-computed: {
-  ...mapGetters({
-      getMobileActive: 'getMobileActive',
-      getDisplayLinks: 'getDisplayLinks'
-  })
-},
 methods: {
-  mobileNavClick() {
+  mobileNavClick(location) {
     this.check = false
-  },
-  toggleNavigation(){
-    if (this.getMobileActive) {
-      this.$store.commit('toggleDisplayLinks')
-      this.$store.commit('toggleNavigation')
-    } else {
-      window.scrollTo(0,0)
-      this.$store.commit('toggleNavigation')
+    const theScroller = scroller()
+
+    if (location == 'price') {
+      if (this.$route.path == '/') {
+         setTimeout(() => {
+          theScroller('#pricing')
+      }, 1000)
+      } else {
+        setTimeout(() => {
+          this.$router.push('/')
+          setTimeout(() => {
+            theScroller('#pricing')
+          }, 1000)
+        }, 1000)
+      }
+    } else if (location == 'quote') {
       setTimeout(() => {
-        this.$store.commit('toggleDisplayLinks')
-      }, 500)
+        this.$router.push({path: '/quote'})
+      }, 1000)
+    } else if (location == 'contact') {
+      if (this.$route.path == '/') {
+         setTimeout(() => {
+          theScroller('#contact')
+      }, 1000)
+      } else {
+        setTimeout(() => {
+          this.$router.push('/')
+          setTimeout(() => {
+            theScroller('#contact')
+          }, 1000)
+        }, 1000)
+      }
+    } else {
+      setTimeout(() => {
+        window.location.href = 'https://login.ringlogix.com'
+      }, 1000)
     }
   }
-},
+}
 }
 
 </script>

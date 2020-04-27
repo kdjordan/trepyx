@@ -6,8 +6,6 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 
     state: {
-        mobileActive: false,
-        displayLinks: false,
         response: {
             doResponse: false,
             responseStatus: false,
@@ -31,12 +29,6 @@ export default new Vuex.Store({
 
     },
     mutations: {
-        toggleNavigation(state) {
-            state.mobileActive = !state.mobileActive
-        },
-        toggleDisplayLinks(state) {
-            state.displayLinks = !state.displayLinks
-        },
         makeResponse(state, payload) {
             state.response.doResponse = payload.doResponse
             state.response.responseStatus = payload.responseStatus
@@ -70,12 +62,6 @@ export default new Vuex.Store({
 
     },
     getters: {
-        getMobileActive(state) {
-            return state.mobileActive
-        },
-        getDisplayLinks(state) {
-            return state.displayLinks
-        },
         getResponseMssg(state){
             return state.response.response
         },
@@ -100,7 +86,6 @@ export default new Vuex.Store({
     },
     actions: {
         startHeroInterval({ commit }) {
-            console.log('called')
             let theInterval = setInterval(() => {
                 commit('toggleHidden')
                 setTimeout(() => {

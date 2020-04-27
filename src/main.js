@@ -20,7 +20,6 @@ const routes = [
   {path: '/', component: Home},
   {path: '/tos', component: TOS},
   {path: '/quote', component: Quote},
-  {path: '/quote/:plan', component: Quote, props: true}
 ]
 
 const router = new Vuerouter({

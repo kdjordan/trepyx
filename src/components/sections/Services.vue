@@ -76,17 +76,6 @@ export default {
 @import '../../scss/utils.scss';
 
 
-// .services-card__item:nth-child(even) {
-//     & img {
-//       transform: rotateX(-45deg);
-//     }
-// }
-// .services-card__item:nth-child(odd) {
-//     & img {
-//       transform: rotateX(30deg);
-//     }
-// }
-
 .services {
   height: 23rem;
   background-image: url('../../assets/cloud-back.svg');

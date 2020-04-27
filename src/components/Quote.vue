@@ -156,8 +156,9 @@
                 </div>
             </div>
             <div class="quote-form__container--bottom">
-                <div  v-if="getDoResponse" class="mt-1" :class="{success : getResponseStatus, fail : !getResponseStatus}">{{getResponseMssg}}</div>
-                <button class="btn-solid">SEND REQUEST</button>
+                <!-- {{oneTimeCharges}} -->
+                <div  v-if="getDoResponse" :class="{success : getResponseStatus, fail : !getResponseStatus}">{{getResponseMssg}}</div>
+                <button class="btn-solid mt-1">SEND REQUEST</button>
             </div>
         </div>
     </div>
@@ -220,6 +221,7 @@ export default {
                 this.oneTimeCharges = this.oneTimeCharges.filter(serv => serv.type != service.type)
             } else {
                 if (service.recurring == false) {
+                    console.log('got one')
                     this.oneTimeCharges.push(service)
                 } else {
                     this.activeServices.push(service)
@@ -260,13 +262,18 @@ export default {
             } else {
                 let services = []
                 this.activeServices.forEach(service => services.push(service.desc))
-    
+
+                let singularServices = []
+                this.oneTimeCharges.forEach(service => singularServices.push(service.desc))
+
+                // this.axios.post('http://localhost:3009/send',
                 this.axios.post('https://trepyx-proxy.herokuapp.com/crm', 
                 { 
                     data: {
                         form: this.form,
                         plan: this.activePlan,
-                        services: services
+                        services: services,
+                        oneTimeServices: singularServices
                     }
               }).then((response) => {
                 if (response.status == 200) {

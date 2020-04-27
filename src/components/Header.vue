@@ -21,9 +21,9 @@
       
           <nav class="mobile-navigation__nav">
             <ul class="mobile-navigation__list">
-              <li class="mobile-navigation__items"><a href="/#pricing" class="mobile-navigation__link">01&nbsp;&nbsp;Plans & Pricing</a></li>
+              <li class="mobile-navigation__items"><a href="#pricing" class="mobile-navigation__link">01&nbsp;&nbsp;Plans & Pricing</a></li>
               <li class="mobile-navigation__items"><a href="/quote" class="mobile-navigation__link">02&nbsp;&nbsp;Get a Quote</a></li>
-              <li class="mobile-navigation__items"><a href="/#contact" class="mobile-navigation__link">03&nbsp;&nbsp;Contact Us</a></li>
+              <li class="mobile-navigation__items"><a href="#contact" class="mobile-navigation__link">03&nbsp;&nbsp;Contact Us</a></li>
               <li class="mobile-navigation__items"><a href="https://login.ringlogix.com" class="mobile-navigation__link">04&nbsp;&nbsp;Login</a></li>
             </ul>
         </nav>
@@ -151,7 +151,7 @@ methods: {
         &:link,
         &:visited {
             display: inline-block;
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 300;
             padding: 1rem 2rem;
             color: white;

@@ -12,7 +12,7 @@
       <a href="https://login.ringlogix.com" class="header__right--link">Login</a>    
 
       <div class="mobile-navigation">
-        <input type="checkbox" class="mobile-navigation__checkbox" id="navi-toggle">
+        <input type="checkbox" class="mobile-navigation__checkbox" id="navi-toggle" v-model="check">
           <label for="navi-toggle" class="mobile-navigation__button">
               <span class="mobile-navigation__icon">&nbsp;</span>
           </label>
@@ -21,10 +21,10 @@
       
           <nav class="mobile-navigation__nav">
             <ul class="mobile-navigation__list">
-              <li class="mobile-navigation__items"><a href="#pricing" class="mobile-navigation__link">01&nbsp;&nbsp;Plans & Pricing</a></li>
-              <li class="mobile-navigation__items"><a href="/quote" class="mobile-navigation__link">02&nbsp;&nbsp;Get a Quote</a></li>
-              <li class="mobile-navigation__items"><a href="#contact" class="mobile-navigation__link">03&nbsp;&nbsp;Contact Us</a></li>
-              <li class="mobile-navigation__items"><a href="https://login.ringlogix.com" class="mobile-navigation__link">04&nbsp;&nbsp;Login</a></li>
+              <li class="mobile-navigation__items" @click="mobileNavClick"><a href="/#pricing" class="mobile-navigation__link">01&nbsp;&nbsp;Plans & Pricing</a></li>
+              <li class="mobile-navigation__items" @click="mobileNavClick"><a href="/quote" class="mobile-navigation__link">02&nbsp;&nbsp;Get a Quote</a></li>
+              <li class="mobile-navigation__items" @click="mobileNavClick"><a href="/#contact" class="mobile-navigation__link">03&nbsp;&nbsp;Contact Us</a></li>
+              <li class="mobile-navigation__items" @click="mobileNavClick"><a href="https://login.ringlogix.com" class="mobile-navigation__link">04&nbsp;&nbsp;Login</a></li>
             </ul>
         </nav>
       </div>
@@ -35,6 +35,11 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
+data() {
+  return {
+    check: null
+  }
+},
 computed: {
   ...mapGetters({
       getMobileActive: 'getMobileActive',
@@ -43,10 +48,9 @@ computed: {
 },
 methods: {
   mobileNavClick() {
-    this.$store.commit('toggleNavigation')
+    this.check = false
   },
   toggleNavigation(){
-    console.log('clicked')
     if (this.getMobileActive) {
       this.$store.commit('toggleDisplayLinks')
       this.$store.commit('toggleNavigation')
@@ -57,10 +61,10 @@ methods: {
         this.$store.commit('toggleDisplayLinks')
       }, 500)
     }
-
   }
+},
 }
-}
+
 </script>
 
 <style lang="scss">
@@ -68,7 +72,7 @@ methods: {
 
 .mobile-navigation {
 
-      @media(min-width: 500px) {
+      @media(min-width: 735px) {
         display: none; 
       }
 

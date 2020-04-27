@@ -68,8 +68,8 @@ methods: {
 
 .mobile-navigation {
 
-      @media(max-width: 500px) {
-      display: none; 
+      @media(min-width: 500px) {
+        display: none; 
       }
 
       &__checkbox {

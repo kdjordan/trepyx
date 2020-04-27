@@ -67,6 +67,11 @@ methods: {
 @import '../scss/variables.scss';
 
 .mobile-navigation {
+
+      @media(max-width: 500px) {
+      display: none; 
+      }
+
       &__checkbox {
         display: none;
     }
@@ -106,10 +111,9 @@ methods: {
         z-index: 1499;
         transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
 
-        // @include respond(tab-port) {
-        //     top: 4.5rem;
-        //     right: 4.5rem;
-        // }
+         @media(max-width: 500px) {
+          
+        }
 
         // @include respond(phone) {
         //     top: 3.5rem;

@@ -144,6 +144,7 @@ export default {
 
             if (this.getModalType == 'contact') {
                 data = {
+                    "auth": process.env.VUE_APP_AUTH,
                     "sendTo": "contact@trepyx.com",
                     "ticketType": 'contact',
                     "fromName": `${this.form.firstName} ${this.form.lastName}`,
@@ -156,6 +157,7 @@ export default {
                 } 
             } else {
                 data = {
+                    "auth": process.env.VUE_APP_AUTH,
                     "sendTo": "support@trepyx.com",
                     "ticketType": this.form.ticketType,
                     "fromName": `${this.form.firstName} ${this.form.lastName}`,
@@ -175,7 +177,6 @@ export default {
             }
     
             this.axios.post('https://trepyx-proxy.herokuapp.com/send', data).then((response) => {
-            // this.axios.post('http://localhost:3009/send', data).then((response) => {
                 if (response.status == 200) {
                     this.$store.commit('makeResponse', {
                         doResponse: true,
@@ -189,8 +190,14 @@ export default {
                         this.$store.commit('toggleModal', null)
                     }, 2000)
                 }
+                    
             }).catch((e) => {
-                console.log('error' + e)
+                this.$store.commit('makeResponse', {
+                        doResponse: true,
+                        responseStatus: false,
+                        response: 'PROBLEM - please contact Steve directly : steve@trepyx.com'
+                    })
+                console.log(e)
             })      
         }
     },

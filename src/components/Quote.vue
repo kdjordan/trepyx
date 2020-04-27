@@ -266,10 +266,11 @@ export default {
                 let singularServices = []
                 this.oneTimeCharges.forEach(service => singularServices.push(service.desc))
 
-                // this.axios.post('http://localhost:3009/send',
+                
                 this.axios.post('https://trepyx-proxy.herokuapp.com/crm', 
                 { 
                     data: {
+                        // auth: process.env.VUE_APP_AUTH,
                         form: this.form,
                         plan: this.activePlan,
                         services: services,
@@ -289,11 +290,11 @@ export default {
                     }, 2000)
                 }
             }).catch((e) => {
-                 this.$store.commit('makeResponse', {
-                        doResponse: true,
-                        responseStatus: false,
-                        response: 'PROBLEM - please contact Steve directly : steve@trepyx.com'
-                    })
+                this.$store.commit('makeResponse', {
+                    doResponse: true,
+                    responseStatus: false,
+                    response: 'PROBLEM - please contact Steve directly : steve@trepyx.com'
+                })
                 console.log(e)
             })
             }

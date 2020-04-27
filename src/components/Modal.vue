@@ -223,7 +223,7 @@ export default {
 @import '../scss/components/divider.scss';
 @import '../scss/components/buttons.scss';
 
-input[type=text], input[type=email], textarea {
+input[type=text], input[type=email] {
     margin: .5rem auto;
     border: 1px solid $primary;
     border-radius: 2rem;
@@ -239,6 +239,22 @@ input[type=text], input[type=email], textarea {
         overflow: visible;
     }
 }
+
+ textarea {
+    margin: .5rem auto;
+    border: 1px solid $primary;
+    border-radius: 2rem;
+    width: 80%;
+    outline: none;
+
+    &::placeholder {
+        font-size: 1rem;
+        font-family: $font2;
+        color: $color2;
+        padding-left: 1rem;
+        overflow: visible;
+    }
+ }
 
 .trouble__select {
     min-height: 2rem;

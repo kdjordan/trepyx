@@ -16,8 +16,8 @@
 
             <textarea name="message" rows="6" class="mb-1" v-model="form.mssg" placeholder="Message"></textarea>
             <div class="center">
-              <button class="btn-solid">SEND</button>
               <div  v-if="getDoResponse" class="mt-1" :class="{success : getResponseStatus, fail : !getResponseStatus}">{{getResponseMssg}}</div>
+              <button class="btn-solid mt-1" >SEND</button>
             </div>
           </form>
 
@@ -91,8 +91,8 @@
 
             <textarea name="message" rows="6" class="mb-1" v-model="form.mssg" :placeholder="`${getTextAreaMssg}`" required></textarea>
             <div class="center">
-              <button class="btn-solid mb-1">SEND</button>
               <div  v-if="getDoResponse" class="mt-1" :class="{success : getResponseStatus, fail : !getResponseStatus}">{{getResponseMssg}}</div>
+              <button class="btn-solid mt-1">SEND</button>
             </div>
           </form>
         </div>
@@ -223,6 +223,16 @@ export default {
 @import '../scss/components/divider.scss';
 @import '../scss/components/buttons.scss';
 
+input, textarea {
+    padding-left: 1rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+textarea {
+    padding-top: .5rem;
+}
+
 input[type=text], input[type=email] {
     margin: .5rem auto;
     border: 1px solid $primary;
@@ -235,7 +245,6 @@ input[type=text], input[type=email] {
         font-size: 1rem;
         font-family: $font2;
         color: $color2;
-        padding-left: 1rem;
         overflow: visible;
     }
 }
@@ -251,7 +260,6 @@ input[type=text], input[type=email] {
         font-size: 1rem;
         font-family: $font2;
         color: $color2;
-        padding: 1rem;
         overflow: visible;
     }
  }

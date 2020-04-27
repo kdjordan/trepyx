@@ -115,6 +115,7 @@ export default {
   }
 
   &__container {
+    z-index: 1;
     display: flex;
     padding-top: 2rem;
     justify-content: space-between;

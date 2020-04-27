@@ -539,6 +539,7 @@ input[type=checkbox] {
 
     @media(max-width: 735px) {
         font-size: 3vw;
+        right: 65%;
     }
 
     &__title {

@@ -34,7 +34,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import {scroller} from 'vue-scrollto/src/scrollTo'
+// import {scroller} from 'vue-scrollto/src/scrollTo'
 
 export default {
 data() {

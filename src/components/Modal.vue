@@ -102,7 +102,6 @@
 </template>
 
 <script>
-import emailjs from 'emailjs-com'
 import { mapGetters } from 'vuex'
 
 export default {

@@ -251,7 +251,7 @@ input[type=text], input[type=email] {
         font-size: 1rem;
         font-family: $font2;
         color: $color2;
-        padding-left: 1rem;
+        padding: 1rem;
         overflow: visible;
     }
  }

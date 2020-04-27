@@ -228,14 +228,15 @@ input[type=text], input[type=email] {
     border: 1px solid $primary;
     border-radius: 2rem;
     width: 80%;
-    height: 2.5rem;
     outline: none;
+    height: 2.5rem;
 
     &::placeholder {
         font-size: 1rem;
         font-family: $font2;
         color: $color2;
         padding-left: 1rem;
+        overflow: visible;
     }
 }
 

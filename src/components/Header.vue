@@ -44,7 +44,7 @@ data() {
 },
 methods: {
   mobileNavClick(location) {
-  this.$store.commit('toggleModal')
+  this.$store.commit('toggleModal',  null)
     this.check = false
 
     if (location == 'price') {

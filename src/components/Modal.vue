@@ -223,18 +223,19 @@ export default {
 @import '../scss/components/divider.scss';
 @import '../scss/components/buttons.scss';
 
-input[type=text], input[type=email], textarea {
+input[type=text], input[type=email] {
     margin: .5rem auto;
     border: 1px solid $primary;
     border-radius: 2rem;
     width: 80%;
-    padding: 1rem;
+    height: 2.5rem;
     outline: none;
 
     &::placeholder {
         font-size: 1rem;
         font-family: $font2;
         color: $color2;
+        padding-left: 1rem;
     }
 }
 

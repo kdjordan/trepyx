@@ -21,7 +21,7 @@
       
           <nav class="mobile-navigation__nav">
             <ul class="mobile-navigation__list">
-              <li class="mobile-navigation__items"><a href="#pricing" class="mobile-navigation__link">01&nbsp;&nbsp;Plans & Pricing</a></li>
+              <li class="mobile-navigation__items"><a href="#pricing" class="mobile-navigation__link">01&nbsp;&nbsp;Plans & Pricingz</a></li>
               <li class="mobile-navigation__items"><a href="/quote" class="mobile-navigation__link">02&nbsp;&nbsp;Get a Quote</a></li>
               <li class="mobile-navigation__items"><a href="#contact" class="mobile-navigation__link">03&nbsp;&nbsp;Contact Us</a></li>
               <li class="mobile-navigation__items"><a href="https://login.ringlogix.com" class="mobile-navigation__link">04&nbsp;&nbsp;Login</a></li>
@@ -103,7 +103,7 @@ methods: {
         top: 1rem;
         right: 1.5rem;
         background-image: radial-gradient($primary, $secondary);
-        z-index: 1000;
+        z-index: 1499;
         transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
 
         // @include respond(tab-port) {

@@ -532,7 +532,7 @@ input[type=checkbox] {
     position: fixed;
     top: 0;
     right: 5%;
-    background: rgba(0,212,255,.7);
+    background: rgba(0,212,255,1);
     padding: 1rem;
     border: 1px solid $color2;
     color: $color2;

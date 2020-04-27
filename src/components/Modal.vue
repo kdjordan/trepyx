@@ -223,7 +223,7 @@ export default {
 @import '../scss/components/divider.scss';
 @import '../scss/components/buttons.scss';
 
-input[type=text], input[type=email] {
+input[type=text], input[type=email], textarea {
     margin: .5rem auto;
     border: 1px solid $primary;
     border-radius: 2rem;

@@ -44,8 +44,8 @@ data() {
 },
 methods: {
   mobileNavClick(location) {
+  this.$store.commit('toggleModal')
     this.check = false
-    // const theScroller = scroller()
 
     if (location == 'price') {
       if (this.$route.path == '/') {

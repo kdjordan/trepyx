@@ -14,7 +14,7 @@
             <input type="text" class="mb-1" name="phoneNumber"  required v-model="form.phoneNumber" placeholder="Phone Number">
             <input type="email" class="mb-1" name="email" required v-model="form.email" placeholder="Email">
 
-            <textarea name="message" id=""  rows="6" class="mb-1" v-model="form.mssg" placeholder="Message"></textarea>
+            <textarea name="message" rows="6" class="mb-1" v-model="form.mssg" placeholder="Message"></textarea>
             <div class="center">
               <button class="btn-solid">SEND</button>
               <div  v-if="getDoResponse" class="mt-1" :class="{success : getResponseStatus, fail : !getResponseStatus}">{{getResponseMssg}}</div>
@@ -89,7 +89,7 @@
                     
             </div>
 
-            <textarea name="message" id=""  rows="6" class="mb-1" v-model="form.mssg" :placeholder="`${getTextAreaMssg}`" required></textarea>
+            <textarea name="message" rows="6" class="mb-1" v-model="form.mssg" :placeholder="`${getTextAreaMssg}`" required></textarea>
             <div class="center">
               <button class="btn-solid mb-1">SEND</button>
               <div  v-if="getDoResponse" class="mt-1" :class="{success : getResponseStatus, fail : !getResponseStatus}">{{getResponseMssg}}</div>

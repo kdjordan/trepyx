@@ -177,18 +177,19 @@
 <script>
 import { mapGetters } from 'vuex'
 import axios from 'axios'
+import DOMPurify from 'dompurify'
 
 export default {
     data() {
         return {
             form: {
-                firstName: '',
-                lastName: '',
-                title: '',
-                companyName: '',
-                phoneNumber: '',
-                email: '',
-                mssg: ''
+                firstName: DOMPurify.sanitize(''),
+                lastName: DOMPurify.sanitize(''),
+                title: DOMPurify.sanitize(''),
+                companyName: DOMPurify.sanitize(''),
+                phoneNumber: DOMPurify.sanitize(''),
+                email: DOMPurify.sanitize(''),
+                mssg: DOMPurify.sanitize('')
             },
             showPriceBox: false,
             activePlan: null,
@@ -270,7 +271,7 @@ export default {
                 this.axios.post('https://trepyx-proxy.herokuapp.com/crm', 
                 { 
                     data: {
-                        // auth: process.env.VUE_APP_AUTH,
+                        auth: process.env.VUE_APP_AUTH,
                         form: this.form,
                         plan: this.activePlan,
                         services: services,

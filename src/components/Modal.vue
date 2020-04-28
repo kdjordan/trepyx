@@ -103,6 +103,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import DOMPurify from 'dompurify'
 
 export default {
     data() {
@@ -147,32 +148,32 @@ export default {
                     "auth": process.env.VUE_APP_AUTH,
                     "sendTo": "contact@trepyx.com",
                     "ticketType": 'contact',
-                    "fromName": `${this.form.firstName} ${this.form.lastName}`,
-                    "replyTo": this.form.email,
-                    "title": this.form.title,
-                    "phone": this.form.phoneNumber,
-                    "companyName": this.form.companyName,
-                    "message": this.form.mssg,
-                    "email": this.form.email
+                    "fromName": DOMPurify.sanitize(`${this.form.firstName} ${this.form.lastName}`),
+                    "replyTo": DOMPurify.sanitize(this.form.email),
+                    "title": DOMPurify.sanitize(this.form.title),
+                    "phone": DOMPurify.sanitize(this.form.phoneNumber),
+                    "companyName": DOMPurify.sanitize(this.form.companyName),
+                    "message": DOMPurify.sanitize(this.form.mssg),
+                    "email": DOMPurify.sanitize(this.form.email)
                 } 
             } else {
                 data = {
                     "auth": process.env.VUE_APP_AUTH,
                     "sendTo": "support@trepyx.com",
-                    "ticketType": this.form.ticketType,
-                    "fromName": `${this.form.firstName} ${this.form.lastName}`,
-                    "replyTo": this.form.email,
-                    "title": this.form.title,
-                    "phone": this.form.phoneNumber,
-                    "companyName": this.form.companyName,
-                    "message": this.form.mssg,
-                    "email": this.form.email,
-                    "severity": this.form.severity,
-                    "caseDate": this.form.caseDate,
-                    "caseTime": this.form.caseTime,
-                    "callDuration": this.form.callDuration,
-                    "originationNum": this.form.originationNum,
-                    "destinationNum": this.form.destinationNum,
+                    "ticketType": DOMPurify.sanitize(this.form.ticketType),
+                    "fromName": DOMPurify.sanitize(`${this.form.firstName} ${this.form.lastName}`),
+                    "replyTo": DOMPurify.sanitize(this.form.email),
+                    "title": DOMPurify.sanitize(this.form.title),
+                    "phone": DOMPurify.sanitize(this.form.phoneNumber),
+                    "companyName": DOMPurify.sanitize(this.form.companyName),
+                    "message": DOMPurify.sanitize(this.form.mssg),
+                    "email": DOMPurify.sanitize(this.form.email),
+                    "severity": DOMPurify.sanitize(this.form.severity),
+                    "caseDate": DOMPurify.sanitize(this.form.caseDate),
+                    "caseTime": DOMPurify.sanitize(this.form.caseTime),
+                    "callDuration": DOMPurify.sanitize(this.form.callDuration),
+                    "originationNum": DOMPurify.sanitize(this.form.originationNum),
+                    "destinationNum": DOMPurify.sanitize(this.form.destinationNum),
                 } 
             }
     

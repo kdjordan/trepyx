@@ -110,19 +110,9 @@ methods: {
         right: 1rem;
         border-radius: 50%;
         z-index: 2000;
-        box-shadow: 0 1rem 3rem rgba(black, .1);
+        box-shadow: 0 1rem 3rem rgba(black, .8);
         text-align: center;
         cursor: pointer;
-
-        // @include respond(tab-port) {
-        //     top: 4rem;
-        //     right: 4rem;
-        // }
-
-        // @include respond(phone) {
-        //     top: 3rem;
-        //     right: 3rem;
-        // }
     }
 
     &__background {
@@ -139,11 +129,6 @@ methods: {
          @media(max-width: 500px) {
           
         }
-
-        // @include respond(phone) {
-        //     top: 3.5rem;
-        //     right: 3.5rem;
-        // }
     }
 
     &__nav {

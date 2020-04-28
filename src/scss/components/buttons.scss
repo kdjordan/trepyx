@@ -19,6 +19,7 @@
 
 
 .btn-lte {
+    background: white;
     cursor: pointer;
     width: 100px;
     padding: 10px 0;
@@ -28,7 +29,7 @@
     text-align: center;
     font-size: .8rem;
     letter-spacing: 1px;
-    color: $primary-lte;
+    color: $primary;
     outline: none;
 }
 

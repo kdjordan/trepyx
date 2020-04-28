@@ -116,7 +116,7 @@
                 </div>
             </div>
             <div class="quote__bottom--container-bottom">
-                <button class="btn-solid" @click.prevent="resetServices">RESET ALL SERVICES</button>
+                <button class="btn-solid" @click="resetServices">RESET ALL SERVICES</button>
             </div>
         </div>
         
@@ -222,7 +222,6 @@ export default {
                 this.oneTimeCharges = this.oneTimeCharges.filter(serv => serv.type != service.type)
             } else {
                 if (service.recurring == false) {
-                    console.log('got one')
                     this.oneTimeCharges.push(service)
                 } else {
                     this.activeServices.push(service)

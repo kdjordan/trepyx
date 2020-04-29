@@ -245,7 +245,7 @@ export default {
             this.servicesCost = 0.00
             this.setUpCharge = 0.00
         },
-        sendRequest() {
+        sendRequest : function() {
             if (this.activePlan == null) {
                 this.$store.commit('makeResponse', {
                     doResponse: true,

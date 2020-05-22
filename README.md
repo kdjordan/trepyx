@@ -1,18 +1,24 @@
-# trepyx
+# Trepycx Communications
 
-> A Vue.js project
+> A Client Vue.js project for a Telecom Start Up.
 
-## Build Setup
+This site was developed to accomplish a few goals.
+- Provide company presence.
+- Descibe basic offerings for the service.
+- Provide an on-demand Quote tool that allows a customer to calculate ther bill based on telecom services selected.
+- Email the sales team a lead when anybody reached out - with or without quote tool mentitoned above.
+- Insightly CRM integration where when customer fills out quote, CRM is populated with appropriate information
 
-``` bash
-# install dependencies
-npm install
+### Arhitecture
+- VueJS front end
+- NodeJS proxy server for email and CRM integration :: hosted on Heroku
 
-# serve with hot reload at localhost:8080
-npm run dev
+### Contributions
+ - Logo design and branding
+ - Architecture selection
+ - Layout and web design 
+ - 3rd party integrations
 
-# build for production with minification
-npm run build
-```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### ScreenShot
+![Trepyx Screenshot](https://github.com/kdjordan/esgroup/blob/master/esg-screenshot.png)

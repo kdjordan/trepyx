@@ -1,4 +1,4 @@
-# Trepycx Communications
+# Trepyx Communications
 
 > A Client Vue.js project for a Telecom Start Up.
 

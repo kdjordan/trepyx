@@ -21,4 +21,4 @@ This site was developed to accomplish a few goals.
 
 
 ### ScreenShot
-![Trepyx Screenshot](https://github.com/kdjordan/esgroup/blob/master/esg-screenshot.png)
+![Trepyx Screenshot](https://github.com/kdjordan/trepyx/blob/master/trepyx-screenshot.png)
